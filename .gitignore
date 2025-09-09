@@ -1,0 +1,30 @@
+# Datos y backups
+/data/
+/duckdb/
+*.db
+*.duckdb
+dagster/metadata/
+
+# Python
+__pycache__/
+*.pyc
+*.pyo
+.env
+venv/
+
+# Docker
+docker-compose.override.yml
+
+# Logs
+*.log
+logs/
+
+# IDE
+.vscode/
+.idea/
+*.swp
+*.swo
+
+# Sistema
+.DS_Store
+Thumbs.db
