@@ -1,6 +1,7 @@
 from dagster import asset, AssetExecutionContext
 import pandas as pd
 
+#asset para transformar y limpiar datos
 @asset
 def clean_data(context: AssetExecutionContext, raw_data: pd.DataFrame):
     """Transformar y limpiar datos - Depende de raw_data"""

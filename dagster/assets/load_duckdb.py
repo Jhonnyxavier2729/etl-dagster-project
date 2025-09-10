@@ -3,6 +3,8 @@ import pandas as pd
 import duckdb
 import os
 
+
+#Asset para cargar a DuckDB
 @asset
 def duckdb_data(context: AssetExecutionContext, clean_data: pd.DataFrame):
     """Cargar a DuckDB - Depende de clean_data"""

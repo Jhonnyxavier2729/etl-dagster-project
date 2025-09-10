@@ -2,6 +2,7 @@ from dagster import asset, AssetExecutionContext
 import pandas as pd
 import os
 
+#Asset para guardar el CSV limpio
 @asset
 def clean_csv_data(context: AssetExecutionContext, clean_data: pd.DataFrame):
     """Guardar CSV limpio - Depende de clean_data"""
