@@ -40,20 +40,8 @@ Este proyecto es un pipeline ETL completo (Extract, Transform, Load) diseñado p
     SQLAlchemy - Conexión con PostgreSQL
 
 📁 Estructura del Proyecto
-text
 
-etl-dagster-project/
-├── dagster/                 # Orchestration core
-│   ├── infra/              # Configuración Docker
-│   ├── assets/             # Definición de activos ETL
-│   └── definitions.py      # Definición del pipeline
-├── etl-worker/             # Worker de transformación
-├── data/                   # Volumen de datos (local)
-│   ├── input/              # Datos de entrada
-│   ├── output/             # Datos procesados
-│   └── backup/             # Backups automáticos
-├── duckdb/                 # Base DuckDB embebida
-└── docker-compose.yml      # Orquestación de servicios
+![Descripción de la imagen](./images/PROYECTO_ETL.jpg)
 
 🔄 Flujo del Pipeline
 Diagram
