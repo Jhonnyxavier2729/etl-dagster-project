@@ -115,7 +115,6 @@ Las variables de entorno se configuran en docker-compose.yml:
 ⭐ Si este proyecto te resulta útil, por favor dale una estrella en GitHub!
 🖼️ Diagrama de Arquitectura
 
-https://via.placeholder.com/800x400.png?text=ETL+Architecture+Diagram
 
 Diagrama que muestra el flujo de datos entre los diferentes componentes del sistema ETL
 👥 Contribución
