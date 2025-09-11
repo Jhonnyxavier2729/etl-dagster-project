@@ -1,17 +1,15 @@
-from dagster import Definitions, load_assets_from_package_module, define_asset_job
+from dagster import Definitions, load_assets_from_package_module
 import assets
-from assets import extract, transform, load_csv, load_duckdb, load_mongodb, load_postgres
-from schedules import minute_etl_schedule, hourly_etl_schedule
+from jobs.jobs import all_jobs
+from schedules.schedules import all_schedules
 
+#se importa todo el paquete de assets, jobs y schedules
 all_assets = load_assets_from_package_module(assets)
 
-etl_assets_job = define_asset_job(
-    name="etl_assets_job",
-    selection="*" 
-)
-
+#se importa las definiciones de dagster
 defs = Definitions(
     assets=all_assets,
-    jobs=[etl_assets_job],
-    schedules=[minute_etl_schedule, hourly_etl_schedule]
+    jobs=all_jobs,
+    schedules=all_schedules
 )
+
