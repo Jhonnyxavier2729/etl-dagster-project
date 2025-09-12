@@ -4,6 +4,7 @@ __pycache__/
 *.pyo
 venv/
 
+
 # Logs
 *.log
 logs/
