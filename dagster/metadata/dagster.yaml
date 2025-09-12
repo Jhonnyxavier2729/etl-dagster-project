@@ -1,0 +1,40 @@
+run_storage:
+  module: dagster_postgres.run_storage
+  class: PostgresRunStorage
+  config:
+    postgres_db:
+      username: dagster
+      password: dagster_pass
+      hostname: postgres-dagster
+      port: 5432
+      db_name: dagster_metadata
+
+schedule_storage:
+  module: dagster_postgres.schedule_storage
+  class: PostgresScheduleStorage
+  config:
+    postgres_db:
+      username: dagster
+      password: dagster_pass
+      hostname: postgres-dagster
+      port: 5432
+      db_name: dagster_metadata
+
+event_log_storage:
+  module: dagster_postgres.event_log
+  class: PostgresEventLogStorage
+  config:
+    postgres_db:
+      username: dagster
+      password: dagster_pass
+      hostname: postgres-dagster
+      port: 5432
+      db_name: dagster_metadata
+
+compute_logs:
+  module: dagster.core.storage.local_compute_log_manager
+  class: LocalComputeLogManager
+  config:
+    base_dir: /tmp/compute_logs
+telemetry:
+  enabled: false

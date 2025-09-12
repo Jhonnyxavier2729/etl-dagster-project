@@ -1,0 +1,41 @@
+REG_ID,REG_NOMBRE,REG_DIRECCION,REG_TEL,REG_TEL_ALT,REG_FAX,REG_CORREO_E,REG_CORREO_E_ALT,MPO_ID
+5,Regional Antioquia,Calle 51 No. 57-70,094-5760000,094-5718686,094-5110949,eoliveram@sena.edu.co,NA,57005001
+8,Regional Atlántico,Carrera 43 No. 42-40,095-3510799,095-3414949,095-3407104,fayepesd@sena.edu.co,NA,57008001
+11,Regional Bogotá D.C.,Carrera 13 No. 65-10,091-5461600,091-5944021,091-5461687,mpasmara@sena.edu.co,NA,57011001
+13,Regional Bolívar,Carretera Turbaco - Vía Ternera,095-6537740,095-6539040,095-6539061,jalandete@sena.edu.co,NA,57013001
+15,Regional Boyacá,Carrera 12 No. 55A-51,098-7703230,098-7718216,098-7706138,direccionboyaca@sena.edu.co,NA,57015001
+17,Regional Caldas,Kiómetro 10 Vía al Magdalena La Enea,096-8748444,098-8741402,096-8748350,fjjaramillo17@sena.edu.co,NA,57017001
+18,Regional Caquetá,Kilómetro 3 Vía al Aeropuerto,098-4344612,NA,098-4344612,ecerquerag@sena.edu.co,NA,57018001
+19,Regional Cauca,Calle 4 No. 2-80,092-8244372,092-8244372,092-8240824,jarboleda@sena.edu.co,NA,57019001
+20,Regional Cesar,Carrera 19 entre Calles 14 y 15,095-5703106,095-5710101,095-5711347,ccortes@sena.edu.co,NA,57020001
+23,Regional Córdoba,Calle 24 y 27 Avenida Circunvalar,094-7838049,094-7832886,094-7833361,sllacombev@sena.edu.co,NA,57023001
+25,Regional Cundinamarca,Carrera 13 No. 65-10,091-5461600,NA,091-5461687,maparra@sena.edu.co,NA,57025307
+27,Regional Chocó,Carrera 1A No. 28-71,094-6712007,094-6711560,094-6711578,bemoreno@sena.edu.co,NA,57027001
+41,Regional Huila,Carrera 5 Avenida La Toma,098-8757005,098-8757043,098-8757056,ccastrillon@sena.edu.co,NA,57041001
+44,Regional Guajira,Calle 21 Carrera 15 Avenida Aeropuerto,095-7283008,NA,095-7283003,ltromp@sena.edu.co,NA,57044001
+47,Regional Magdalena,Avenida El ferrocarril No. 27-97,095-4234556,NA,095-4212072,jbayonaf@sena.edu.co,NA,57047001
+50,Regional Meta,Kilómetro 1 Vía Acacias,098-6635729,NA,098-6635729,reescalanten@sena.edu.co,NA,57050001
+52,Regional Nariño,Calle 22 No. 11E-05 Vía Oriente,092-7303324,NA,092-7306602,gecuenca@sena.edu.co,NA,57052001
+54,Regional Norte de Santander,Calle 2N Avenidas 4 y 5 Barrio Pescadero,097-5780684,NA,097-5780684,jalizaraz@sena.edu.co,NA,57054001
+63,Regional Quindío,Carrera 19 No. 7-75 Barrio Galán,096-7461417,NA,096-7459573,gchacon@sena.edu.co,NA,57063001
+66,Regional Risaralda,Carrera 8 No. 26-79,096-3261666,NA,096-3261666,rlopezg@sena.edu.co,NA,57066001
+68,Regional Santander,Calle 16 No. 27-37,097-6800600,NA,097-6357995,hrangel@sena.edu.co,NA,57068001
+70,Regional Sucre,Calle 25B No. 31-260,095-2801809,NA,095-2800289,megomez@sena.edu.co,NA,57070001
+73,Regional Tolima,Calle 44 Avenida El Ferrocarril,098-2642477,NA,098-2642477,frtrianag@sena.edu.co,NA,57073001
+76,Regional Valle,Calle 52 No. 2Bis-15,092-4315800,NA,092-5110412,earamos@sena.edu.co,NA,57076001
+81,Regional Arauca,Carrera 20 No. 28-163,097-8856339,097-8856340,097-8856341,hrmartinez@sena.edu.co,NA,57081001
+85,Regional Casanare,Carrera 19 No. 36-68 Barrio 20 de Julio,098-6356017,NA,098-6320121,fcruz@sena.edu.co,NA,57085001
+86,Regional Putumayo,Carrera 23 No. 19A-06 Barrio 20 de Julio,098-4227376,NA,098-4227177,aescobarq@sena.edu.co,NA,57086001
+88,Regional San Andrés,Avenida Francisco Newball,098-5121752,NA,098-5131254,elizabeth@sena.edu.co,NA,57088001
+91,Regional Amazonas,Calle 12 No. 10-60,098-5927626,098-5927966,098-5927626,senacmleticia@hotmail.com,NA,57091001
+94,Regional Guainía,Antigua Sede FER,098-5656271,NA,098-5656253,bilialdotello@hotmail.com,NA,57094001
+95,Regional Guaviare,Carrera 24 No. 7-10,098-5840010,NA,098-5840403,senaguaviare@hotmail.com,NA,57095001
+97,Regional Vaupés,Avenida 15 No. 6-176 Barrio San José,098-5642223,NA,098-5642139,vnovoa@sena.edu.co,NA,57097001
+99,Regional Vichada,Carrera 10 No. 18-185,098-5655053,NA,098-5654465,jnospina@sena.edu.co,NA,57099001
+3,Regional Valencia España,Universidad Politecnica de Valencia,091-5461500,091-5953590,091-5461542,carlosfernandothomasbenavides@gmail.com,NA,34063001
+1,APE Transnacional,"Calle 57 No. 8-69, Plazoleta La Previsora",091-5461500,091-5925555,091-5461544,spe@sena.edu.co,NA,57011001
+2,Conv. Nacionales,Servicio Nacional de Aprendizaje,091-5461500,091-5953590,091-5461542,carlosfernandothomasbenavides@gmail.com,NA,57011001
+7,Vacantes otro país,"Calle 57 No. 8-69, Plazoleta La Previsora",091-5461500,091-5925555,091-5461544,spe@sena.edu.co,NA,57011001
+32,Vacantes otro país,"Calle 57 No. 8-69, Plazoleta La Previsora",091-5461500,091-5925555,091-5461544,spe@sena.edu.co,NA,57011001
+51,Vacantes otro país,"Calle 57 No. 8-69, Plazoleta La Previsora",091-5461500,091-5925555,091-5461544,spe@sena.edu.co,NA,57011001
+4,Oficina Virtual,No Aplica,091-5461500,091-5925555,091-5461544,ape@sena.edu.co,NA,57011001
