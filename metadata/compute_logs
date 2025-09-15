@@ -1,0 +1,1187 @@
+[32m2025-09-15 21:41:34 +0000[0m - dagster - [34mWARNING[0m - /venv/lib/python3.11/site-packages/dagster/_core/definitions/antlr_asset_selection/antlr_asset_selection.py:92: BetaWarning: Parameter `include_sources` of function `AssetSelection.all` is currently in beta, and may have breaking changes in minor version releases, with behavior changes in patch releases.
+  return AssetSelection.all(include_sources=self.include_sources)
+
+[32m2025-09-15 21:41:35 +0000[0m - dagster.daemon - [34mINFO[0m - Instance is configured with the following daemons: ['AssetDaemon', 'BackfillDaemon', 'QueuedRunCoordinatorDaemon', 'SchedulerDaemon', 'SensorDaemon']
+[32m2025-09-15 21:41:45 +0000[0m - dagster.daemon.QueuedRunCoordinatorDaemon - [34mINFO[0m - Priority sorting and checking tag concurrency limits for queued runs.
+/venv/lib/python3.11/site-packages/dagster/_core/definitions/antlr_asset_selection/antlr_asset_selection.py:92: BetaWarning: Parameter `include_sources` of function `AssetSelection.all` is currently in beta, and may have breaking changes in minor version releases, with behavior changes in patch releases.
+  return AssetSelection.all(include_sources=self.include_sources)
+[32m2025-09-15 21:41:46 +0000[0m - dagster.daemon.QueuedRunCoordinatorDaemon - [34mINFO[0m - Launched 1 runs.
+2025-09-15 21:41:46 +0000 - dagster - DEBUG - __ASSET_JOB - af825221-1342-4b27-a729-772c12d72f71 - 519 - RUN_START - Started execution of run for "__ASSET_JOB".
+2025-09-15 21:41:46 +0000 - dagster - DEBUG - __ASSET_JOB - af825221-1342-4b27-a729-772c12d72f71 - 519 - ENGINE_EVENT - Executing steps using multiprocess executor: parent process (pid: 519)
+2025-09-15 21:41:46 +0000 - dagster - DEBUG - __ASSET_JOB - af825221-1342-4b27-a729-772c12d72f71 - 519 - postgres_data_centro - STEP_WORKER_STARTING - Launching subprocess for "postgres_data_centro".
+2025-09-15 21:41:47 +0000 - dagster - DEBUG - __ASSET_JOB - af825221-1342-4b27-a729-772c12d72f71 - 564 - postgres_data_centro - STEP_WORKER_STARTED - Executing step "postgres_data_centro" in subprocess.
+/venv/lib/python3.11/site-packages/dagster/_core/definitions/antlr_asset_selection/antlr_asset_selection.py:92: BetaWarning: Parameter `include_sources` of function `AssetSelection.all` is currently in beta, and may have breaking changes in minor version releases, with behavior changes in patch releases.
+  return AssetSelection.all(include_sources=self.include_sources)
+2025-09-15 21:41:48 +0000 - dagster - DEBUG - __ASSET_JOB - af825221-1342-4b27-a729-772c12d72f71 - 564 - postgres_data_centro - RESOURCE_INIT_STARTED - Starting initialization of resources [io_manager].
+2025-09-15 21:41:48 +0000 - dagster - DEBUG - __ASSET_JOB - af825221-1342-4b27-a729-772c12d72f71 - 564 - postgres_data_centro - RESOURCE_INIT_SUCCESS - Finished initialization of resources [io_manager].
+2025-09-15 21:41:48 +0000 - dagster - DEBUG - __ASSET_JOB - af825221-1342-4b27-a729-772c12d72f71 - 564 - ENGINE_EVENT - Exception while setting up compute log capture
+
+NotADirectoryError: [Errno 20] Not a directory: '/dagster_project/metadata/compute_logs/af825221-1342-4b27-a729-772c12d72f71'
+
+Stack Trace:
+  File "/venv/lib/python3.11/site-packages/dagster/_core/execution/plan/execute_plan.py", line 50, in inner_plan_execution_iterator
+    log_context = capture_stack.enter_context(compute_log_manager.capture_logs(log_key))
+                  ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/local/lib/python3.11/contextlib.py", line 517, in enter_context
+    result = _enter(cm)
+             ^^^^^^^^^^
+  File "/usr/local/lib/python3.11/contextlib.py", line 137, in __enter__
+    return next(self.gen)
+           ^^^^^^^^^^^^^^
+  File "/venv/lib/python3.11/site-packages/dagster/_core/storage/local_compute_log_manager.py", line 85, in capture_logs
+    with mirror_stream_to_file(sys.stdout, outpath), mirror_stream_to_file(sys.stderr, errpath):
+  File "/usr/local/lib/python3.11/contextlib.py", line 137, in __enter__
+    return next(self.gen)
+           ^^^^^^^^^^^^^^
+  File "/venv/lib/python3.11/site-packages/dagster/_core/execution/compute_logs.py", line 39, in mirror_stream_to_file
+    ensure_file(filepath)
+  File "/venv/lib/python3.11/site-packages/dagster/_utils/__init__.py", line 338, in ensure_file
+    ensure_dir(os.path.dirname(path))
+  File "/venv/lib/python3.11/site-packages/dagster/_utils/__init__.py", line 330, in ensure_dir
+    os.makedirs(file_path)
+  File "<frozen os>", line 215, in makedirs
+  File "<frozen os>", line 225, in makedirs
+
+2025-09-15 21:41:48 +0000 - dagster - DEBUG - __ASSET_JOB - af825221-1342-4b27-a729-772c12d72f71 - 564 - postgres_data_centro - STEP_START - Started execution of step "postgres_data_centro".
+2025-09-15 21:41:48 +0000 - dagster - DEBUG - __ASSET_JOB - af825221-1342-4b27-a729-772c12d72f71 - postgres_data_centro - Loading file from: /dagster_project/storage/clean_data_centro using PickledObjectFilesystemIOManager...
+2025-09-15 21:41:48 +0000 - dagster - DEBUG - __ASSET_JOB - af825221-1342-4b27-a729-772c12d72f71 - 564 - postgres_data_centro - LOADED_INPUT - Loaded input "clean_data_centro" using input manager "io_manager"
+2025-09-15 21:41:48 +0000 - dagster - DEBUG - __ASSET_JOB - af825221-1342-4b27-a729-772c12d72f71 - 564 - postgres_data_centro - STEP_INPUT - Got input "clean_data_centro" of type "DataFrame". (Type check passed).
+2025-09-15 21:41:48 +0000 - dagster - INFO - __ASSET_JOB - af825221-1342-4b27-a729-772c12d72f71 - postgres_data_centro - 🗄️ Cargando a PostgreSQL...
+2025-09-15 21:41:48 +0000 - dagster - INFO - __ASSET_JOB - af825221-1342-4b27-a729-772c12d72f71 - postgres_data_centro - 🔗 Conectando a: postgres:5432/etl_database
+2025-09-15 21:41:48 +0000 - dagster - INFO - __ASSET_JOB - af825221-1342-4b27-a729-772c12d72f71 - postgres_data_centro - ✅ Cargados 20 registros a PostgreSQL
+2025-09-15 21:41:48 +0000 - dagster - DEBUG - __ASSET_JOB - af825221-1342-4b27-a729-772c12d72f71 - 564 - postgres_data_centro - STEP_OUTPUT - Yielded output "result" of type "Any". (Type check passed).
+2025-09-15 21:41:48 +0000 - dagster - DEBUG - __ASSET_JOB - af825221-1342-4b27-a729-772c12d72f71 - postgres_data_centro - Writing file at: /dagster_project/storage/postgres_data_centro using PickledObjectFilesystemIOManager...
+2025-09-15 21:41:48 +0000 - dagster - DEBUG - __ASSET_JOB - af825221-1342-4b27-a729-772c12d72f71 - 564 - postgres_data_centro - ASSET_MATERIALIZATION - Materialized value postgres_data_centro.
+2025-09-15 21:41:48 +0000 - dagster - DEBUG - __ASSET_JOB - af825221-1342-4b27-a729-772c12d72f71 - 564 - postgres_data_centro - HANDLED_OUTPUT - Handled output "result" using IO manager "io_manager"
+2025-09-15 21:41:48 +0000 - dagster - DEBUG - __ASSET_JOB - af825221-1342-4b27-a729-772c12d72f71 - 564 - postgres_data_centro - STEP_SUCCESS - Finished execution of step "postgres_data_centro" in 289ms.
+2025-09-15 21:41:48 +0000 - dagster - DEBUG - __ASSET_JOB - af825221-1342-4b27-a729-772c12d72f71 - 519 - ENGINE_EVENT - Multiprocess executor: parent process exiting after 1.77s (pid: 519)
+2025-09-15 21:41:48 +0000 - dagster - DEBUG - __ASSET_JOB - af825221-1342-4b27-a729-772c12d72f71 - 519 - RUN_SUCCESS - Finished execution of run for "__ASSET_JOB".
+[32m2025-09-15 21:41:55 +0000[0m - dagster.daemon.QueuedRunCoordinatorDaemon - [34mINFO[0m - Priority sorting and checking tag concurrency limits for queued runs.
+/venv/lib/python3.11/site-packages/dagster/_core/definitions/antlr_asset_selection/antlr_asset_selection.py:92: BetaWarning: Parameter `include_sources` of function `AssetSelection.all` is currently in beta, and may have breaking changes in minor version releases, with behavior changes in patch releases.
+  return AssetSelection.all(include_sources=self.include_sources)
+[32m2025-09-15 21:41:56 +0000[0m - dagster.daemon.QueuedRunCoordinatorDaemon - [34mINFO[0m - Launched 1 runs.
+2025-09-15 21:41:57 +0000 - dagster - DEBUG - __ASSET_JOB - 04e8aad8-a936-4fe6-b80c-3fc531077e04 - 906 - RUN_START - Started execution of run for "__ASSET_JOB".
+2025-09-15 21:41:57 +0000 - dagster - DEBUG - __ASSET_JOB - 04e8aad8-a936-4fe6-b80c-3fc531077e04 - 906 - ENGINE_EVENT - Executing steps using multiprocess executor: parent process (pid: 906)
+2025-09-15 21:41:57 +0000 - dagster - DEBUG - __ASSET_JOB - 04e8aad8-a936-4fe6-b80c-3fc531077e04 - 906 - postgres_data_ofertas - STEP_WORKER_STARTING - Launching subprocess for "postgres_data_ofertas".
+2025-09-15 21:41:57 +0000 - dagster - DEBUG - __ASSET_JOB - 04e8aad8-a936-4fe6-b80c-3fc531077e04 - 950 - postgres_data_ofertas - STEP_WORKER_STARTED - Executing step "postgres_data_ofertas" in subprocess.
+/venv/lib/python3.11/site-packages/dagster/_core/definitions/antlr_asset_selection/antlr_asset_selection.py:92: BetaWarning: Parameter `include_sources` of function `AssetSelection.all` is currently in beta, and may have breaking changes in minor version releases, with behavior changes in patch releases.
+  return AssetSelection.all(include_sources=self.include_sources)
+2025-09-15 21:41:58 +0000 - dagster - DEBUG - __ASSET_JOB - 04e8aad8-a936-4fe6-b80c-3fc531077e04 - 950 - postgres_data_ofertas - RESOURCE_INIT_STARTED - Starting initialization of resources [io_manager].
+2025-09-15 21:41:58 +0000 - dagster - DEBUG - __ASSET_JOB - 04e8aad8-a936-4fe6-b80c-3fc531077e04 - 950 - postgres_data_ofertas - RESOURCE_INIT_SUCCESS - Finished initialization of resources [io_manager].
+2025-09-15 21:41:58 +0000 - dagster - DEBUG - __ASSET_JOB - 04e8aad8-a936-4fe6-b80c-3fc531077e04 - 950 - ENGINE_EVENT - Exception while setting up compute log capture
+
+NotADirectoryError: [Errno 20] Not a directory: '/dagster_project/metadata/compute_logs/04e8aad8-a936-4fe6-b80c-3fc531077e04'
+
+Stack Trace:
+  File "/venv/lib/python3.11/site-packages/dagster/_core/execution/plan/execute_plan.py", line 50, in inner_plan_execution_iterator
+    log_context = capture_stack.enter_context(compute_log_manager.capture_logs(log_key))
+                  ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/local/lib/python3.11/contextlib.py", line 517, in enter_context
+    result = _enter(cm)
+             ^^^^^^^^^^
+  File "/usr/local/lib/python3.11/contextlib.py", line 137, in __enter__
+    return next(self.gen)
+           ^^^^^^^^^^^^^^
+  File "/venv/lib/python3.11/site-packages/dagster/_core/storage/local_compute_log_manager.py", line 85, in capture_logs
+    with mirror_stream_to_file(sys.stdout, outpath), mirror_stream_to_file(sys.stderr, errpath):
+  File "/usr/local/lib/python3.11/contextlib.py", line 137, in __enter__
+    return next(self.gen)
+           ^^^^^^^^^^^^^^
+  File "/venv/lib/python3.11/site-packages/dagster/_core/execution/compute_logs.py", line 39, in mirror_stream_to_file
+    ensure_file(filepath)
+  File "/venv/lib/python3.11/site-packages/dagster/_utils/__init__.py", line 338, in ensure_file
+    ensure_dir(os.path.dirname(path))
+  File "/venv/lib/python3.11/site-packages/dagster/_utils/__init__.py", line 330, in ensure_dir
+    os.makedirs(file_path)
+  File "<frozen os>", line 215, in makedirs
+  File "<frozen os>", line 225, in makedirs
+
+2025-09-15 21:41:58 +0000 - dagster - DEBUG - __ASSET_JOB - 04e8aad8-a936-4fe6-b80c-3fc531077e04 - 950 - postgres_data_ofertas - STEP_START - Started execution of step "postgres_data_ofertas".
+2025-09-15 21:41:58 +0000 - dagster - DEBUG - __ASSET_JOB - 04e8aad8-a936-4fe6-b80c-3fc531077e04 - postgres_data_ofertas - Loading file from: /dagster_project/storage/clean_data_ofertas using PickledObjectFilesystemIOManager...
+2025-09-15 21:41:58 +0000 - dagster - DEBUG - __ASSET_JOB - 04e8aad8-a936-4fe6-b80c-3fc531077e04 - 950 - postgres_data_ofertas - LOADED_INPUT - Loaded input "clean_data_ofertas" using input manager "io_manager"
+2025-09-15 21:41:58 +0000 - dagster - DEBUG - __ASSET_JOB - 04e8aad8-a936-4fe6-b80c-3fc531077e04 - 950 - postgres_data_ofertas - STEP_INPUT - Got input "clean_data_ofertas" of type "DataFrame". (Type check passed).
+2025-09-15 21:41:58 +0000 - dagster - INFO - __ASSET_JOB - 04e8aad8-a936-4fe6-b80c-3fc531077e04 - postgres_data_ofertas - 🗄️ Cargando a PostgreSQL...
+2025-09-15 21:41:58 +0000 - dagster - INFO - __ASSET_JOB - 04e8aad8-a936-4fe6-b80c-3fc531077e04 - postgres_data_ofertas - 🔗 Conectando a: postgres:5432/etl_database
+2025-09-15 21:41:58 +0000 - dagster - INFO - __ASSET_JOB - 04e8aad8-a936-4fe6-b80c-3fc531077e04 - postgres_data_ofertas - ✅ Cargados 50 registros a PostgreSQL
+2025-09-15 21:41:58 +0000 - dagster - DEBUG - __ASSET_JOB - 04e8aad8-a936-4fe6-b80c-3fc531077e04 - 950 - postgres_data_ofertas - STEP_OUTPUT - Yielded output "result" of type "Any". (Type check passed).
+2025-09-15 21:41:58 +0000 - dagster - DEBUG - __ASSET_JOB - 04e8aad8-a936-4fe6-b80c-3fc531077e04 - postgres_data_ofertas - Writing file at: /dagster_project/storage/postgres_data_ofertas using PickledObjectFilesystemIOManager...
+2025-09-15 21:41:58 +0000 - dagster - DEBUG - __ASSET_JOB - 04e8aad8-a936-4fe6-b80c-3fc531077e04 - 950 - postgres_data_ofertas - ASSET_MATERIALIZATION - Materialized value postgres_data_ofertas.
+2025-09-15 21:41:58 +0000 - dagster - DEBUG - __ASSET_JOB - 04e8aad8-a936-4fe6-b80c-3fc531077e04 - 950 - postgres_data_ofertas - HANDLED_OUTPUT - Handled output "result" using IO manager "io_manager"
+2025-09-15 21:41:58 +0000 - dagster - DEBUG - __ASSET_JOB - 04e8aad8-a936-4fe6-b80c-3fc531077e04 - 950 - postgres_data_ofertas - STEP_SUCCESS - Finished execution of step "postgres_data_ofertas" in 245ms.
+2025-09-15 21:41:58 +0000 - dagster - DEBUG - __ASSET_JOB - 04e8aad8-a936-4fe6-b80c-3fc531077e04 - 906 - ENGINE_EVENT - Multiprocess executor: parent process exiting after 1.77s (pid: 906)
+2025-09-15 21:41:59 +0000 - dagster - DEBUG - __ASSET_JOB - 04e8aad8-a936-4fe6-b80c-3fc531077e04 - 906 - RUN_SUCCESS - Finished execution of run for "__ASSET_JOB".
+[32m2025-09-15 21:42:10 +0000[0m - dagster.daemon.QueuedRunCoordinatorDaemon - [34mINFO[0m - Priority sorting and checking tag concurrency limits for queued runs.
+/venv/lib/python3.11/site-packages/dagster/_core/definitions/antlr_asset_selection/antlr_asset_selection.py:92: BetaWarning: Parameter `include_sources` of function `AssetSelection.all` is currently in beta, and may have breaking changes in minor version releases, with behavior changes in patch releases.
+  return AssetSelection.all(include_sources=self.include_sources)
+[32m2025-09-15 21:42:11 +0000[0m - dagster.daemon.QueuedRunCoordinatorDaemon - [34mINFO[0m - Launched 1 runs.
+2025-09-15 21:42:12 +0000 - dagster - DEBUG - __ASSET_JOB - bdb1f434-b66b-4585-8d92-a02475c7ca75 - 1449 - RUN_START - Started execution of run for "__ASSET_JOB".
+2025-09-15 21:42:12 +0000 - dagster - DEBUG - __ASSET_JOB - bdb1f434-b66b-4585-8d92-a02475c7ca75 - 1449 - ENGINE_EVENT - Executing steps using multiprocess executor: parent process (pid: 1449)
+2025-09-15 21:42:12 +0000 - dagster - DEBUG - __ASSET_JOB - bdb1f434-b66b-4585-8d92-a02475c7ca75 - 1449 - postgres_data_regional - STEP_WORKER_STARTING - Launching subprocess for "postgres_data_regional".
+2025-09-15 21:42:13 +0000 - dagster - DEBUG - __ASSET_JOB - bdb1f434-b66b-4585-8d92-a02475c7ca75 - 1492 - postgres_data_regional - STEP_WORKER_STARTED - Executing step "postgres_data_regional" in subprocess.
+/venv/lib/python3.11/site-packages/dagster/_core/definitions/antlr_asset_selection/antlr_asset_selection.py:92: BetaWarning: Parameter `include_sources` of function `AssetSelection.all` is currently in beta, and may have breaking changes in minor version releases, with behavior changes in patch releases.
+  return AssetSelection.all(include_sources=self.include_sources)
+2025-09-15 21:42:13 +0000 - dagster - DEBUG - __ASSET_JOB - bdb1f434-b66b-4585-8d92-a02475c7ca75 - 1492 - postgres_data_regional - RESOURCE_INIT_STARTED - Starting initialization of resources [io_manager].
+2025-09-15 21:42:13 +0000 - dagster - DEBUG - __ASSET_JOB - bdb1f434-b66b-4585-8d92-a02475c7ca75 - 1492 - postgres_data_regional - RESOURCE_INIT_SUCCESS - Finished initialization of resources [io_manager].
+2025-09-15 21:42:13 +0000 - dagster - DEBUG - __ASSET_JOB - bdb1f434-b66b-4585-8d92-a02475c7ca75 - 1492 - ENGINE_EVENT - Exception while setting up compute log capture
+
+NotADirectoryError: [Errno 20] Not a directory: '/dagster_project/metadata/compute_logs/bdb1f434-b66b-4585-8d92-a02475c7ca75'
+
+Stack Trace:
+  File "/venv/lib/python3.11/site-packages/dagster/_core/execution/plan/execute_plan.py", line 50, in inner_plan_execution_iterator
+    log_context = capture_stack.enter_context(compute_log_manager.capture_logs(log_key))
+                  ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/local/lib/python3.11/contextlib.py", line 517, in enter_context
+    result = _enter(cm)
+             ^^^^^^^^^^
+  File "/usr/local/lib/python3.11/contextlib.py", line 137, in __enter__
+    return next(self.gen)
+           ^^^^^^^^^^^^^^
+  File "/venv/lib/python3.11/site-packages/dagster/_core/storage/local_compute_log_manager.py", line 85, in capture_logs
+    with mirror_stream_to_file(sys.stdout, outpath), mirror_stream_to_file(sys.stderr, errpath):
+  File "/usr/local/lib/python3.11/contextlib.py", line 137, in __enter__
+    return next(self.gen)
+           ^^^^^^^^^^^^^^
+  File "/venv/lib/python3.11/site-packages/dagster/_core/execution/compute_logs.py", line 39, in mirror_stream_to_file
+    ensure_file(filepath)
+  File "/venv/lib/python3.11/site-packages/dagster/_utils/__init__.py", line 338, in ensure_file
+    ensure_dir(os.path.dirname(path))
+  File "/venv/lib/python3.11/site-packages/dagster/_utils/__init__.py", line 330, in ensure_dir
+    os.makedirs(file_path)
+  File "<frozen os>", line 215, in makedirs
+  File "<frozen os>", line 225, in makedirs
+
+2025-09-15 21:42:13 +0000 - dagster - DEBUG - __ASSET_JOB - bdb1f434-b66b-4585-8d92-a02475c7ca75 - 1492 - postgres_data_regional - STEP_START - Started execution of step "postgres_data_regional".
+2025-09-15 21:42:13 +0000 - dagster - DEBUG - __ASSET_JOB - bdb1f434-b66b-4585-8d92-a02475c7ca75 - postgres_data_regional - Loading file from: /dagster_project/storage/clean_data_regional using PickledObjectFilesystemIOManager...
+2025-09-15 21:42:13 +0000 - dagster - DEBUG - __ASSET_JOB - bdb1f434-b66b-4585-8d92-a02475c7ca75 - 1492 - postgres_data_regional - LOADED_INPUT - Loaded input "clean_data_regional" using input manager "io_manager"
+2025-09-15 21:42:13 +0000 - dagster - DEBUG - __ASSET_JOB - bdb1f434-b66b-4585-8d92-a02475c7ca75 - 1492 - postgres_data_regional - STEP_INPUT - Got input "clean_data_regional" of type "DataFrame". (Type check passed).
+2025-09-15 21:42:13 +0000 - dagster - INFO - __ASSET_JOB - bdb1f434-b66b-4585-8d92-a02475c7ca75 - postgres_data_regional - 🗄️ Cargando a PostgreSQL...
+2025-09-15 21:42:13 +0000 - dagster - INFO - __ASSET_JOB - bdb1f434-b66b-4585-8d92-a02475c7ca75 - postgres_data_regional - 🔗 Conectando a: postgres:5432/etl_database
+2025-09-15 21:42:13 +0000 - dagster - ERROR - __ASSET_JOB - bdb1f434-b66b-4585-8d92-a02475c7ca75 - postgres_data_regional - ❌ Error inesperado: name 'text' is not defined
+2025-09-15 21:42:13 +0000 - dagster - ERROR - __ASSET_JOB - bdb1f434-b66b-4585-8d92-a02475c7ca75 - 1492 - postgres_data_regional - STEP_FAILURE - Execution of step "postgres_data_regional" failed.
+
+dagster._core.errors.DagsterExecutionStepExecutionError: Error occurred while executing op "postgres_data_regional"::
+
+NameError: name 'text' is not defined
+
+Stack Trace:
+  File "/venv/lib/python3.11/site-packages/dagster/_core/execution/plan/utils.py", line 56, in op_execution_error_boundary
+    yield
+  File "/venv/lib/python3.11/site-packages/dagster/_utils/__init__.py", line 391, in iterate_with_context
+    next_output = next(iterator)
+                  ^^^^^^^^^^^^^^
+  File "/venv/lib/python3.11/site-packages/dagster/_core/execution/plan/compute_generator.py", line 127, in _coerce_op_compute_fn_to_iterator
+    result = invoke_compute_fn(
+             ^^^^^^^^^^^^^^^^^^
+  File "/venv/lib/python3.11/site-packages/dagster/_core/execution/plan/compute_generator.py", line 115, in invoke_compute_fn
+    return fn(context, **args_to_pass) if context_arg_provided else fn(**args_to_pass)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/dagster_project/src/etl_dagster/assets/regional.py", line 177, in postgres_data_regional
+    count = conn.execute(text("SELECT COUNT(*) FROM regional_limpios")).scalar()
+                         ^^^^
+
+2025-09-15 21:42:13 +0000 - dagster - DEBUG - __ASSET_JOB - bdb1f434-b66b-4585-8d92-a02475c7ca75 - 1449 - ENGINE_EVENT - Multiprocess executor: parent process exiting after 1.71s (pid: 1449)
+2025-09-15 21:42:14 +0000 - dagster - ERROR - __ASSET_JOB - bdb1f434-b66b-4585-8d92-a02475c7ca75 - 1449 - RUN_FAILURE - Execution of run for "__ASSET_JOB" failed. Steps failed: ['postgres_data_regional'].
+[32m2025-09-15 21:42:35 +0000[0m - dagster - [34mWARNING[0m - /venv/lib/python3.11/site-packages/dagster/_core/definitions/antlr_asset_selection/antlr_asset_selection.py:92: BetaWarning: Parameter `include_sources` of function `AssetSelection.all` is currently in beta, and may have breaking changes in minor version releases, with behavior changes in patch releases.
+  return AssetSelection.all(include_sources=self.include_sources)
+
+[32m2025-09-15 21:43:37 +0000[0m - dagster - [34mWARNING[0m - /venv/lib/python3.11/site-packages/dagster/_core/definitions/antlr_asset_selection/antlr_asset_selection.py:92: BetaWarning: Parameter `include_sources` of function `AssetSelection.all` is currently in beta, and may have breaking changes in minor version releases, with behavior changes in patch releases.
+  return AssetSelection.all(include_sources=self.include_sources)
+
+[32m2025-09-15 21:43:41 +0000[0m - dagster.daemon.QueuedRunCoordinatorDaemon - [34mINFO[0m - Priority sorting and checking tag concurrency limits for queued runs.
+/venv/lib/python3.11/site-packages/dagster/_core/definitions/antlr_asset_selection/antlr_asset_selection.py:92: BetaWarning: Parameter `include_sources` of function `AssetSelection.all` is currently in beta, and may have breaking changes in minor version releases, with behavior changes in patch releases.
+  return AssetSelection.all(include_sources=self.include_sources)
+[32m2025-09-15 21:43:42 +0000[0m - dagster.daemon.QueuedRunCoordinatorDaemon - [34mINFO[0m - Launched 1 runs.
+2025-09-15 21:43:43 +0000 - dagster - DEBUG - __ASSET_JOB - dac96814-fdac-4ff3-b1e5-808b01a123a2 - 4343 - RUN_START - Started execution of run for "__ASSET_JOB".
+2025-09-15 21:43:43 +0000 - dagster - DEBUG - __ASSET_JOB - dac96814-fdac-4ff3-b1e5-808b01a123a2 - 4343 - ENGINE_EVENT - Executing steps using multiprocess executor: parent process (pid: 4343)
+2025-09-15 21:43:43 +0000 - dagster - DEBUG - __ASSET_JOB - dac96814-fdac-4ff3-b1e5-808b01a123a2 - 4343 - raw_data_centro - STEP_WORKER_STARTING - Launching subprocess for "raw_data_centro".
+2025-09-15 21:43:43 +0000 - dagster - DEBUG - __ASSET_JOB - dac96814-fdac-4ff3-b1e5-808b01a123a2 - 4343 - raw_data_ofertas - STEP_WORKER_STARTING - Launching subprocess for "raw_data_ofertas".
+2025-09-15 21:43:43 +0000 - dagster - DEBUG - __ASSET_JOB - dac96814-fdac-4ff3-b1e5-808b01a123a2 - 4343 - raw_data_regional - STEP_WORKER_STARTING - Launching subprocess for "raw_data_regional".
+2025-09-15 21:43:43 +0000 - dagster - DEBUG - __ASSET_JOB - dac96814-fdac-4ff3-b1e5-808b01a123a2 - 4418 - raw_data_ofertas - STEP_WORKER_STARTED - Executing step "raw_data_ofertas" in subprocess.
+2025-09-15 21:43:43 +0000 - dagster - DEBUG - __ASSET_JOB - dac96814-fdac-4ff3-b1e5-808b01a123a2 - 4416 - raw_data_centro - STEP_WORKER_STARTED - Executing step "raw_data_centro" in subprocess.
+/venv/lib/python3.11/site-packages/dagster/_core/definitions/antlr_asset_selection/antlr_asset_selection.py:92: BetaWarning: Parameter `include_sources` of function `AssetSelection.all` is currently in beta, and may have breaking changes in minor version releases, with behavior changes in patch releases.
+  return AssetSelection.all(include_sources=self.include_sources)
+/venv/lib/python3.11/site-packages/dagster/_core/definitions/antlr_asset_selection/antlr_asset_selection.py:92: BetaWarning: Parameter `include_sources` of function `AssetSelection.all` is currently in beta, and may have breaking changes in minor version releases, with behavior changes in patch releases.
+  return AssetSelection.all(include_sources=self.include_sources)
+2025-09-15 21:43:44 +0000 - dagster - DEBUG - __ASSET_JOB - dac96814-fdac-4ff3-b1e5-808b01a123a2 - 4419 - raw_data_regional - STEP_WORKER_STARTED - Executing step "raw_data_regional" in subprocess.
+/venv/lib/python3.11/site-packages/dagster/_core/definitions/antlr_asset_selection/antlr_asset_selection.py:92: BetaWarning: Parameter `include_sources` of function `AssetSelection.all` is currently in beta, and may have breaking changes in minor version releases, with behavior changes in patch releases.
+  return AssetSelection.all(include_sources=self.include_sources)
+2025-09-15 21:43:44 +0000 - dagster - DEBUG - __ASSET_JOB - dac96814-fdac-4ff3-b1e5-808b01a123a2 - 4418 - raw_data_ofertas - RESOURCE_INIT_STARTED - Starting initialization of resources [io_manager].
+2025-09-15 21:43:44 +0000 - dagster - DEBUG - __ASSET_JOB - dac96814-fdac-4ff3-b1e5-808b01a123a2 - 4418 - raw_data_ofertas - RESOURCE_INIT_SUCCESS - Finished initialization of resources [io_manager].
+2025-09-15 21:43:44 +0000 - dagster - DEBUG - __ASSET_JOB - dac96814-fdac-4ff3-b1e5-808b01a123a2 - 4418 - ENGINE_EVENT - Exception while setting up compute log capture
+
+NotADirectoryError: [Errno 20] Not a directory: '/dagster_project/metadata/compute_logs/dac96814-fdac-4ff3-b1e5-808b01a123a2'
+
+Stack Trace:
+  File "/venv/lib/python3.11/site-packages/dagster/_core/execution/plan/execute_plan.py", line 50, in inner_plan_execution_iterator
+    log_context = capture_stack.enter_context(compute_log_manager.capture_logs(log_key))
+                  ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/local/lib/python3.11/contextlib.py", line 517, in enter_context
+    result = _enter(cm)
+             ^^^^^^^^^^
+  File "/usr/local/lib/python3.11/contextlib.py", line 137, in __enter__
+    return next(self.gen)
+           ^^^^^^^^^^^^^^
+  File "/venv/lib/python3.11/site-packages/dagster/_core/storage/local_compute_log_manager.py", line 85, in capture_logs
+    with mirror_stream_to_file(sys.stdout, outpath), mirror_stream_to_file(sys.stderr, errpath):
+  File "/usr/local/lib/python3.11/contextlib.py", line 137, in __enter__
+    return next(self.gen)
+           ^^^^^^^^^^^^^^
+  File "/venv/lib/python3.11/site-packages/dagster/_core/execution/compute_logs.py", line 39, in mirror_stream_to_file
+    ensure_file(filepath)
+  File "/venv/lib/python3.11/site-packages/dagster/_utils/__init__.py", line 338, in ensure_file
+    ensure_dir(os.path.dirname(path))
+  File "/venv/lib/python3.11/site-packages/dagster/_utils/__init__.py", line 330, in ensure_dir
+    os.makedirs(file_path)
+  File "<frozen os>", line 215, in makedirs
+  File "<frozen os>", line 225, in makedirs
+
+2025-09-15 21:43:44 +0000 - dagster - DEBUG - __ASSET_JOB - dac96814-fdac-4ff3-b1e5-808b01a123a2 - 4418 - raw_data_ofertas - STEP_START - Started execution of step "raw_data_ofertas".
+2025-09-15 21:43:44 +0000 - dagster - DEBUG - __ASSET_JOB - dac96814-fdac-4ff3-b1e5-808b01a123a2 - 4416 - raw_data_centro - RESOURCE_INIT_STARTED - Starting initialization of resources [io_manager].
+2025-09-15 21:43:44 +0000 - dagster - INFO - __ASSET_JOB - dac96814-fdac-4ff3-b1e5-808b01a123a2 - raw_data_ofertas - 📥 Extrayendo datos del CSV ofertas...
+2025-09-15 21:43:44 +0000 - dagster - INFO - __ASSET_JOB - dac96814-fdac-4ff3-b1e5-808b01a123a2 - raw_data_ofertas - ✅ CSV leído con detección automática de delimitador
+2025-09-15 21:43:44 +0000 - dagster - DEBUG - __ASSET_JOB - dac96814-fdac-4ff3-b1e5-808b01a123a2 - 4416 - raw_data_centro - RESOURCE_INIT_SUCCESS - Finished initialization of resources [io_manager].
+2025-09-15 21:43:44 +0000 - dagster - INFO - __ASSET_JOB - dac96814-fdac-4ff3-b1e5-808b01a123a2 - raw_data_ofertas - 📊 Datos extraídos: 50 registros, 27 columnas
+2025-09-15 21:43:44 +0000 - dagster - DEBUG - __ASSET_JOB - dac96814-fdac-4ff3-b1e5-808b01a123a2 - 4416 - ENGINE_EVENT - Exception while setting up compute log capture
+
+NotADirectoryError: [Errno 20] Not a directory: '/dagster_project/metadata/compute_logs/dac96814-fdac-4ff3-b1e5-808b01a123a2'
+
+Stack Trace:
+  File "/venv/lib/python3.11/site-packages/dagster/_core/execution/plan/execute_plan.py", line 50, in inner_plan_execution_iterator
+    log_context = capture_stack.enter_context(compute_log_manager.capture_logs(log_key))
+                  ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/local/lib/python3.11/contextlib.py", line 517, in enter_context
+    result = _enter(cm)
+             ^^^^^^^^^^
+  File "/usr/local/lib/python3.11/contextlib.py", line 137, in __enter__
+    return next(self.gen)
+           ^^^^^^^^^^^^^^
+  File "/venv/lib/python3.11/site-packages/dagster/_core/storage/local_compute_log_manager.py", line 85, in capture_logs
+    with mirror_stream_to_file(sys.stdout, outpath), mirror_stream_to_file(sys.stderr, errpath):
+  File "/usr/local/lib/python3.11/contextlib.py", line 137, in __enter__
+    return next(self.gen)
+           ^^^^^^^^^^^^^^
+  File "/venv/lib/python3.11/site-packages/dagster/_core/execution/compute_logs.py", line 39, in mirror_stream_to_file
+    ensure_file(filepath)
+  File "/venv/lib/python3.11/site-packages/dagster/_utils/__init__.py", line 338, in ensure_file
+    ensure_dir(os.path.dirname(path))
+  File "/venv/lib/python3.11/site-packages/dagster/_utils/__init__.py", line 330, in ensure_dir
+    os.makedirs(file_path)
+  File "<frozen os>", line 215, in makedirs
+  File "<frozen os>", line 225, in makedirs
+
+2025-09-15 21:43:44 +0000 - dagster - INFO - __ASSET_JOB - dac96814-fdac-4ff3-b1e5-808b01a123a2 - raw_data_ofertas - 📝 Columnas: ['IDMENSAJE', 'TIPO_DOCUMENTO', 'NUMERO_DOCUMENTO', 'NOMBRES', 'PRIMER_APELLIDO', 'SEGUNDO_APELLIDO', 'GENERO', 'FECHA_NACIMIENTO', 'ESTADO_CIVIL', 'LIBRETA_MILITAR', 'ESTRATO', 'PAIS', 'DEPARTAMENTO', 'MUNICIPIO', 'DIRECCION', 'TELEFONO', 'CELULAR', 'CORREO_ELECTRONICO', 'POSICION_FAMILIAR', 'NIVEL_SISBEN', 'PUNTAJE_SISBEN', 'FECHA_EXPIRACION', 'MUNICIPIO_SISBEN', 'REGIONAL', 'PROCESADO', 'FECHA_REGISTRO', 'FECHA_MODIFICACION']
+2025-09-15 21:43:44 +0000 - dagster - DEBUG - __ASSET_JOB - dac96814-fdac-4ff3-b1e5-808b01a123a2 - 4416 - raw_data_centro - STEP_START - Started execution of step "raw_data_centro".
+2025-09-15 21:43:44 +0000 - dagster - INFO - __ASSET_JOB - dac96814-fdac-4ff3-b1e5-808b01a123a2 - raw_data_ofertas - 🔍 Tipos de datos iniciales:
+2025-09-15 21:43:44 +0000 - dagster - INFO - __ASSET_JOB - dac96814-fdac-4ff3-b1e5-808b01a123a2 - raw_data_centro - 📥 Extrayendo datos del CSV centro...
+2025-09-15 21:43:44 +0000 - dagster - INFO - __ASSET_JOB - dac96814-fdac-4ff3-b1e5-808b01a123a2 - raw_data_ofertas -    - IDMENSAJE: int64
+2025-09-15 21:43:44 +0000 - dagster - INFO - __ASSET_JOB - dac96814-fdac-4ff3-b1e5-808b01a123a2 - raw_data_ofertas -    - TIPO_DOCUMENTO: object
+2025-09-15 21:43:44 +0000 - dagster - INFO - __ASSET_JOB - dac96814-fdac-4ff3-b1e5-808b01a123a2 - raw_data_centro - ✅ CSV leído con detección automática de delimitador
+2025-09-15 21:43:44 +0000 - dagster - INFO - __ASSET_JOB - dac96814-fdac-4ff3-b1e5-808b01a123a2 - raw_data_ofertas -    - NUMERO_DOCUMENTO: int64
+2025-09-15 21:43:44 +0000 - dagster - INFO - __ASSET_JOB - dac96814-fdac-4ff3-b1e5-808b01a123a2 - raw_data_centro - 📊 Datos extraídos: 20 registros, 7 columnas
+2025-09-15 21:43:44 +0000 - dagster - INFO - __ASSET_JOB - dac96814-fdac-4ff3-b1e5-808b01a123a2 - raw_data_ofertas -    - NOMBRES: object
+2025-09-15 21:43:44 +0000 - dagster - INFO - __ASSET_JOB - dac96814-fdac-4ff3-b1e5-808b01a123a2 - raw_data_centro - 📝 Columnas: ['CSPE_ID', 'CSPE_NOMBRE', 'CSPE_DIRECCION', 'CSPE_TEL', 'CSPE_ATENCION', 'CSPE_RESPONSABLE', 'CSPE_CODIGO_SOFIA']
+2025-09-15 21:43:44 +0000 - dagster - INFO - __ASSET_JOB - dac96814-fdac-4ff3-b1e5-808b01a123a2 - raw_data_ofertas -    - PRIMER_APELLIDO: object
+2025-09-15 21:43:44 +0000 - dagster - INFO - __ASSET_JOB - dac96814-fdac-4ff3-b1e5-808b01a123a2 - raw_data_centro - 🔍 Tipos de datos iniciales:
+2025-09-15 21:43:44 +0000 - dagster - INFO - __ASSET_JOB - dac96814-fdac-4ff3-b1e5-808b01a123a2 - raw_data_ofertas -    - SEGUNDO_APELLIDO: object
+2025-09-15 21:43:44 +0000 - dagster - INFO - __ASSET_JOB - dac96814-fdac-4ff3-b1e5-808b01a123a2 - raw_data_centro -    - CSPE_ID: int64
+2025-09-15 21:43:44 +0000 - dagster - INFO - __ASSET_JOB - dac96814-fdac-4ff3-b1e5-808b01a123a2 - raw_data_ofertas -    - GENERO: int64
+2025-09-15 21:43:44 +0000 - dagster - INFO - __ASSET_JOB - dac96814-fdac-4ff3-b1e5-808b01a123a2 - raw_data_centro -    - CSPE_NOMBRE: object
+2025-09-15 21:43:44 +0000 - dagster - INFO - __ASSET_JOB - dac96814-fdac-4ff3-b1e5-808b01a123a2 - raw_data_ofertas -    - FECHA_NACIMIENTO: object
+2025-09-15 21:43:44 +0000 - dagster - INFO - __ASSET_JOB - dac96814-fdac-4ff3-b1e5-808b01a123a2 - raw_data_centro -    - CSPE_DIRECCION: object
+2025-09-15 21:43:44 +0000 - dagster - INFO - __ASSET_JOB - dac96814-fdac-4ff3-b1e5-808b01a123a2 - raw_data_ofertas -    - ESTADO_CIVIL: object
+2025-09-15 21:43:44 +0000 - dagster - INFO - __ASSET_JOB - dac96814-fdac-4ff3-b1e5-808b01a123a2 - raw_data_centro -    - CSPE_TEL: object
+2025-09-15 21:43:44 +0000 - dagster - INFO - __ASSET_JOB - dac96814-fdac-4ff3-b1e5-808b01a123a2 - raw_data_ofertas -    - LIBRETA_MILITAR: int64
+2025-09-15 21:43:44 +0000 - dagster - INFO - __ASSET_JOB - dac96814-fdac-4ff3-b1e5-808b01a123a2 - raw_data_centro -    - CSPE_ATENCION: object
+2025-09-15 21:43:44 +0000 - dagster - INFO - __ASSET_JOB - dac96814-fdac-4ff3-b1e5-808b01a123a2 - raw_data_ofertas -    - ESTRATO: int64
+2025-09-15 21:43:44 +0000 - dagster - INFO - __ASSET_JOB - dac96814-fdac-4ff3-b1e5-808b01a123a2 - raw_data_centro -    - CSPE_RESPONSABLE: object
+2025-09-15 21:43:44 +0000 - dagster - INFO - __ASSET_JOB - dac96814-fdac-4ff3-b1e5-808b01a123a2 - raw_data_ofertas -    - PAIS: int64
+2025-09-15 21:43:44 +0000 - dagster - INFO - __ASSET_JOB - dac96814-fdac-4ff3-b1e5-808b01a123a2 - raw_data_centro -    - CSPE_CODIGO_SOFIA: int64
+2025-09-15 21:43:44 +0000 - dagster - INFO - __ASSET_JOB - dac96814-fdac-4ff3-b1e5-808b01a123a2 - raw_data_ofertas -    - DEPARTAMENTO: int64
+2025-09-15 21:43:44 +0000 - dagster - DEBUG - __ASSET_JOB - dac96814-fdac-4ff3-b1e5-808b01a123a2 - 4416 - raw_data_centro - STEP_OUTPUT - Yielded output "result" of type "Any". (Type check passed).
+2025-09-15 21:43:44 +0000 - dagster - INFO - __ASSET_JOB - dac96814-fdac-4ff3-b1e5-808b01a123a2 - raw_data_ofertas -    - MUNICIPIO: int64
+2025-09-15 21:43:44 +0000 - dagster - DEBUG - __ASSET_JOB - dac96814-fdac-4ff3-b1e5-808b01a123a2 - raw_data_centro - Writing file at: /dagster_project/storage/raw_data_centro using PickledObjectFilesystemIOManager...
+2025-09-15 21:43:44 +0000 - dagster - INFO - __ASSET_JOB - dac96814-fdac-4ff3-b1e5-808b01a123a2 - raw_data_ofertas -    - DIRECCION: object
+2025-09-15 21:43:44 +0000 - dagster - INFO - __ASSET_JOB - dac96814-fdac-4ff3-b1e5-808b01a123a2 - raw_data_ofertas -    - TELEFONO: object
+2025-09-15 21:43:44 +0000 - dagster - INFO - __ASSET_JOB - dac96814-fdac-4ff3-b1e5-808b01a123a2 - raw_data_ofertas -    - CELULAR: object
+2025-09-15 21:43:44 +0000 - dagster - INFO - __ASSET_JOB - dac96814-fdac-4ff3-b1e5-808b01a123a2 - raw_data_ofertas -    - CORREO_ELECTRONICO: object
+2025-09-15 21:43:44 +0000 - dagster - INFO - __ASSET_JOB - dac96814-fdac-4ff3-b1e5-808b01a123a2 - raw_data_ofertas -    - POSICION_FAMILIAR: int64
+2025-09-15 21:43:44 +0000 - dagster - INFO - __ASSET_JOB - dac96814-fdac-4ff3-b1e5-808b01a123a2 - raw_data_ofertas -    - NIVEL_SISBEN: int64
+2025-09-15 21:43:44 +0000 - dagster - DEBUG - __ASSET_JOB - dac96814-fdac-4ff3-b1e5-808b01a123a2 - 4416 - raw_data_centro - ASSET_MATERIALIZATION - Materialized value raw_data_centro.
+2025-09-15 21:43:44 +0000 - dagster - INFO - __ASSET_JOB - dac96814-fdac-4ff3-b1e5-808b01a123a2 - raw_data_ofertas -    - PUNTAJE_SISBEN: int64
+2025-09-15 21:43:44 +0000 - dagster - DEBUG - __ASSET_JOB - dac96814-fdac-4ff3-b1e5-808b01a123a2 - 4419 - raw_data_regional - RESOURCE_INIT_STARTED - Starting initialization of resources [io_manager].
+2025-09-15 21:43:44 +0000 - dagster - DEBUG - __ASSET_JOB - dac96814-fdac-4ff3-b1e5-808b01a123a2 - 4416 - raw_data_centro - HANDLED_OUTPUT - Handled output "result" using IO manager "io_manager"
+2025-09-15 21:43:44 +0000 - dagster - INFO - __ASSET_JOB - dac96814-fdac-4ff3-b1e5-808b01a123a2 - raw_data_ofertas -    - FECHA_EXPIRACION: float64
+2025-09-15 21:43:44 +0000 - dagster - DEBUG - __ASSET_JOB - dac96814-fdac-4ff3-b1e5-808b01a123a2 - 4416 - raw_data_centro - STEP_SUCCESS - Finished execution of step "raw_data_centro" in 245ms.
+2025-09-15 21:43:44 +0000 - dagster - INFO - __ASSET_JOB - dac96814-fdac-4ff3-b1e5-808b01a123a2 - raw_data_ofertas -    - MUNICIPIO_SISBEN: int64
+2025-09-15 21:43:44 +0000 - dagster - DEBUG - __ASSET_JOB - dac96814-fdac-4ff3-b1e5-808b01a123a2 - 4419 - raw_data_regional - RESOURCE_INIT_SUCCESS - Finished initialization of resources [io_manager].
+2025-09-15 21:43:44 +0000 - dagster - INFO - __ASSET_JOB - dac96814-fdac-4ff3-b1e5-808b01a123a2 - raw_data_ofertas -    - REGIONAL: int64
+2025-09-15 21:43:44 +0000 - dagster - INFO - __ASSET_JOB - dac96814-fdac-4ff3-b1e5-808b01a123a2 - raw_data_ofertas -    - PROCESADO: int64
+2025-09-15 21:43:44 +0000 - dagster - DEBUG - __ASSET_JOB - dac96814-fdac-4ff3-b1e5-808b01a123a2 - 4419 - ENGINE_EVENT - Exception while setting up compute log capture
+
+NotADirectoryError: [Errno 20] Not a directory: '/dagster_project/metadata/compute_logs/dac96814-fdac-4ff3-b1e5-808b01a123a2'
+
+Stack Trace:
+  File "/venv/lib/python3.11/site-packages/dagster/_core/execution/plan/execute_plan.py", line 50, in inner_plan_execution_iterator
+    log_context = capture_stack.enter_context(compute_log_manager.capture_logs(log_key))
+                  ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/local/lib/python3.11/contextlib.py", line 517, in enter_context
+    result = _enter(cm)
+             ^^^^^^^^^^
+  File "/usr/local/lib/python3.11/contextlib.py", line 137, in __enter__
+    return next(self.gen)
+           ^^^^^^^^^^^^^^
+  File "/venv/lib/python3.11/site-packages/dagster/_core/storage/local_compute_log_manager.py", line 85, in capture_logs
+    with mirror_stream_to_file(sys.stdout, outpath), mirror_stream_to_file(sys.stderr, errpath):
+  File "/usr/local/lib/python3.11/contextlib.py", line 137, in __enter__
+    return next(self.gen)
+           ^^^^^^^^^^^^^^
+  File "/venv/lib/python3.11/site-packages/dagster/_core/execution/compute_logs.py", line 39, in mirror_stream_to_file
+    ensure_file(filepath)
+  File "/venv/lib/python3.11/site-packages/dagster/_utils/__init__.py", line 338, in ensure_file
+    ensure_dir(os.path.dirname(path))
+  File "/venv/lib/python3.11/site-packages/dagster/_utils/__init__.py", line 330, in ensure_dir
+    os.makedirs(file_path)
+  File "<frozen os>", line 215, in makedirs
+  File "<frozen os>", line 225, in makedirs
+
+2025-09-15 21:43:44 +0000 - dagster - INFO - __ASSET_JOB - dac96814-fdac-4ff3-b1e5-808b01a123a2 - raw_data_ofertas -    - FECHA_REGISTRO: object
+2025-09-15 21:43:44 +0000 - dagster - DEBUG - __ASSET_JOB - dac96814-fdac-4ff3-b1e5-808b01a123a2 - 4419 - raw_data_regional - STEP_START - Started execution of step "raw_data_regional".
+2025-09-15 21:43:44 +0000 - dagster - INFO - __ASSET_JOB - dac96814-fdac-4ff3-b1e5-808b01a123a2 - raw_data_ofertas -    - FECHA_MODIFICACION: float64
+2025-09-15 21:43:44 +0000 - dagster - INFO - __ASSET_JOB - dac96814-fdac-4ff3-b1e5-808b01a123a2 - raw_data_regional - 📥 Extrayendo datos del CSV regional...
+2025-09-15 21:43:44 +0000 - dagster - DEBUG - __ASSET_JOB - dac96814-fdac-4ff3-b1e5-808b01a123a2 - 4418 - raw_data_ofertas - STEP_OUTPUT - Yielded output "result" of type "Any". (Type check passed).
+2025-09-15 21:43:44 +0000 - dagster - INFO - __ASSET_JOB - dac96814-fdac-4ff3-b1e5-808b01a123a2 - raw_data_regional - ✅ CSV leído con detección automática de delimitador
+2025-09-15 21:43:44 +0000 - dagster - DEBUG - __ASSET_JOB - dac96814-fdac-4ff3-b1e5-808b01a123a2 - raw_data_ofertas - Writing file at: /dagster_project/storage/raw_data_ofertas using PickledObjectFilesystemIOManager...
+2025-09-15 21:43:44 +0000 - dagster - INFO - __ASSET_JOB - dac96814-fdac-4ff3-b1e5-808b01a123a2 - raw_data_regional - 📊 Datos extraídos: 40 registros, 9 columnas
+2025-09-15 21:43:44 +0000 - dagster - INFO - __ASSET_JOB - dac96814-fdac-4ff3-b1e5-808b01a123a2 - raw_data_regional - 📝 Columnas: ['REG_ID', 'REG_NOMBRE', 'REG_DIRECCION', 'REG_TEL', 'REG_TEL_ALT', 'REG_FAX', 'REG_CORREO_E', 'REG_CORREO_E_ALT', 'MPO_ID']
+2025-09-15 21:43:44 +0000 - dagster - INFO - __ASSET_JOB - dac96814-fdac-4ff3-b1e5-808b01a123a2 - raw_data_regional - 🔍 Tipos de datos iniciales:
+2025-09-15 21:43:44 +0000 - dagster - INFO - __ASSET_JOB - dac96814-fdac-4ff3-b1e5-808b01a123a2 - raw_data_regional -    - REG_ID: int64
+2025-09-15 21:43:44 +0000 - dagster - INFO - __ASSET_JOB - dac96814-fdac-4ff3-b1e5-808b01a123a2 - raw_data_regional -    - REG_NOMBRE: object
+2025-09-15 21:43:44 +0000 - dagster - DEBUG - __ASSET_JOB - dac96814-fdac-4ff3-b1e5-808b01a123a2 - 4418 - raw_data_ofertas - ASSET_MATERIALIZATION - Materialized value raw_data_ofertas.
+2025-09-15 21:43:44 +0000 - dagster - INFO - __ASSET_JOB - dac96814-fdac-4ff3-b1e5-808b01a123a2 - raw_data_regional -    - REG_DIRECCION: object
+2025-09-15 21:43:44 +0000 - dagster - DEBUG - __ASSET_JOB - dac96814-fdac-4ff3-b1e5-808b01a123a2 - 4418 - raw_data_ofertas - HANDLED_OUTPUT - Handled output "result" using IO manager "io_manager"
+2025-09-15 21:43:44 +0000 - dagster - INFO - __ASSET_JOB - dac96814-fdac-4ff3-b1e5-808b01a123a2 - raw_data_regional -    - REG_TEL: object
+2025-09-15 21:43:44 +0000 - dagster - DEBUG - __ASSET_JOB - dac96814-fdac-4ff3-b1e5-808b01a123a2 - 4418 - raw_data_ofertas - STEP_SUCCESS - Finished execution of step "raw_data_ofertas" in 467ms.
+2025-09-15 21:43:44 +0000 - dagster - INFO - __ASSET_JOB - dac96814-fdac-4ff3-b1e5-808b01a123a2 - raw_data_regional -    - REG_TEL_ALT: object
+2025-09-15 21:43:45 +0000 - dagster - INFO - __ASSET_JOB - dac96814-fdac-4ff3-b1e5-808b01a123a2 - raw_data_regional -    - REG_FAX: object
+2025-09-15 21:43:45 +0000 - dagster - INFO - __ASSET_JOB - dac96814-fdac-4ff3-b1e5-808b01a123a2 - raw_data_regional -    - REG_CORREO_E: object
+2025-09-15 21:43:45 +0000 - dagster - INFO - __ASSET_JOB - dac96814-fdac-4ff3-b1e5-808b01a123a2 - raw_data_regional -    - REG_CORREO_E_ALT: object
+2025-09-15 21:43:45 +0000 - dagster - INFO - __ASSET_JOB - dac96814-fdac-4ff3-b1e5-808b01a123a2 - raw_data_regional -    - MPO_ID: int64
+2025-09-15 21:43:45 +0000 - dagster - DEBUG - __ASSET_JOB - dac96814-fdac-4ff3-b1e5-808b01a123a2 - 4419 - raw_data_regional - STEP_OUTPUT - Yielded output "result" of type "Any". (Type check passed).
+2025-09-15 21:43:45 +0000 - dagster - DEBUG - __ASSET_JOB - dac96814-fdac-4ff3-b1e5-808b01a123a2 - raw_data_regional - Writing file at: /dagster_project/storage/raw_data_regional using PickledObjectFilesystemIOManager...
+2025-09-15 21:43:45 +0000 - dagster - DEBUG - __ASSET_JOB - dac96814-fdac-4ff3-b1e5-808b01a123a2 - 4419 - raw_data_regional - ASSET_MATERIALIZATION - Materialized value raw_data_regional.
+2025-09-15 21:43:45 +0000 - dagster - DEBUG - __ASSET_JOB - dac96814-fdac-4ff3-b1e5-808b01a123a2 - 4419 - raw_data_regional - HANDLED_OUTPUT - Handled output "result" using IO manager "io_manager"
+2025-09-15 21:43:45 +0000 - dagster - DEBUG - __ASSET_JOB - dac96814-fdac-4ff3-b1e5-808b01a123a2 - 4419 - raw_data_regional - STEP_SUCCESS - Finished execution of step "raw_data_regional" in 291ms.
+2025-09-15 21:43:45 +0000 - dagster - DEBUG - __ASSET_JOB - dac96814-fdac-4ff3-b1e5-808b01a123a2 - 4343 - clean_data_centro - STEP_WORKER_STARTING - Launching subprocess for "clean_data_centro".
+2025-09-15 21:43:45 +0000 - dagster - DEBUG - __ASSET_JOB - dac96814-fdac-4ff3-b1e5-808b01a123a2 - 4343 - clean_data_ofertas - STEP_WORKER_STARTING - Launching subprocess for "clean_data_ofertas".
+2025-09-15 21:43:45 +0000 - dagster - DEBUG - __ASSET_JOB - dac96814-fdac-4ff3-b1e5-808b01a123a2 - 4343 - clean_data_regional - STEP_WORKER_STARTING - Launching subprocess for "clean_data_regional".
+2025-09-15 21:43:46 +0000 - dagster - DEBUG - __ASSET_JOB - dac96814-fdac-4ff3-b1e5-808b01a123a2 - 4561 - clean_data_centro - STEP_WORKER_STARTED - Executing step "clean_data_centro" in subprocess.
+/venv/lib/python3.11/site-packages/dagster/_core/definitions/antlr_asset_selection/antlr_asset_selection.py:92: BetaWarning: Parameter `include_sources` of function `AssetSelection.all` is currently in beta, and may have breaking changes in minor version releases, with behavior changes in patch releases.
+  return AssetSelection.all(include_sources=self.include_sources)
+2025-09-15 21:43:47 +0000 - dagster - DEBUG - __ASSET_JOB - dac96814-fdac-4ff3-b1e5-808b01a123a2 - 4578 - clean_data_regional - STEP_WORKER_STARTED - Executing step "clean_data_regional" in subprocess.
+/venv/lib/python3.11/site-packages/dagster/_core/definitions/antlr_asset_selection/antlr_asset_selection.py:92: BetaWarning: Parameter `include_sources` of function `AssetSelection.all` is currently in beta, and may have breaking changes in minor version releases, with behavior changes in patch releases.
+  return AssetSelection.all(include_sources=self.include_sources)
+2025-09-15 21:43:47 +0000 - dagster - DEBUG - __ASSET_JOB - dac96814-fdac-4ff3-b1e5-808b01a123a2 - 4577 - clean_data_ofertas - STEP_WORKER_STARTED - Executing step "clean_data_ofertas" in subprocess.
+/venv/lib/python3.11/site-packages/dagster/_core/definitions/antlr_asset_selection/antlr_asset_selection.py:92: BetaWarning: Parameter `include_sources` of function `AssetSelection.all` is currently in beta, and may have breaking changes in minor version releases, with behavior changes in patch releases.
+  return AssetSelection.all(include_sources=self.include_sources)
+2025-09-15 21:43:47 +0000 - dagster - DEBUG - __ASSET_JOB - dac96814-fdac-4ff3-b1e5-808b01a123a2 - 4561 - clean_data_centro - RESOURCE_INIT_STARTED - Starting initialization of resources [io_manager].
+2025-09-15 21:43:47 +0000 - dagster - DEBUG - __ASSET_JOB - dac96814-fdac-4ff3-b1e5-808b01a123a2 - 4561 - clean_data_centro - RESOURCE_INIT_SUCCESS - Finished initialization of resources [io_manager].
+2025-09-15 21:43:47 +0000 - dagster - DEBUG - __ASSET_JOB - dac96814-fdac-4ff3-b1e5-808b01a123a2 - 4561 - ENGINE_EVENT - Exception while setting up compute log capture
+
+NotADirectoryError: [Errno 20] Not a directory: '/dagster_project/metadata/compute_logs/dac96814-fdac-4ff3-b1e5-808b01a123a2'
+
+Stack Trace:
+  File "/venv/lib/python3.11/site-packages/dagster/_core/execution/plan/execute_plan.py", line 50, in inner_plan_execution_iterator
+    log_context = capture_stack.enter_context(compute_log_manager.capture_logs(log_key))
+                  ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/local/lib/python3.11/contextlib.py", line 517, in enter_context
+    result = _enter(cm)
+             ^^^^^^^^^^
+  File "/usr/local/lib/python3.11/contextlib.py", line 137, in __enter__
+    return next(self.gen)
+           ^^^^^^^^^^^^^^
+  File "/venv/lib/python3.11/site-packages/dagster/_core/storage/local_compute_log_manager.py", line 85, in capture_logs
+    with mirror_stream_to_file(sys.stdout, outpath), mirror_stream_to_file(sys.stderr, errpath):
+  File "/usr/local/lib/python3.11/contextlib.py", line 137, in __enter__
+    return next(self.gen)
+           ^^^^^^^^^^^^^^
+  File "/venv/lib/python3.11/site-packages/dagster/_core/execution/compute_logs.py", line 39, in mirror_stream_to_file
+    ensure_file(filepath)
+  File "/venv/lib/python3.11/site-packages/dagster/_utils/__init__.py", line 338, in ensure_file
+    ensure_dir(os.path.dirname(path))
+  File "/venv/lib/python3.11/site-packages/dagster/_utils/__init__.py", line 330, in ensure_dir
+    os.makedirs(file_path)
+  File "<frozen os>", line 215, in makedirs
+  File "<frozen os>", line 225, in makedirs
+
+2025-09-15 21:43:47 +0000 - dagster - DEBUG - __ASSET_JOB - dac96814-fdac-4ff3-b1e5-808b01a123a2 - 4561 - clean_data_centro - STEP_START - Started execution of step "clean_data_centro".
+2025-09-15 21:43:47 +0000 - dagster - DEBUG - __ASSET_JOB - dac96814-fdac-4ff3-b1e5-808b01a123a2 - clean_data_centro - Loading file from: /dagster_project/storage/raw_data_centro using PickledObjectFilesystemIOManager...
+2025-09-15 21:43:47 +0000 - dagster - DEBUG - __ASSET_JOB - dac96814-fdac-4ff3-b1e5-808b01a123a2 - 4578 - clean_data_regional - RESOURCE_INIT_STARTED - Starting initialization of resources [io_manager].
+2025-09-15 21:43:47 +0000 - dagster - DEBUG - __ASSET_JOB - dac96814-fdac-4ff3-b1e5-808b01a123a2 - 4561 - clean_data_centro - LOADED_INPUT - Loaded input "raw_data_centro" using input manager "io_manager", from output "result" of step "raw_data_centro"
+2025-09-15 21:43:47 +0000 - dagster - DEBUG - __ASSET_JOB - dac96814-fdac-4ff3-b1e5-808b01a123a2 - 4561 - clean_data_centro - STEP_INPUT - Got input "raw_data_centro" of type "DataFrame". (Type check passed).
+2025-09-15 21:43:47 +0000 - dagster - INFO - __ASSET_JOB - dac96814-fdac-4ff3-b1e5-808b01a123a2 - clean_data_centro - 🔄 Iniciando transformación de datos...
+2025-09-15 21:43:47 +0000 - dagster - DEBUG - __ASSET_JOB - dac96814-fdac-4ff3-b1e5-808b01a123a2 - 4577 - clean_data_ofertas - RESOURCE_INIT_STARTED - Starting initialization of resources [io_manager].
+2025-09-15 21:43:47 +0000 - dagster - DEBUG - __ASSET_JOB - dac96814-fdac-4ff3-b1e5-808b01a123a2 - 4578 - clean_data_regional - RESOURCE_INIT_SUCCESS - Finished initialization of resources [io_manager].
+2025-09-15 21:43:47 +0000 - dagster - INFO - __ASSET_JOB - dac96814-fdac-4ff3-b1e5-808b01a123a2 - clean_data_centro - 📥 Datos recibidos: 20 filas x 7 columnas
+2025-09-15 21:43:47 +0000 - dagster - DEBUG - __ASSET_JOB - dac96814-fdac-4ff3-b1e5-808b01a123a2 - 4578 - ENGINE_EVENT - Exception while setting up compute log capture
+
+NotADirectoryError: [Errno 20] Not a directory: '/dagster_project/metadata/compute_logs/dac96814-fdac-4ff3-b1e5-808b01a123a2'
+
+Stack Trace:
+  File "/venv/lib/python3.11/site-packages/dagster/_core/execution/plan/execute_plan.py", line 50, in inner_plan_execution_iterator
+    log_context = capture_stack.enter_context(compute_log_manager.capture_logs(log_key))
+                  ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/local/lib/python3.11/contextlib.py", line 517, in enter_context
+    result = _enter(cm)
+             ^^^^^^^^^^
+  File "/usr/local/lib/python3.11/contextlib.py", line 137, in __enter__
+    return next(self.gen)
+           ^^^^^^^^^^^^^^
+  File "/venv/lib/python3.11/site-packages/dagster/_core/storage/local_compute_log_manager.py", line 85, in capture_logs
+    with mirror_stream_to_file(sys.stdout, outpath), mirror_stream_to_file(sys.stderr, errpath):
+  File "/usr/local/lib/python3.11/contextlib.py", line 137, in __enter__
+    return next(self.gen)
+           ^^^^^^^^^^^^^^
+  File "/venv/lib/python3.11/site-packages/dagster/_core/execution/compute_logs.py", line 39, in mirror_stream_to_file
+    ensure_file(filepath)
+  File "/venv/lib/python3.11/site-packages/dagster/_utils/__init__.py", line 338, in ensure_file
+    ensure_dir(os.path.dirname(path))
+  File "/venv/lib/python3.11/site-packages/dagster/_utils/__init__.py", line 330, in ensure_dir
+    os.makedirs(file_path)
+  File "<frozen os>", line 215, in makedirs
+  File "<frozen os>", line 225, in makedirs
+
+2025-09-15 21:43:47 +0000 - dagster - INFO - __ASSET_JOB - dac96814-fdac-4ff3-b1e5-808b01a123a2 - clean_data_centro - 🔄 Convirtiendo todas las columnas a string...
+2025-09-15 21:43:47 +0000 - dagster - DEBUG - __ASSET_JOB - dac96814-fdac-4ff3-b1e5-808b01a123a2 - 4577 - clean_data_ofertas - RESOURCE_INIT_SUCCESS - Finished initialization of resources [io_manager].
+2025-09-15 21:43:47 +0000 - dagster - DEBUG - __ASSET_JOB - dac96814-fdac-4ff3-b1e5-808b01a123a2 - 4578 - clean_data_regional - STEP_START - Started execution of step "clean_data_regional".
+2025-09-15 21:43:47 +0000 - dagster - INFO - __ASSET_JOB - dac96814-fdac-4ff3-b1e5-808b01a123a2 - clean_data_centro - Tipos de columnas: {'CSPE_ID': dtype('O'), 'CSPE_NOMBRE': dtype('O'), 'CSPE_DIRECCION': dtype('O'), 'CSPE_TEL': dtype('O'), 'CSPE_ATENCION': dtype('O'), 'CSPE_RESPONSABLE': dtype('O'), 'CSPE_CODIGO_SOFIA': dtype('O')}
+2025-09-15 21:43:47 +0000 - dagster - DEBUG - __ASSET_JOB - dac96814-fdac-4ff3-b1e5-808b01a123a2 - 4577 - ENGINE_EVENT - Exception while setting up compute log capture
+
+NotADirectoryError: [Errno 20] Not a directory: '/dagster_project/metadata/compute_logs/dac96814-fdac-4ff3-b1e5-808b01a123a2'
+
+Stack Trace:
+  File "/venv/lib/python3.11/site-packages/dagster/_core/execution/plan/execute_plan.py", line 50, in inner_plan_execution_iterator
+    log_context = capture_stack.enter_context(compute_log_manager.capture_logs(log_key))
+                  ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/local/lib/python3.11/contextlib.py", line 517, in enter_context
+    result = _enter(cm)
+             ^^^^^^^^^^
+  File "/usr/local/lib/python3.11/contextlib.py", line 137, in __enter__
+    return next(self.gen)
+           ^^^^^^^^^^^^^^
+  File "/venv/lib/python3.11/site-packages/dagster/_core/storage/local_compute_log_manager.py", line 85, in capture_logs
+    with mirror_stream_to_file(sys.stdout, outpath), mirror_stream_to_file(sys.stderr, errpath):
+  File "/usr/local/lib/python3.11/contextlib.py", line 137, in __enter__
+    return next(self.gen)
+           ^^^^^^^^^^^^^^
+  File "/venv/lib/python3.11/site-packages/dagster/_core/execution/compute_logs.py", line 39, in mirror_stream_to_file
+    ensure_file(filepath)
+  File "/venv/lib/python3.11/site-packages/dagster/_utils/__init__.py", line 338, in ensure_file
+    ensure_dir(os.path.dirname(path))
+  File "/venv/lib/python3.11/site-packages/dagster/_utils/__init__.py", line 330, in ensure_dir
+    os.makedirs(file_path)
+  File "<frozen os>", line 215, in makedirs
+  File "<frozen os>", line 225, in makedirs
+
+2025-09-15 21:43:47 +0000 - dagster - INFO - __ASSET_JOB - dac96814-fdac-4ff3-b1e5-808b01a123a2 - clean_data_centro - 🔄 Reemplazando valores vacíos por 'NA'...
+2025-09-15 21:43:47 +0000 - dagster - DEBUG - __ASSET_JOB - dac96814-fdac-4ff3-b1e5-808b01a123a2 - 4577 - clean_data_ofertas - STEP_START - Started execution of step "clean_data_ofertas".
+2025-09-15 21:43:47 +0000 - dagster - INFO - __ASSET_JOB - dac96814-fdac-4ff3-b1e5-808b01a123a2 - clean_data_centro - ✅ Transformación completada:
+2025-09-15 21:43:47 +0000 - dagster - INFO - __ASSET_JOB - dac96814-fdac-4ff3-b1e5-808b01a123a2 - clean_data_centro -    - Registros finales: 20
+2025-09-15 21:43:47 +0000 - dagster - INFO - __ASSET_JOB - dac96814-fdac-4ff3-b1e5-808b01a123a2 - clean_data_centro -    - Columnas: 7
+2025-09-15 21:43:47 +0000 - dagster - INFO - __ASSET_JOB - dac96814-fdac-4ff3-b1e5-808b01a123a2 - clean_data_centro -    - Tipos de datos: Todos convertidos a string
+2025-09-15 21:43:47 +0000 - dagster - INFO - __ASSET_JOB - dac96814-fdac-4ff3-b1e5-808b01a123a2 - clean_data_centro - 👀 Vista previa de datos limpios:
+2025-09-15 21:43:47 +0000 - dagster - INFO - __ASSET_JOB - dac96814-fdac-4ff3-b1e5-808b01a123a2 - clean_data_centro -    - CSPE_ID: 20 valores únicos
+2025-09-15 21:43:47 +0000 - dagster - INFO - __ASSET_JOB - dac96814-fdac-4ff3-b1e5-808b01a123a2 - clean_data_centro -    - CSPE_NOMBRE: 20 valores únicos
+2025-09-15 21:43:47 +0000 - dagster - INFO - __ASSET_JOB - dac96814-fdac-4ff3-b1e5-808b01a123a2 - clean_data_centro -    - CSPE_DIRECCION: 20 valores únicos
+2025-09-15 21:43:47 +0000 - dagster - DEBUG - __ASSET_JOB - dac96814-fdac-4ff3-b1e5-808b01a123a2 - clean_data_regional - Loading file from: /dagster_project/storage/raw_data_regional using PickledObjectFilesystemIOManager...
+2025-09-15 21:43:47 +0000 - dagster - DEBUG - __ASSET_JOB - dac96814-fdac-4ff3-b1e5-808b01a123a2 - 4561 - clean_data_centro - STEP_OUTPUT - Yielded output "result" of type "Any". (Type check passed).
+2025-09-15 21:43:47 +0000 - dagster - DEBUG - __ASSET_JOB - dac96814-fdac-4ff3-b1e5-808b01a123a2 - 4578 - clean_data_regional - LOADED_INPUT - Loaded input "raw_data_regional" using input manager "io_manager", from output "result" of step "raw_data_regional"
+2025-09-15 21:43:47 +0000 - dagster - DEBUG - __ASSET_JOB - dac96814-fdac-4ff3-b1e5-808b01a123a2 - clean_data_centro - Writing file at: /dagster_project/storage/clean_data_centro using PickledObjectFilesystemIOManager...
+2025-09-15 21:43:47 +0000 - dagster - DEBUG - __ASSET_JOB - dac96814-fdac-4ff3-b1e5-808b01a123a2 - clean_data_ofertas - Loading file from: /dagster_project/storage/raw_data_ofertas using PickledObjectFilesystemIOManager...
+2025-09-15 21:43:47 +0000 - dagster - DEBUG - __ASSET_JOB - dac96814-fdac-4ff3-b1e5-808b01a123a2 - 4578 - clean_data_regional - STEP_INPUT - Got input "raw_data_regional" of type "DataFrame". (Type check passed).
+2025-09-15 21:43:47 +0000 - dagster - DEBUG - __ASSET_JOB - dac96814-fdac-4ff3-b1e5-808b01a123a2 - 4577 - clean_data_ofertas - LOADED_INPUT - Loaded input "raw_data_ofertas" using input manager "io_manager", from output "result" of step "raw_data_ofertas"
+2025-09-15 21:43:47 +0000 - dagster - INFO - __ASSET_JOB - dac96814-fdac-4ff3-b1e5-808b01a123a2 - clean_data_regional - 🔄 Iniciando transformación de datos...
+2025-09-15 21:43:47 +0000 - dagster - DEBUG - __ASSET_JOB - dac96814-fdac-4ff3-b1e5-808b01a123a2 - 4577 - clean_data_ofertas - STEP_INPUT - Got input "raw_data_ofertas" of type "DataFrame". (Type check passed).
+2025-09-15 21:43:47 +0000 - dagster - INFO - __ASSET_JOB - dac96814-fdac-4ff3-b1e5-808b01a123a2 - clean_data_regional - 📥 Datos recibidos: 40 filas x 9 columnas
+2025-09-15 21:43:47 +0000 - dagster - INFO - __ASSET_JOB - dac96814-fdac-4ff3-b1e5-808b01a123a2 - clean_data_ofertas - 🔄 Iniciando transformación de datos...
+2025-09-15 21:43:47 +0000 - dagster - INFO - __ASSET_JOB - dac96814-fdac-4ff3-b1e5-808b01a123a2 - clean_data_regional - 🔄 Convirtiendo todas las columnas a string...
+2025-09-15 21:43:47 +0000 - dagster - DEBUG - __ASSET_JOB - dac96814-fdac-4ff3-b1e5-808b01a123a2 - 4561 - clean_data_centro - ASSET_MATERIALIZATION - Materialized value clean_data_centro.
+2025-09-15 21:43:47 +0000 - dagster - INFO - __ASSET_JOB - dac96814-fdac-4ff3-b1e5-808b01a123a2 - clean_data_ofertas - 📥 Datos recibidos: 50 filas x 27 columnas
+2025-09-15 21:43:47 +0000 - dagster - INFO - __ASSET_JOB - dac96814-fdac-4ff3-b1e5-808b01a123a2 - clean_data_regional - Tipos de columnas: {'REG_ID': dtype('O'), 'REG_NOMBRE': dtype('O'), 'REG_DIRECCION': dtype('O'), 'REG_TEL': dtype('O'), 'REG_TEL_ALT': dtype('O'), 'REG_FAX': dtype('O'), 'REG_CORREO_E': dtype('O'), 'REG_CORREO_E_ALT': dtype('O'), 'MPO_ID': dtype('O')}
+2025-09-15 21:43:47 +0000 - dagster - DEBUG - __ASSET_JOB - dac96814-fdac-4ff3-b1e5-808b01a123a2 - 4561 - clean_data_centro - HANDLED_OUTPUT - Handled output "result" using IO manager "io_manager"
+2025-09-15 21:43:47 +0000 - dagster - INFO - __ASSET_JOB - dac96814-fdac-4ff3-b1e5-808b01a123a2 - clean_data_ofertas - 🔄 Convirtiendo todas las columnas a string...
+2025-09-15 21:43:47 +0000 - dagster - DEBUG - __ASSET_JOB - dac96814-fdac-4ff3-b1e5-808b01a123a2 - 4561 - clean_data_centro - STEP_SUCCESS - Finished execution of step "clean_data_centro" in 295ms.
+2025-09-15 21:43:47 +0000 - dagster - INFO - __ASSET_JOB - dac96814-fdac-4ff3-b1e5-808b01a123a2 - clean_data_regional - 🔄 Reemplazando valores vacíos por 'NA'...
+2025-09-15 21:43:47 +0000 - dagster - INFO - __ASSET_JOB - dac96814-fdac-4ff3-b1e5-808b01a123a2 - clean_data_ofertas - Tipos de columnas: {'IDMENSAJE': dtype('O'), 'TIPO_DOCUMENTO': dtype('O'), 'NUMERO_DOCUMENTO': dtype('O'), 'NOMBRES': dtype('O'), 'PRIMER_APELLIDO': dtype('O'), 'SEGUNDO_APELLIDO': dtype('O'), 'GENERO': dtype('O'), 'FECHA_NACIMIENTO': dtype('O'), 'ESTADO_CIVIL': dtype('O'), 'LIBRETA_MILITAR': dtype('O'), 'ESTRATO': dtype('O'), 'PAIS': dtype('O'), 'DEPARTAMENTO': dtype('O'), 'MUNICIPIO': dtype('O'), 'DIRECCION': dtype('O'), 'TELEFONO': dtype('O'), 'CELULAR': dtype('O'), 'CORREO_ELECTRONICO': dtype('O'), 'POSICION_FAMILIAR': dtype('O'), 'NIVEL_SISBEN': dtype('O'), 'PUNTAJE_SISBEN': dtype('O'), 'FECHA_EXPIRACION': dtype('O'), 'MUNICIPIO_SISBEN': dtype('O'), 'REGIONAL': dtype('O'), 'PROCESADO': dtype('O'), 'FECHA_REGISTRO': dtype('O'), 'FECHA_MODIFICACION': dtype('O')}
+2025-09-15 21:43:47 +0000 - dagster - INFO - __ASSET_JOB - dac96814-fdac-4ff3-b1e5-808b01a123a2 - clean_data_regional - ✅ Transformación completada:
+2025-09-15 21:43:47 +0000 - dagster - INFO - __ASSET_JOB - dac96814-fdac-4ff3-b1e5-808b01a123a2 - clean_data_ofertas - 🔄 Reemplazando valores vacíos por 'NA'...
+2025-09-15 21:43:47 +0000 - dagster - INFO - __ASSET_JOB - dac96814-fdac-4ff3-b1e5-808b01a123a2 - clean_data_regional -    - Registros finales: 40
+2025-09-15 21:43:47 +0000 - dagster - INFO - __ASSET_JOB - dac96814-fdac-4ff3-b1e5-808b01a123a2 - clean_data_ofertas - ✅ Transformación completada:
+2025-09-15 21:43:47 +0000 - dagster - INFO - __ASSET_JOB - dac96814-fdac-4ff3-b1e5-808b01a123a2 - clean_data_regional -    - Columnas: 9
+2025-09-15 21:43:47 +0000 - dagster - INFO - __ASSET_JOB - dac96814-fdac-4ff3-b1e5-808b01a123a2 - clean_data_regional -    - Tipos de datos: Todos convertidos a string
+2025-09-15 21:43:47 +0000 - dagster - INFO - __ASSET_JOB - dac96814-fdac-4ff3-b1e5-808b01a123a2 - clean_data_ofertas -    - Registros finales: 50
+2025-09-15 21:43:48 +0000 - dagster - INFO - __ASSET_JOB - dac96814-fdac-4ff3-b1e5-808b01a123a2 - clean_data_ofertas -    - Columnas: 27
+2025-09-15 21:43:48 +0000 - dagster - INFO - __ASSET_JOB - dac96814-fdac-4ff3-b1e5-808b01a123a2 - clean_data_regional - 👀 Vista previa de datos limpios:
+2025-09-15 21:43:48 +0000 - dagster - INFO - __ASSET_JOB - dac96814-fdac-4ff3-b1e5-808b01a123a2 - clean_data_ofertas -    - Tipos de datos: Todos convertidos a string
+2025-09-15 21:43:48 +0000 - dagster - INFO - __ASSET_JOB - dac96814-fdac-4ff3-b1e5-808b01a123a2 - clean_data_regional -    - REG_ID: 40 valores únicos
+2025-09-15 21:43:48 +0000 - dagster - INFO - __ASSET_JOB - dac96814-fdac-4ff3-b1e5-808b01a123a2 - clean_data_regional -    - REG_NOMBRE: 38 valores únicos
+2025-09-15 21:43:48 +0000 - dagster - INFO - __ASSET_JOB - dac96814-fdac-4ff3-b1e5-808b01a123a2 - clean_data_ofertas - 👀 Vista previa de datos limpios:
+2025-09-15 21:43:48 +0000 - dagster - INFO - __ASSET_JOB - dac96814-fdac-4ff3-b1e5-808b01a123a2 - clean_data_regional -    - REG_DIRECCION: 36 valores únicos
+2025-09-15 21:43:48 +0000 - dagster - INFO - __ASSET_JOB - dac96814-fdac-4ff3-b1e5-808b01a123a2 - clean_data_ofertas -    - IDMENSAJE: 50 valores únicos
+2025-09-15 21:43:48 +0000 - dagster - INFO - __ASSET_JOB - dac96814-fdac-4ff3-b1e5-808b01a123a2 - clean_data_ofertas -    - TIPO_DOCUMENTO: 2 valores únicos
+2025-09-15 21:43:48 +0000 - dagster - DEBUG - __ASSET_JOB - dac96814-fdac-4ff3-b1e5-808b01a123a2 - 4578 - clean_data_regional - STEP_OUTPUT - Yielded output "result" of type "Any". (Type check passed).
+2025-09-15 21:43:48 +0000 - dagster - DEBUG - __ASSET_JOB - dac96814-fdac-4ff3-b1e5-808b01a123a2 - clean_data_regional - Writing file at: /dagster_project/storage/clean_data_regional using PickledObjectFilesystemIOManager...
+2025-09-15 21:43:48 +0000 - dagster - INFO - __ASSET_JOB - dac96814-fdac-4ff3-b1e5-808b01a123a2 - clean_data_ofertas -    - NUMERO_DOCUMENTO: 50 valores únicos
+2025-09-15 21:43:48 +0000 - dagster - DEBUG - __ASSET_JOB - dac96814-fdac-4ff3-b1e5-808b01a123a2 - 4577 - clean_data_ofertas - STEP_OUTPUT - Yielded output "result" of type "Any". (Type check passed).
+2025-09-15 21:43:48 +0000 - dagster - DEBUG - __ASSET_JOB - dac96814-fdac-4ff3-b1e5-808b01a123a2 - clean_data_ofertas - Writing file at: /dagster_project/storage/clean_data_ofertas using PickledObjectFilesystemIOManager...
+2025-09-15 21:43:48 +0000 - dagster - DEBUG - __ASSET_JOB - dac96814-fdac-4ff3-b1e5-808b01a123a2 - 4578 - clean_data_regional - ASSET_MATERIALIZATION - Materialized value clean_data_regional.
+2025-09-15 21:43:48 +0000 - dagster - DEBUG - __ASSET_JOB - dac96814-fdac-4ff3-b1e5-808b01a123a2 - 4578 - clean_data_regional - HANDLED_OUTPUT - Handled output "result" using IO manager "io_manager"
+2025-09-15 21:43:48 +0000 - dagster - DEBUG - __ASSET_JOB - dac96814-fdac-4ff3-b1e5-808b01a123a2 - 4577 - clean_data_ofertas - ASSET_MATERIALIZATION - Materialized value clean_data_ofertas.
+2025-09-15 21:43:48 +0000 - dagster - DEBUG - __ASSET_JOB - dac96814-fdac-4ff3-b1e5-808b01a123a2 - 4578 - clean_data_regional - STEP_SUCCESS - Finished execution of step "clean_data_regional" in 354ms.
+2025-09-15 21:43:48 +0000 - dagster - DEBUG - __ASSET_JOB - dac96814-fdac-4ff3-b1e5-808b01a123a2 - 4577 - clean_data_ofertas - HANDLED_OUTPUT - Handled output "result" using IO manager "io_manager"
+2025-09-15 21:43:48 +0000 - dagster - DEBUG - __ASSET_JOB - dac96814-fdac-4ff3-b1e5-808b01a123a2 - 4577 - clean_data_ofertas - STEP_SUCCESS - Finished execution of step "clean_data_ofertas" in 371ms.
+2025-09-15 21:43:49 +0000 - dagster - DEBUG - __ASSET_JOB - dac96814-fdac-4ff3-b1e5-808b01a123a2 - 4343 - clean_csv_data_centro - STEP_WORKER_STARTING - Launching subprocess for "clean_csv_data_centro".
+2025-09-15 21:43:49 +0000 - dagster - DEBUG - __ASSET_JOB - dac96814-fdac-4ff3-b1e5-808b01a123a2 - 4343 - duckdb_data_centro - STEP_WORKER_STARTING - Launching subprocess for "duckdb_data_centro".
+2025-09-15 21:43:49 +0000 - dagster - DEBUG - __ASSET_JOB - dac96814-fdac-4ff3-b1e5-808b01a123a2 - 4343 - mongodb_data_centro - STEP_WORKER_STARTING - Launching subprocess for "mongodb_data_centro".
+2025-09-15 21:43:49 +0000 - dagster - DEBUG - __ASSET_JOB - dac96814-fdac-4ff3-b1e5-808b01a123a2 - 4343 - postgres_data_centro - STEP_WORKER_STARTING - Launching subprocess for "postgres_data_centro".
+2025-09-15 21:43:49 +0000 - dagster - DEBUG - __ASSET_JOB - dac96814-fdac-4ff3-b1e5-808b01a123a2 - 4343 - clean_csv_data_regional - STEP_WORKER_STARTING - Launching subprocess for "clean_csv_data_regional".
+2025-09-15 21:43:49 +0000 - dagster - DEBUG - __ASSET_JOB - dac96814-fdac-4ff3-b1e5-808b01a123a2 - 4343 - duckdb_data_regional - STEP_WORKER_STARTING - Launching subprocess for "duckdb_data_regional".
+2025-09-15 21:43:49 +0000 - dagster - DEBUG - __ASSET_JOB - dac96814-fdac-4ff3-b1e5-808b01a123a2 - 4343 - mongodb_data_regional - STEP_WORKER_STARTING - Launching subprocess for "mongodb_data_regional".
+2025-09-15 21:43:49 +0000 - dagster - DEBUG - __ASSET_JOB - dac96814-fdac-4ff3-b1e5-808b01a123a2 - 4343 - postgres_data_regional - STEP_WORKER_STARTING - Launching subprocess for "postgres_data_regional".
+2025-09-15 21:43:49 +0000 - dagster - DEBUG - __ASSET_JOB - dac96814-fdac-4ff3-b1e5-808b01a123a2 - 4343 - clean_csv_data_ofertas - STEP_WORKER_STARTING - Launching subprocess for "clean_csv_data_ofertas".
+2025-09-15 21:43:49 +0000 - dagster - DEBUG - __ASSET_JOB - dac96814-fdac-4ff3-b1e5-808b01a123a2 - 4343 - duckdb_data_ofertas - STEP_WORKER_STARTING - Launching subprocess for "duckdb_data_ofertas".
+2025-09-15 21:43:49 +0000 - dagster - DEBUG - __ASSET_JOB - dac96814-fdac-4ff3-b1e5-808b01a123a2 - 4343 - mongodb_data_ofertas - STEP_WORKER_STARTING - Launching subprocess for "mongodb_data_ofertas".
+2025-09-15 21:43:49 +0000 - dagster - DEBUG - __ASSET_JOB - dac96814-fdac-4ff3-b1e5-808b01a123a2 - 4343 - postgres_data_ofertas - STEP_WORKER_STARTING - Launching subprocess for "postgres_data_ofertas".
+2025-09-15 21:43:51 +0000 - dagster - DEBUG - __ASSET_JOB - dac96814-fdac-4ff3-b1e5-808b01a123a2 - 4768 - duckdb_data_centro - STEP_WORKER_STARTED - Executing step "duckdb_data_centro" in subprocess.
+2025-09-15 21:43:51 +0000 - dagster - DEBUG - __ASSET_JOB - dac96814-fdac-4ff3-b1e5-808b01a123a2 - 4769 - mongodb_data_centro - STEP_WORKER_STARTED - Executing step "mongodb_data_centro" in subprocess.
+/venv/lib/python3.11/site-packages/dagster/_core/definitions/antlr_asset_selection/antlr_asset_selection.py:92: BetaWarning: Parameter `include_sources` of function `AssetSelection.all` is currently in beta, and may have breaking changes in minor version releases, with behavior changes in patch releases.
+  return AssetSelection.all(include_sources=self.include_sources)
+/venv/lib/python3.11/site-packages/dagster/_core/definitions/antlr_asset_selection/antlr_asset_selection.py:92: BetaWarning: Parameter `include_sources` of function `AssetSelection.all` is currently in beta, and may have breaking changes in minor version releases, with behavior changes in patch releases.
+  return AssetSelection.all(include_sources=self.include_sources)
+2025-09-15 21:43:51 +0000 - dagster - DEBUG - __ASSET_JOB - dac96814-fdac-4ff3-b1e5-808b01a123a2 - 4767 - clean_csv_data_centro - STEP_WORKER_STARTED - Executing step "clean_csv_data_centro" in subprocess.
+/venv/lib/python3.11/site-packages/dagster/_core/definitions/antlr_asset_selection/antlr_asset_selection.py:92: BetaWarning: Parameter `include_sources` of function `AssetSelection.all` is currently in beta, and may have breaking changes in minor version releases, with behavior changes in patch releases.
+  return AssetSelection.all(include_sources=self.include_sources)
+2025-09-15 21:43:52 +0000 - dagster - DEBUG - __ASSET_JOB - dac96814-fdac-4ff3-b1e5-808b01a123a2 - 4770 - postgres_data_centro - STEP_WORKER_STARTED - Executing step "postgres_data_centro" in subprocess.
+/venv/lib/python3.11/site-packages/dagster/_core/definitions/antlr_asset_selection/antlr_asset_selection.py:92: BetaWarning: Parameter `include_sources` of function `AssetSelection.all` is currently in beta, and may have breaking changes in minor version releases, with behavior changes in patch releases.
+  return AssetSelection.all(include_sources=self.include_sources)
+2025-09-15 21:43:52 +0000 - dagster - DEBUG - __ASSET_JOB - dac96814-fdac-4ff3-b1e5-808b01a123a2 - 4777 - postgres_data_regional - STEP_WORKER_STARTED - Executing step "postgres_data_regional" in subprocess.
+2025-09-15 21:43:52 +0000 - dagster - DEBUG - __ASSET_JOB - dac96814-fdac-4ff3-b1e5-808b01a123a2 - 4774 - duckdb_data_regional - STEP_WORKER_STARTED - Executing step "duckdb_data_regional" in subprocess.
+/venv/lib/python3.11/site-packages/dagster/_core/definitions/antlr_asset_selection/antlr_asset_selection.py:92: BetaWarning: Parameter `include_sources` of function `AssetSelection.all` is currently in beta, and may have breaking changes in minor version releases, with behavior changes in patch releases.
+  return AssetSelection.all(include_sources=self.include_sources)
+/venv/lib/python3.11/site-packages/dagster/_core/definitions/antlr_asset_selection/antlr_asset_selection.py:92: BetaWarning: Parameter `include_sources` of function `AssetSelection.all` is currently in beta, and may have breaking changes in minor version releases, with behavior changes in patch releases.
+  return AssetSelection.all(include_sources=self.include_sources)
+2025-09-15 21:43:53 +0000 - dagster - DEBUG - __ASSET_JOB - dac96814-fdac-4ff3-b1e5-808b01a123a2 - 4772 - clean_csv_data_regional - STEP_WORKER_STARTED - Executing step "clean_csv_data_regional" in subprocess.
+2025-09-15 21:43:53 +0000 - dagster - DEBUG - __ASSET_JOB - dac96814-fdac-4ff3-b1e5-808b01a123a2 - 4768 - duckdb_data_centro - RESOURCE_INIT_STARTED - Starting initialization of resources [io_manager].
+/venv/lib/python3.11/site-packages/dagster/_core/definitions/antlr_asset_selection/antlr_asset_selection.py:92: BetaWarning: Parameter `include_sources` of function `AssetSelection.all` is currently in beta, and may have breaking changes in minor version releases, with behavior changes in patch releases.
+  return AssetSelection.all(include_sources=self.include_sources)
+2025-09-15 21:43:53 +0000 - dagster - DEBUG - __ASSET_JOB - dac96814-fdac-4ff3-b1e5-808b01a123a2 - 4768 - duckdb_data_centro - RESOURCE_INIT_SUCCESS - Finished initialization of resources [io_manager].
+2025-09-15 21:43:53 +0000 - dagster - DEBUG - __ASSET_JOB - dac96814-fdac-4ff3-b1e5-808b01a123a2 - 4768 - ENGINE_EVENT - Exception while setting up compute log capture
+
+NotADirectoryError: [Errno 20] Not a directory: '/dagster_project/metadata/compute_logs/dac96814-fdac-4ff3-b1e5-808b01a123a2'
+
+Stack Trace:
+  File "/venv/lib/python3.11/site-packages/dagster/_core/execution/plan/execute_plan.py", line 50, in inner_plan_execution_iterator
+    log_context = capture_stack.enter_context(compute_log_manager.capture_logs(log_key))
+                  ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/local/lib/python3.11/contextlib.py", line 517, in enter_context
+    result = _enter(cm)
+             ^^^^^^^^^^
+  File "/usr/local/lib/python3.11/contextlib.py", line 137, in __enter__
+    return next(self.gen)
+           ^^^^^^^^^^^^^^
+  File "/venv/lib/python3.11/site-packages/dagster/_core/storage/local_compute_log_manager.py", line 85, in capture_logs
+    with mirror_stream_to_file(sys.stdout, outpath), mirror_stream_to_file(sys.stderr, errpath):
+  File "/usr/local/lib/python3.11/contextlib.py", line 137, in __enter__
+    return next(self.gen)
+           ^^^^^^^^^^^^^^
+  File "/venv/lib/python3.11/site-packages/dagster/_core/execution/compute_logs.py", line 39, in mirror_stream_to_file
+    ensure_file(filepath)
+  File "/venv/lib/python3.11/site-packages/dagster/_utils/__init__.py", line 338, in ensure_file
+    ensure_dir(os.path.dirname(path))
+  File "/venv/lib/python3.11/site-packages/dagster/_utils/__init__.py", line 330, in ensure_dir
+    os.makedirs(file_path)
+  File "<frozen os>", line 215, in makedirs
+  File "<frozen os>", line 225, in makedirs
+
+2025-09-15 21:43:53 +0000 - dagster - DEBUG - __ASSET_JOB - dac96814-fdac-4ff3-b1e5-808b01a123a2 - 4776 - mongodb_data_regional - STEP_WORKER_STARTED - Executing step "mongodb_data_regional" in subprocess.
+2025-09-15 21:43:53 +0000 - dagster - DEBUG - __ASSET_JOB - dac96814-fdac-4ff3-b1e5-808b01a123a2 - 4769 - mongodb_data_centro - RESOURCE_INIT_STARTED - Starting initialization of resources [io_manager].
+2025-09-15 21:43:53 +0000 - dagster - DEBUG - __ASSET_JOB - dac96814-fdac-4ff3-b1e5-808b01a123a2 - 4768 - duckdb_data_centro - STEP_START - Started execution of step "duckdb_data_centro".
+/venv/lib/python3.11/site-packages/dagster/_core/definitions/antlr_asset_selection/antlr_asset_selection.py:92: BetaWarning: Parameter `include_sources` of function `AssetSelection.all` is currently in beta, and may have breaking changes in minor version releases, with behavior changes in patch releases.
+  return AssetSelection.all(include_sources=self.include_sources)
+2025-09-15 21:43:53 +0000 - dagster - DEBUG - __ASSET_JOB - dac96814-fdac-4ff3-b1e5-808b01a123a2 - 4769 - mongodb_data_centro - RESOURCE_INIT_SUCCESS - Finished initialization of resources [io_manager].
+2025-09-15 21:43:53 +0000 - dagster - DEBUG - __ASSET_JOB - dac96814-fdac-4ff3-b1e5-808b01a123a2 - 4769 - ENGINE_EVENT - Exception while setting up compute log capture
+
+NotADirectoryError: [Errno 20] Not a directory: '/dagster_project/metadata/compute_logs/dac96814-fdac-4ff3-b1e5-808b01a123a2'
+
+Stack Trace:
+  File "/venv/lib/python3.11/site-packages/dagster/_core/execution/plan/execute_plan.py", line 50, in inner_plan_execution_iterator
+    log_context = capture_stack.enter_context(compute_log_manager.capture_logs(log_key))
+                  ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/local/lib/python3.11/contextlib.py", line 517, in enter_context
+    result = _enter(cm)
+             ^^^^^^^^^^
+  File "/usr/local/lib/python3.11/contextlib.py", line 137, in __enter__
+    return next(self.gen)
+           ^^^^^^^^^^^^^^
+  File "/venv/lib/python3.11/site-packages/dagster/_core/storage/local_compute_log_manager.py", line 85, in capture_logs
+    with mirror_stream_to_file(sys.stdout, outpath), mirror_stream_to_file(sys.stderr, errpath):
+  File "/usr/local/lib/python3.11/contextlib.py", line 137, in __enter__
+    return next(self.gen)
+           ^^^^^^^^^^^^^^
+  File "/venv/lib/python3.11/site-packages/dagster/_core/execution/compute_logs.py", line 39, in mirror_stream_to_file
+    ensure_file(filepath)
+  File "/venv/lib/python3.11/site-packages/dagster/_utils/__init__.py", line 338, in ensure_file
+    ensure_dir(os.path.dirname(path))
+  File "/venv/lib/python3.11/site-packages/dagster/_utils/__init__.py", line 330, in ensure_dir
+    os.makedirs(file_path)
+  File "<frozen os>", line 215, in makedirs
+  File "<frozen os>", line 225, in makedirs
+
+2025-09-15 21:43:53 +0000 - dagster - DEBUG - __ASSET_JOB - dac96814-fdac-4ff3-b1e5-808b01a123a2 - 4769 - mongodb_data_centro - STEP_START - Started execution of step "mongodb_data_centro".
+2025-09-15 21:43:53 +0000 - dagster - DEBUG - __ASSET_JOB - dac96814-fdac-4ff3-b1e5-808b01a123a2 - 4797 - clean_csv_data_ofertas - STEP_WORKER_STARTED - Executing step "clean_csv_data_ofertas" in subprocess.
+/venv/lib/python3.11/site-packages/dagster/_core/definitions/antlr_asset_selection/antlr_asset_selection.py:92: BetaWarning: Parameter `include_sources` of function `AssetSelection.all` is currently in beta, and may have breaking changes in minor version releases, with behavior changes in patch releases.
+  return AssetSelection.all(include_sources=self.include_sources)
+2025-09-15 21:43:53 +0000 - dagster - DEBUG - __ASSET_JOB - dac96814-fdac-4ff3-b1e5-808b01a123a2 - 4799 - mongodb_data_ofertas - STEP_WORKER_STARTED - Executing step "mongodb_data_ofertas" in subprocess.
+2025-09-15 21:43:53 +0000 - dagster - DEBUG - __ASSET_JOB - dac96814-fdac-4ff3-b1e5-808b01a123a2 - 4767 - clean_csv_data_centro - RESOURCE_INIT_STARTED - Starting initialization of resources [io_manager].
+2025-09-15 21:43:53 +0000 - dagster - DEBUG - __ASSET_JOB - dac96814-fdac-4ff3-b1e5-808b01a123a2 - duckdb_data_centro - Loading file from: /dagster_project/storage/clean_data_centro using PickledObjectFilesystemIOManager...
+2025-09-15 21:43:53 +0000 - dagster - DEBUG - __ASSET_JOB - dac96814-fdac-4ff3-b1e5-808b01a123a2 - 4768 - duckdb_data_centro - LOADED_INPUT - Loaded input "clean_data_centro" using input manager "io_manager", from output "result" of step "clean_data_centro"
+2025-09-15 21:43:53 +0000 - dagster - DEBUG - __ASSET_JOB - dac96814-fdac-4ff3-b1e5-808b01a123a2 - 4768 - duckdb_data_centro - STEP_INPUT - Got input "clean_data_centro" of type "DataFrame". (Type check passed).
+2025-09-15 21:43:53 +0000 - dagster - DEBUG - __ASSET_JOB - dac96814-fdac-4ff3-b1e5-808b01a123a2 - mongodb_data_centro - Loading file from: /dagster_project/storage/clean_data_centro using PickledObjectFilesystemIOManager...
+2025-09-15 21:43:53 +0000 - dagster - DEBUG - __ASSET_JOB - dac96814-fdac-4ff3-b1e5-808b01a123a2 - 4767 - clean_csv_data_centro - RESOURCE_INIT_SUCCESS - Finished initialization of resources [io_manager].
+2025-09-15 21:43:53 +0000 - dagster - DEBUG - __ASSET_JOB - dac96814-fdac-4ff3-b1e5-808b01a123a2 - 4769 - mongodb_data_centro - LOADED_INPUT - Loaded input "clean_data_centro" using input manager "io_manager", from output "result" of step "clean_data_centro"
+2025-09-15 21:43:53 +0000 - dagster - INFO - __ASSET_JOB - dac96814-fdac-4ff3-b1e5-808b01a123a2 - duckdb_data_centro - 🦆 Cargando a DuckDB...
+2025-09-15 21:43:53 +0000 - dagster - DEBUG - __ASSET_JOB - dac96814-fdac-4ff3-b1e5-808b01a123a2 - 4770 - postgres_data_centro - RESOURCE_INIT_STARTED - Starting initialization of resources [io_manager].
+/venv/lib/python3.11/site-packages/dagster/_core/definitions/antlr_asset_selection/antlr_asset_selection.py:92: BetaWarning: Parameter `include_sources` of function `AssetSelection.all` is currently in beta, and may have breaking changes in minor version releases, with behavior changes in patch releases.
+  return AssetSelection.all(include_sources=self.include_sources)
+2025-09-15 21:43:53 +0000 - dagster - DEBUG - __ASSET_JOB - dac96814-fdac-4ff3-b1e5-808b01a123a2 - 4769 - mongodb_data_centro - STEP_INPUT - Got input "clean_data_centro" of type "DataFrame". (Type check passed).
+2025-09-15 21:43:53 +0000 - dagster - DEBUG - __ASSET_JOB - dac96814-fdac-4ff3-b1e5-808b01a123a2 - 4767 - ENGINE_EVENT - Exception while setting up compute log capture
+
+NotADirectoryError: [Errno 20] Not a directory: '/dagster_project/metadata/compute_logs/dac96814-fdac-4ff3-b1e5-808b01a123a2'
+
+Stack Trace:
+  File "/venv/lib/python3.11/site-packages/dagster/_core/execution/plan/execute_plan.py", line 50, in inner_plan_execution_iterator
+    log_context = capture_stack.enter_context(compute_log_manager.capture_logs(log_key))
+                  ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/local/lib/python3.11/contextlib.py", line 517, in enter_context
+    result = _enter(cm)
+             ^^^^^^^^^^
+  File "/usr/local/lib/python3.11/contextlib.py", line 137, in __enter__
+    return next(self.gen)
+           ^^^^^^^^^^^^^^
+  File "/venv/lib/python3.11/site-packages/dagster/_core/storage/local_compute_log_manager.py", line 85, in capture_logs
+    with mirror_stream_to_file(sys.stdout, outpath), mirror_stream_to_file(sys.stderr, errpath):
+  File "/usr/local/lib/python3.11/contextlib.py", line 137, in __enter__
+    return next(self.gen)
+           ^^^^^^^^^^^^^^
+  File "/venv/lib/python3.11/site-packages/dagster/_core/execution/compute_logs.py", line 39, in mirror_stream_to_file
+    ensure_file(filepath)
+  File "/venv/lib/python3.11/site-packages/dagster/_utils/__init__.py", line 338, in ensure_file
+    ensure_dir(os.path.dirname(path))
+  File "/venv/lib/python3.11/site-packages/dagster/_utils/__init__.py", line 330, in ensure_dir
+    os.makedirs(file_path)
+  File "<frozen os>", line 215, in makedirs
+  File "<frozen os>", line 225, in makedirs
+
+2025-09-15 21:43:53 +0000 - dagster - INFO - __ASSET_JOB - dac96814-fdac-4ff3-b1e5-808b01a123a2 - mongodb_data_centro - 🍃 Cargando a MongoDB...
+2025-09-15 21:43:53 +0000 - dagster - INFO - __ASSET_JOB - dac96814-fdac-4ff3-b1e5-808b01a123a2 - duckdb_data_centro - ✅ Conectado a DuckDB local
+2025-09-15 21:43:53 +0000 - dagster - DEBUG - __ASSET_JOB - dac96814-fdac-4ff3-b1e5-808b01a123a2 - 4767 - clean_csv_data_centro - STEP_START - Started execution of step "clean_csv_data_centro".
+2025-09-15 21:43:53 +0000 - dagster - DEBUG - __ASSET_JOB - dac96814-fdac-4ff3-b1e5-808b01a123a2 - 4770 - postgres_data_centro - RESOURCE_INIT_SUCCESS - Finished initialization of resources [io_manager].
+2025-09-15 21:43:53 +0000 - dagster - INFO - __ASSET_JOB - dac96814-fdac-4ff3-b1e5-808b01a123a2 - mongodb_data_centro - 🔗 Conectando a MongoDB...
+2025-09-15 21:43:53 +0000 - dagster - DEBUG - __ASSET_JOB - dac96814-fdac-4ff3-b1e5-808b01a123a2 - 4770 - ENGINE_EVENT - Exception while setting up compute log capture
+
+NotADirectoryError: [Errno 20] Not a directory: '/dagster_project/metadata/compute_logs/dac96814-fdac-4ff3-b1e5-808b01a123a2'
+
+Stack Trace:
+  File "/venv/lib/python3.11/site-packages/dagster/_core/execution/plan/execute_plan.py", line 50, in inner_plan_execution_iterator
+    log_context = capture_stack.enter_context(compute_log_manager.capture_logs(log_key))
+                  ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/local/lib/python3.11/contextlib.py", line 517, in enter_context
+    result = _enter(cm)
+             ^^^^^^^^^^
+  File "/usr/local/lib/python3.11/contextlib.py", line 137, in __enter__
+    return next(self.gen)
+           ^^^^^^^^^^^^^^
+  File "/venv/lib/python3.11/site-packages/dagster/_core/storage/local_compute_log_manager.py", line 85, in capture_logs
+    with mirror_stream_to_file(sys.stdout, outpath), mirror_stream_to_file(sys.stderr, errpath):
+  File "/usr/local/lib/python3.11/contextlib.py", line 137, in __enter__
+    return next(self.gen)
+           ^^^^^^^^^^^^^^
+  File "/venv/lib/python3.11/site-packages/dagster/_core/execution/compute_logs.py", line 39, in mirror_stream_to_file
+    ensure_file(filepath)
+  File "/venv/lib/python3.11/site-packages/dagster/_utils/__init__.py", line 338, in ensure_file
+    ensure_dir(os.path.dirname(path))
+  File "/venv/lib/python3.11/site-packages/dagster/_utils/__init__.py", line 330, in ensure_dir
+    os.makedirs(file_path)
+  File "<frozen os>", line 215, in makedirs
+  File "<frozen os>", line 225, in makedirs
+
+2025-09-15 21:43:53 +0000 - dagster - DEBUG - __ASSET_JOB - dac96814-fdac-4ff3-b1e5-808b01a123a2 - 4770 - postgres_data_centro - STEP_START - Started execution of step "postgres_data_centro".
+2025-09-15 21:43:53 +0000 - dagster - INFO - __ASSET_JOB - dac96814-fdac-4ff3-b1e5-808b01a123a2 - duckdb_data_centro - 📊 20 registros insertados
+2025-09-15 21:43:53 +0000 - dagster - INFO - __ASSET_JOB - dac96814-fdac-4ff3-b1e5-808b01a123a2 - mongodb_data_centro - ✅ Conexión a MongoDB verificada
+2025-09-15 21:43:53 +0000 - dagster - DEBUG - __ASSET_JOB - dac96814-fdac-4ff3-b1e5-808b01a123a2 - 4798 - duckdb_data_ofertas - STEP_WORKER_STARTED - Executing step "duckdb_data_ofertas" in subprocess.
+2025-09-15 21:43:53 +0000 - dagster - INFO - __ASSET_JOB - dac96814-fdac-4ff3-b1e5-808b01a123a2 - mongodb_data_centro - 🗑️ Eliminando 20 documentos existentes
+/venv/lib/python3.11/site-packages/dagster/_core/definitions/antlr_asset_selection/antlr_asset_selection.py:92: BetaWarning: Parameter `include_sources` of function `AssetSelection.all` is currently in beta, and may have breaking changes in minor version releases, with behavior changes in patch releases.
+  return AssetSelection.all(include_sources=self.include_sources)
+2025-09-15 21:43:53 +0000 - dagster - DEBUG - __ASSET_JOB - dac96814-fdac-4ff3-b1e5-808b01a123a2 - 4768 - duckdb_data_centro - STEP_OUTPUT - Yielded output "result" of type "Any". (Type check passed).
+2025-09-15 21:43:54 +0000 - dagster - INFO - __ASSET_JOB - dac96814-fdac-4ff3-b1e5-808b01a123a2 - mongodb_data_centro - ✅ Insertados 20 documentos en MongoDB
+2025-09-15 21:43:54 +0000 - dagster - DEBUG - __ASSET_JOB - dac96814-fdac-4ff3-b1e5-808b01a123a2 - duckdb_data_centro - Writing file at: /dagster_project/storage/duckdb_data_centro using PickledObjectFilesystemIOManager...
+2025-09-15 21:43:54 +0000 - dagster - DEBUG - __ASSET_JOB - dac96814-fdac-4ff3-b1e5-808b01a123a2 - 4769 - mongodb_data_centro - STEP_OUTPUT - Yielded output "result" of type "Any". (Type check passed).
+2025-09-15 21:43:54 +0000 - dagster - DEBUG - __ASSET_JOB - dac96814-fdac-4ff3-b1e5-808b01a123a2 - mongodb_data_centro - Writing file at: /dagster_project/storage/mongodb_data_centro using PickledObjectFilesystemIOManager...
+2025-09-15 21:43:54 +0000 - dagster - DEBUG - __ASSET_JOB - dac96814-fdac-4ff3-b1e5-808b01a123a2 - 4768 - duckdb_data_centro - ASSET_MATERIALIZATION - Materialized value duckdb_data_centro.
+2025-09-15 21:43:54 +0000 - dagster - DEBUG - __ASSET_JOB - dac96814-fdac-4ff3-b1e5-808b01a123a2 - 4768 - duckdb_data_centro - HANDLED_OUTPUT - Handled output "result" using IO manager "io_manager"
+2025-09-15 21:43:54 +0000 - dagster - DEBUG - __ASSET_JOB - dac96814-fdac-4ff3-b1e5-808b01a123a2 - clean_csv_data_centro - Loading file from: /dagster_project/storage/clean_data_centro using PickledObjectFilesystemIOManager...
+2025-09-15 21:43:54 +0000 - dagster - DEBUG - __ASSET_JOB - dac96814-fdac-4ff3-b1e5-808b01a123a2 - 4817 - postgres_data_ofertas - STEP_WORKER_STARTED - Executing step "postgres_data_ofertas" in subprocess.
+2025-09-15 21:43:54 +0000 - dagster - DEBUG - __ASSET_JOB - dac96814-fdac-4ff3-b1e5-808b01a123a2 - postgres_data_centro - Loading file from: /dagster_project/storage/clean_data_centro using PickledObjectFilesystemIOManager...
+2025-09-15 21:43:54 +0000 - dagster - DEBUG - __ASSET_JOB - dac96814-fdac-4ff3-b1e5-808b01a123a2 - 4767 - clean_csv_data_centro - LOADED_INPUT - Loaded input "clean_data_centro" using input manager "io_manager", from output "result" of step "clean_data_centro"
+2025-09-15 21:43:54 +0000 - dagster - DEBUG - __ASSET_JOB - dac96814-fdac-4ff3-b1e5-808b01a123a2 - 4768 - duckdb_data_centro - STEP_SUCCESS - Finished execution of step "duckdb_data_centro" in 839ms.
+2025-09-15 21:43:54 +0000 - dagster - DEBUG - __ASSET_JOB - dac96814-fdac-4ff3-b1e5-808b01a123a2 - 4770 - postgres_data_centro - LOADED_INPUT - Loaded input "clean_data_centro" using input manager "io_manager", from output "result" of step "clean_data_centro"
+/venv/lib/python3.11/site-packages/dagster/_core/definitions/antlr_asset_selection/antlr_asset_selection.py:92: BetaWarning: Parameter `include_sources` of function `AssetSelection.all` is currently in beta, and may have breaking changes in minor version releases, with behavior changes in patch releases.
+  return AssetSelection.all(include_sources=self.include_sources)
+2025-09-15 21:43:54 +0000 - dagster - DEBUG - __ASSET_JOB - dac96814-fdac-4ff3-b1e5-808b01a123a2 - 4767 - clean_csv_data_centro - STEP_INPUT - Got input "clean_data_centro" of type "DataFrame". (Type check passed).
+2025-09-15 21:43:54 +0000 - dagster - DEBUG - __ASSET_JOB - dac96814-fdac-4ff3-b1e5-808b01a123a2 - 4769 - mongodb_data_centro - ASSET_MATERIALIZATION - Materialized value mongodb_data_centro.
+2025-09-15 21:43:54 +0000 - dagster - DEBUG - __ASSET_JOB - dac96814-fdac-4ff3-b1e5-808b01a123a2 - 4770 - postgres_data_centro - STEP_INPUT - Got input "clean_data_centro" of type "DataFrame". (Type check passed).
+2025-09-15 21:43:54 +0000 - dagster - INFO - __ASSET_JOB - dac96814-fdac-4ff3-b1e5-808b01a123a2 - clean_csv_data_centro - 💾 Guardando CSV limpio...
+2025-09-15 21:43:54 +0000 - dagster - DEBUG - __ASSET_JOB - dac96814-fdac-4ff3-b1e5-808b01a123a2 - 4769 - mongodb_data_centro - HANDLED_OUTPUT - Handled output "result" using IO manager "io_manager"
+2025-09-15 21:43:54 +0000 - dagster - INFO - __ASSET_JOB - dac96814-fdac-4ff3-b1e5-808b01a123a2 - postgres_data_centro - 🗄️ Cargando a PostgreSQL...
+2025-09-15 21:43:54 +0000 - dagster - INFO - __ASSET_JOB - dac96814-fdac-4ff3-b1e5-808b01a123a2 - postgres_data_centro - 🔗 Conectando a: postgres:5432/etl_database
+2025-09-15 21:43:54 +0000 - dagster - DEBUG - __ASSET_JOB - dac96814-fdac-4ff3-b1e5-808b01a123a2 - 4769 - mongodb_data_centro - STEP_SUCCESS - Finished execution of step "mongodb_data_centro" in 838ms.
+2025-09-15 21:43:54 +0000 - dagster - INFO - __ASSET_JOB - dac96814-fdac-4ff3-b1e5-808b01a123a2 - clean_csv_data_centro - ✅ CSV guardado en: /dagster_project/data/output/centro_limpio.csv
+2025-09-15 21:43:54 +0000 - dagster - DEBUG - __ASSET_JOB - dac96814-fdac-4ff3-b1e5-808b01a123a2 - 4767 - clean_csv_data_centro - STEP_OUTPUT - Yielded output "result" of type "Any". (Type check passed).
+2025-09-15 21:43:54 +0000 - dagster - DEBUG - __ASSET_JOB - dac96814-fdac-4ff3-b1e5-808b01a123a2 - clean_csv_data_centro - Writing file at: /dagster_project/storage/clean_csv_data_centro using PickledObjectFilesystemIOManager...
+2025-09-15 21:43:54 +0000 - dagster - DEBUG - __ASSET_JOB - dac96814-fdac-4ff3-b1e5-808b01a123a2 - 4767 - clean_csv_data_centro - ASSET_MATERIALIZATION - Materialized value clean_csv_data_centro.
+2025-09-15 21:43:54 +0000 - dagster - DEBUG - __ASSET_JOB - dac96814-fdac-4ff3-b1e5-808b01a123a2 - 4767 - clean_csv_data_centro - HANDLED_OUTPUT - Handled output "result" using IO manager "io_manager"
+2025-09-15 21:43:54 +0000 - dagster - INFO - __ASSET_JOB - dac96814-fdac-4ff3-b1e5-808b01a123a2 - postgres_data_centro - ✅ Cargados 20 registros a PostgreSQL
+2025-09-15 21:43:54 +0000 - dagster - DEBUG - __ASSET_JOB - dac96814-fdac-4ff3-b1e5-808b01a123a2 - 4767 - clean_csv_data_centro - STEP_SUCCESS - Finished execution of step "clean_csv_data_centro" in 863ms.
+2025-09-15 21:43:54 +0000 - dagster - DEBUG - __ASSET_JOB - dac96814-fdac-4ff3-b1e5-808b01a123a2 - 4770 - postgres_data_centro - STEP_OUTPUT - Yielded output "result" of type "Any". (Type check passed).
+2025-09-15 21:43:54 +0000 - dagster - DEBUG - __ASSET_JOB - dac96814-fdac-4ff3-b1e5-808b01a123a2 - postgres_data_centro - Writing file at: /dagster_project/storage/postgres_data_centro using PickledObjectFilesystemIOManager...
+2025-09-15 21:43:54 +0000 - dagster - DEBUG - __ASSET_JOB - dac96814-fdac-4ff3-b1e5-808b01a123a2 - 4770 - postgres_data_centro - ASSET_MATERIALIZATION - Materialized value postgres_data_centro.
+2025-09-15 21:43:55 +0000 - dagster - DEBUG - __ASSET_JOB - dac96814-fdac-4ff3-b1e5-808b01a123a2 - 4770 - postgres_data_centro - HANDLED_OUTPUT - Handled output "result" using IO manager "io_manager"
+2025-09-15 21:43:55 +0000 - dagster - DEBUG - __ASSET_JOB - dac96814-fdac-4ff3-b1e5-808b01a123a2 - 4770 - postgres_data_centro - STEP_SUCCESS - Finished execution of step "postgres_data_centro" in 1.11s.
+2025-09-15 21:43:55 +0000 - dagster - DEBUG - __ASSET_JOB - dac96814-fdac-4ff3-b1e5-808b01a123a2 - 4776 - mongodb_data_regional - RESOURCE_INIT_STARTED - Starting initialization of resources [io_manager].
+2025-09-15 21:43:55 +0000 - dagster - DEBUG - __ASSET_JOB - dac96814-fdac-4ff3-b1e5-808b01a123a2 - 4777 - postgres_data_regional - RESOURCE_INIT_STARTED - Starting initialization of resources [io_manager].
+2025-09-15 21:43:55 +0000 - dagster - DEBUG - __ASSET_JOB - dac96814-fdac-4ff3-b1e5-808b01a123a2 - 4774 - duckdb_data_regional - RESOURCE_INIT_STARTED - Starting initialization of resources [io_manager].
+2025-09-15 21:43:55 +0000 - dagster - DEBUG - __ASSET_JOB - dac96814-fdac-4ff3-b1e5-808b01a123a2 - 4777 - postgres_data_regional - RESOURCE_INIT_SUCCESS - Finished initialization of resources [io_manager].
+2025-09-15 21:43:55 +0000 - dagster - DEBUG - __ASSET_JOB - dac96814-fdac-4ff3-b1e5-808b01a123a2 - 4776 - mongodb_data_regional - RESOURCE_INIT_SUCCESS - Finished initialization of resources [io_manager].
+2025-09-15 21:43:55 +0000 - dagster - DEBUG - __ASSET_JOB - dac96814-fdac-4ff3-b1e5-808b01a123a2 - 4799 - mongodb_data_ofertas - RESOURCE_INIT_STARTED - Starting initialization of resources [io_manager].
+2025-09-15 21:43:55 +0000 - dagster - DEBUG - __ASSET_JOB - dac96814-fdac-4ff3-b1e5-808b01a123a2 - 4797 - clean_csv_data_ofertas - RESOURCE_INIT_STARTED - Starting initialization of resources [io_manager].
+2025-09-15 21:43:55 +0000 - dagster - DEBUG - __ASSET_JOB - dac96814-fdac-4ff3-b1e5-808b01a123a2 - 4777 - ENGINE_EVENT - Exception while setting up compute log capture
+
+NotADirectoryError: [Errno 20] Not a directory: '/dagster_project/metadata/compute_logs/dac96814-fdac-4ff3-b1e5-808b01a123a2'
+
+Stack Trace:
+  File "/venv/lib/python3.11/site-packages/dagster/_core/execution/plan/execute_plan.py", line 50, in inner_plan_execution_iterator
+    log_context = capture_stack.enter_context(compute_log_manager.capture_logs(log_key))
+                  ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/local/lib/python3.11/contextlib.py", line 517, in enter_context
+    result = _enter(cm)
+             ^^^^^^^^^^
+  File "/usr/local/lib/python3.11/contextlib.py", line 137, in __enter__
+    return next(self.gen)
+           ^^^^^^^^^^^^^^
+  File "/venv/lib/python3.11/site-packages/dagster/_core/storage/local_compute_log_manager.py", line 85, in capture_logs
+    with mirror_stream_to_file(sys.stdout, outpath), mirror_stream_to_file(sys.stderr, errpath):
+  File "/usr/local/lib/python3.11/contextlib.py", line 137, in __enter__
+    return next(self.gen)
+           ^^^^^^^^^^^^^^
+  File "/venv/lib/python3.11/site-packages/dagster/_core/execution/compute_logs.py", line 39, in mirror_stream_to_file
+    ensure_file(filepath)
+  File "/venv/lib/python3.11/site-packages/dagster/_utils/__init__.py", line 338, in ensure_file
+    ensure_dir(os.path.dirname(path))
+  File "/venv/lib/python3.11/site-packages/dagster/_utils/__init__.py", line 330, in ensure_dir
+    os.makedirs(file_path)
+  File "<frozen os>", line 215, in makedirs
+  File "<frozen os>", line 225, in makedirs
+
+2025-09-15 21:43:55 +0000 - dagster - DEBUG - __ASSET_JOB - dac96814-fdac-4ff3-b1e5-808b01a123a2 - 4776 - ENGINE_EVENT - Exception while setting up compute log capture
+
+NotADirectoryError: [Errno 20] Not a directory: '/dagster_project/metadata/compute_logs/dac96814-fdac-4ff3-b1e5-808b01a123a2'
+
+Stack Trace:
+  File "/venv/lib/python3.11/site-packages/dagster/_core/execution/plan/execute_plan.py", line 50, in inner_plan_execution_iterator
+    log_context = capture_stack.enter_context(compute_log_manager.capture_logs(log_key))
+                  ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/local/lib/python3.11/contextlib.py", line 517, in enter_context
+    result = _enter(cm)
+             ^^^^^^^^^^
+  File "/usr/local/lib/python3.11/contextlib.py", line 137, in __enter__
+    return next(self.gen)
+           ^^^^^^^^^^^^^^
+  File "/venv/lib/python3.11/site-packages/dagster/_core/storage/local_compute_log_manager.py", line 85, in capture_logs
+    with mirror_stream_to_file(sys.stdout, outpath), mirror_stream_to_file(sys.stderr, errpath):
+  File "/usr/local/lib/python3.11/contextlib.py", line 137, in __enter__
+    return next(self.gen)
+           ^^^^^^^^^^^^^^
+  File "/venv/lib/python3.11/site-packages/dagster/_core/execution/compute_logs.py", line 39, in mirror_stream_to_file
+    ensure_file(filepath)
+  File "/venv/lib/python3.11/site-packages/dagster/_utils/__init__.py", line 338, in ensure_file
+    ensure_dir(os.path.dirname(path))
+  File "/venv/lib/python3.11/site-packages/dagster/_utils/__init__.py", line 330, in ensure_dir
+    os.makedirs(file_path)
+  File "<frozen os>", line 215, in makedirs
+  File "<frozen os>", line 225, in makedirs
+
+2025-09-15 21:43:55 +0000 - dagster - DEBUG - __ASSET_JOB - dac96814-fdac-4ff3-b1e5-808b01a123a2 - 4776 - mongodb_data_regional - STEP_START - Started execution of step "mongodb_data_regional".
+2025-09-15 21:43:55 +0000 - dagster - DEBUG - __ASSET_JOB - dac96814-fdac-4ff3-b1e5-808b01a123a2 - 4777 - postgres_data_regional - STEP_START - Started execution of step "postgres_data_regional".
+2025-09-15 21:43:55 +0000 - dagster - DEBUG - __ASSET_JOB - dac96814-fdac-4ff3-b1e5-808b01a123a2 - 4774 - duckdb_data_regional - RESOURCE_INIT_SUCCESS - Finished initialization of resources [io_manager].
+2025-09-15 21:43:55 +0000 - dagster - DEBUG - __ASSET_JOB - dac96814-fdac-4ff3-b1e5-808b01a123a2 - 4797 - clean_csv_data_ofertas - RESOURCE_INIT_SUCCESS - Finished initialization of resources [io_manager].
+2025-09-15 21:43:55 +0000 - dagster - DEBUG - __ASSET_JOB - dac96814-fdac-4ff3-b1e5-808b01a123a2 - 4799 - mongodb_data_ofertas - RESOURCE_INIT_SUCCESS - Finished initialization of resources [io_manager].
+2025-09-15 21:43:55 +0000 - dagster - DEBUG - __ASSET_JOB - dac96814-fdac-4ff3-b1e5-808b01a123a2 - 4797 - ENGINE_EVENT - Exception while setting up compute log capture
+
+NotADirectoryError: [Errno 20] Not a directory: '/dagster_project/metadata/compute_logs/dac96814-fdac-4ff3-b1e5-808b01a123a2'
+
+Stack Trace:
+  File "/venv/lib/python3.11/site-packages/dagster/_core/execution/plan/execute_plan.py", line 50, in inner_plan_execution_iterator
+    log_context = capture_stack.enter_context(compute_log_manager.capture_logs(log_key))
+                  ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/local/lib/python3.11/contextlib.py", line 517, in enter_context
+    result = _enter(cm)
+             ^^^^^^^^^^
+  File "/usr/local/lib/python3.11/contextlib.py", line 137, in __enter__
+    return next(self.gen)
+           ^^^^^^^^^^^^^^
+  File "/venv/lib/python3.11/site-packages/dagster/_core/storage/local_compute_log_manager.py", line 85, in capture_logs
+    with mirror_stream_to_file(sys.stdout, outpath), mirror_stream_to_file(sys.stderr, errpath):
+  File "/usr/local/lib/python3.11/contextlib.py", line 137, in __enter__
+    return next(self.gen)
+           ^^^^^^^^^^^^^^
+  File "/venv/lib/python3.11/site-packages/dagster/_core/execution/compute_logs.py", line 39, in mirror_stream_to_file
+    ensure_file(filepath)
+  File "/venv/lib/python3.11/site-packages/dagster/_utils/__init__.py", line 338, in ensure_file
+    ensure_dir(os.path.dirname(path))
+  File "/venv/lib/python3.11/site-packages/dagster/_utils/__init__.py", line 330, in ensure_dir
+    os.makedirs(file_path)
+  File "<frozen os>", line 215, in makedirs
+  File "<frozen os>", line 225, in makedirs
+
+2025-09-15 21:43:55 +0000 - dagster - DEBUG - __ASSET_JOB - dac96814-fdac-4ff3-b1e5-808b01a123a2 - 4798 - duckdb_data_ofertas - RESOURCE_INIT_STARTED - Starting initialization of resources [io_manager].
+2025-09-15 21:43:55 +0000 - dagster - DEBUG - __ASSET_JOB - dac96814-fdac-4ff3-b1e5-808b01a123a2 - 4774 - ENGINE_EVENT - Exception while setting up compute log capture
+
+NotADirectoryError: [Errno 20] Not a directory: '/dagster_project/metadata/compute_logs/dac96814-fdac-4ff3-b1e5-808b01a123a2'
+
+Stack Trace:
+  File "/venv/lib/python3.11/site-packages/dagster/_core/execution/plan/execute_plan.py", line 50, in inner_plan_execution_iterator
+    log_context = capture_stack.enter_context(compute_log_manager.capture_logs(log_key))
+                  ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/local/lib/python3.11/contextlib.py", line 517, in enter_context
+    result = _enter(cm)
+             ^^^^^^^^^^
+  File "/usr/local/lib/python3.11/contextlib.py", line 137, in __enter__
+    return next(self.gen)
+           ^^^^^^^^^^^^^^
+  File "/venv/lib/python3.11/site-packages/dagster/_core/storage/local_compute_log_manager.py", line 85, in capture_logs
+    with mirror_stream_to_file(sys.stdout, outpath), mirror_stream_to_file(sys.stderr, errpath):
+  File "/usr/local/lib/python3.11/contextlib.py", line 137, in __enter__
+    return next(self.gen)
+           ^^^^^^^^^^^^^^
+  File "/venv/lib/python3.11/site-packages/dagster/_core/execution/compute_logs.py", line 39, in mirror_stream_to_file
+    ensure_file(filepath)
+  File "/venv/lib/python3.11/site-packages/dagster/_utils/__init__.py", line 338, in ensure_file
+    ensure_dir(os.path.dirname(path))
+  File "/venv/lib/python3.11/site-packages/dagster/_utils/__init__.py", line 330, in ensure_dir
+    os.makedirs(file_path)
+  File "<frozen os>", line 215, in makedirs
+  File "<frozen os>", line 225, in makedirs
+
+2025-09-15 21:43:55 +0000 - dagster - DEBUG - __ASSET_JOB - dac96814-fdac-4ff3-b1e5-808b01a123a2 - 4799 - ENGINE_EVENT - Exception while setting up compute log capture
+
+NotADirectoryError: [Errno 20] Not a directory: '/dagster_project/metadata/compute_logs/dac96814-fdac-4ff3-b1e5-808b01a123a2'
+
+Stack Trace:
+  File "/venv/lib/python3.11/site-packages/dagster/_core/execution/plan/execute_plan.py", line 50, in inner_plan_execution_iterator
+    log_context = capture_stack.enter_context(compute_log_manager.capture_logs(log_key))
+                  ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/local/lib/python3.11/contextlib.py", line 517, in enter_context
+    result = _enter(cm)
+             ^^^^^^^^^^
+  File "/usr/local/lib/python3.11/contextlib.py", line 137, in __enter__
+    return next(self.gen)
+           ^^^^^^^^^^^^^^
+  File "/venv/lib/python3.11/site-packages/dagster/_core/storage/local_compute_log_manager.py", line 85, in capture_logs
+    with mirror_stream_to_file(sys.stdout, outpath), mirror_stream_to_file(sys.stderr, errpath):
+  File "/usr/local/lib/python3.11/contextlib.py", line 137, in __enter__
+    return next(self.gen)
+           ^^^^^^^^^^^^^^
+  File "/venv/lib/python3.11/site-packages/dagster/_core/execution/compute_logs.py", line 39, in mirror_stream_to_file
+    ensure_file(filepath)
+  File "/venv/lib/python3.11/site-packages/dagster/_utils/__init__.py", line 338, in ensure_file
+    ensure_dir(os.path.dirname(path))
+  File "/venv/lib/python3.11/site-packages/dagster/_utils/__init__.py", line 330, in ensure_dir
+    os.makedirs(file_path)
+  File "<frozen os>", line 215, in makedirs
+  File "<frozen os>", line 225, in makedirs
+
+2025-09-15 21:43:55 +0000 - dagster - DEBUG - __ASSET_JOB - dac96814-fdac-4ff3-b1e5-808b01a123a2 - 4797 - clean_csv_data_ofertas - STEP_START - Started execution of step "clean_csv_data_ofertas".
+2025-09-15 21:43:55 +0000 - dagster - DEBUG - __ASSET_JOB - dac96814-fdac-4ff3-b1e5-808b01a123a2 - 4774 - duckdb_data_regional - STEP_START - Started execution of step "duckdb_data_regional".
+2025-09-15 21:43:55 +0000 - dagster - DEBUG - __ASSET_JOB - dac96814-fdac-4ff3-b1e5-808b01a123a2 - 4799 - mongodb_data_ofertas - STEP_START - Started execution of step "mongodb_data_ofertas".
+2025-09-15 21:43:56 +0000 - dagster - DEBUG - __ASSET_JOB - dac96814-fdac-4ff3-b1e5-808b01a123a2 - 4772 - clean_csv_data_regional - RESOURCE_INIT_STARTED - Starting initialization of resources [io_manager].
+2025-09-15 21:43:56 +0000 - dagster - DEBUG - __ASSET_JOB - dac96814-fdac-4ff3-b1e5-808b01a123a2 - 4798 - duckdb_data_ofertas - RESOURCE_INIT_SUCCESS - Finished initialization of resources [io_manager].
+2025-09-15 21:43:56 +0000 - dagster - DEBUG - __ASSET_JOB - dac96814-fdac-4ff3-b1e5-808b01a123a2 - 4772 - clean_csv_data_regional - RESOURCE_INIT_SUCCESS - Finished initialization of resources [io_manager].
+2025-09-15 21:43:56 +0000 - dagster - DEBUG - __ASSET_JOB - dac96814-fdac-4ff3-b1e5-808b01a123a2 - 4798 - ENGINE_EVENT - Exception while setting up compute log capture
+
+NotADirectoryError: [Errno 20] Not a directory: '/dagster_project/metadata/compute_logs/dac96814-fdac-4ff3-b1e5-808b01a123a2'
+
+Stack Trace:
+  File "/venv/lib/python3.11/site-packages/dagster/_core/execution/plan/execute_plan.py", line 50, in inner_plan_execution_iterator
+    log_context = capture_stack.enter_context(compute_log_manager.capture_logs(log_key))
+                  ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/local/lib/python3.11/contextlib.py", line 517, in enter_context
+    result = _enter(cm)
+             ^^^^^^^^^^
+  File "/usr/local/lib/python3.11/contextlib.py", line 137, in __enter__
+    return next(self.gen)
+           ^^^^^^^^^^^^^^
+  File "/venv/lib/python3.11/site-packages/dagster/_core/storage/local_compute_log_manager.py", line 85, in capture_logs
+    with mirror_stream_to_file(sys.stdout, outpath), mirror_stream_to_file(sys.stderr, errpath):
+  File "/usr/local/lib/python3.11/contextlib.py", line 137, in __enter__
+    return next(self.gen)
+           ^^^^^^^^^^^^^^
+  File "/venv/lib/python3.11/site-packages/dagster/_core/execution/compute_logs.py", line 39, in mirror_stream_to_file
+    ensure_file(filepath)
+  File "/venv/lib/python3.11/site-packages/dagster/_utils/__init__.py", line 338, in ensure_file
+    ensure_dir(os.path.dirname(path))
+  File "/venv/lib/python3.11/site-packages/dagster/_utils/__init__.py", line 330, in ensure_dir
+    os.makedirs(file_path)
+  File "<frozen os>", line 215, in makedirs
+  File "<frozen os>", line 225, in makedirs
+
+2025-09-15 21:43:56 +0000 - dagster - DEBUG - __ASSET_JOB - dac96814-fdac-4ff3-b1e5-808b01a123a2 - 4772 - ENGINE_EVENT - Exception while setting up compute log capture
+
+NotADirectoryError: [Errno 20] Not a directory: '/dagster_project/metadata/compute_logs/dac96814-fdac-4ff3-b1e5-808b01a123a2'
+
+Stack Trace:
+  File "/venv/lib/python3.11/site-packages/dagster/_core/execution/plan/execute_plan.py", line 50, in inner_plan_execution_iterator
+    log_context = capture_stack.enter_context(compute_log_manager.capture_logs(log_key))
+                  ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/local/lib/python3.11/contextlib.py", line 517, in enter_context
+    result = _enter(cm)
+             ^^^^^^^^^^
+  File "/usr/local/lib/python3.11/contextlib.py", line 137, in __enter__
+    return next(self.gen)
+           ^^^^^^^^^^^^^^
+  File "/venv/lib/python3.11/site-packages/dagster/_core/storage/local_compute_log_manager.py", line 85, in capture_logs
+    with mirror_stream_to_file(sys.stdout, outpath), mirror_stream_to_file(sys.stderr, errpath):
+  File "/usr/local/lib/python3.11/contextlib.py", line 137, in __enter__
+    return next(self.gen)
+           ^^^^^^^^^^^^^^
+  File "/venv/lib/python3.11/site-packages/dagster/_core/execution/compute_logs.py", line 39, in mirror_stream_to_file
+    ensure_file(filepath)
+  File "/venv/lib/python3.11/site-packages/dagster/_utils/__init__.py", line 338, in ensure_file
+    ensure_dir(os.path.dirname(path))
+  File "/venv/lib/python3.11/site-packages/dagster/_utils/__init__.py", line 330, in ensure_dir
+    os.makedirs(file_path)
+  File "<frozen os>", line 215, in makedirs
+  File "<frozen os>", line 225, in makedirs
+
+2025-09-15 21:43:56 +0000 - dagster - DEBUG - __ASSET_JOB - dac96814-fdac-4ff3-b1e5-808b01a123a2 - 4798 - duckdb_data_ofertas - STEP_START - Started execution of step "duckdb_data_ofertas".
+2025-09-15 21:43:56 +0000 - dagster - DEBUG - __ASSET_JOB - dac96814-fdac-4ff3-b1e5-808b01a123a2 - postgres_data_regional - Loading file from: /dagster_project/storage/clean_data_regional using PickledObjectFilesystemIOManager...
+2025-09-15 21:43:56 +0000 - dagster - DEBUG - __ASSET_JOB - dac96814-fdac-4ff3-b1e5-808b01a123a2 - 4772 - clean_csv_data_regional - STEP_START - Started execution of step "clean_csv_data_regional".
+2025-09-15 21:43:56 +0000 - dagster - DEBUG - __ASSET_JOB - dac96814-fdac-4ff3-b1e5-808b01a123a2 - mongodb_data_regional - Loading file from: /dagster_project/storage/clean_data_regional using PickledObjectFilesystemIOManager...
+2025-09-15 21:43:56 +0000 - dagster - DEBUG - __ASSET_JOB - dac96814-fdac-4ff3-b1e5-808b01a123a2 - 4776 - mongodb_data_regional - LOADED_INPUT - Loaded input "clean_data_regional" using input manager "io_manager", from output "result" of step "clean_data_regional"
+2025-09-15 21:43:56 +0000 - dagster - DEBUG - __ASSET_JOB - dac96814-fdac-4ff3-b1e5-808b01a123a2 - 4777 - postgres_data_regional - LOADED_INPUT - Loaded input "clean_data_regional" using input manager "io_manager", from output "result" of step "clean_data_regional"
+2025-09-15 21:43:56 +0000 - dagster - DEBUG - __ASSET_JOB - dac96814-fdac-4ff3-b1e5-808b01a123a2 - clean_csv_data_ofertas - Loading file from: /dagster_project/storage/clean_data_ofertas using PickledObjectFilesystemIOManager...
+2025-09-15 21:43:56 +0000 - dagster - DEBUG - __ASSET_JOB - dac96814-fdac-4ff3-b1e5-808b01a123a2 - 4776 - mongodb_data_regional - STEP_INPUT - Got input "clean_data_regional" of type "DataFrame". (Type check passed).
+2025-09-15 21:43:56 +0000 - dagster - DEBUG - __ASSET_JOB - dac96814-fdac-4ff3-b1e5-808b01a123a2 - 4777 - postgres_data_regional - STEP_INPUT - Got input "clean_data_regional" of type "DataFrame". (Type check passed).
+2025-09-15 21:43:56 +0000 - dagster - DEBUG - __ASSET_JOB - dac96814-fdac-4ff3-b1e5-808b01a123a2 - duckdb_data_regional - Loading file from: /dagster_project/storage/clean_data_regional using PickledObjectFilesystemIOManager...
+2025-09-15 21:43:56 +0000 - dagster - DEBUG - __ASSET_JOB - dac96814-fdac-4ff3-b1e5-808b01a123a2 - 4797 - clean_csv_data_ofertas - LOADED_INPUT - Loaded input "clean_data_ofertas" using input manager "io_manager", from output "result" of step "clean_data_ofertas"
+2025-09-15 21:43:56 +0000 - dagster - INFO - __ASSET_JOB - dac96814-fdac-4ff3-b1e5-808b01a123a2 - postgres_data_regional - 🗄️ Cargando a PostgreSQL...
+2025-09-15 21:43:56 +0000 - dagster - DEBUG - __ASSET_JOB - dac96814-fdac-4ff3-b1e5-808b01a123a2 - 4774 - duckdb_data_regional - LOADED_INPUT - Loaded input "clean_data_regional" using input manager "io_manager", from output "result" of step "clean_data_regional"
+2025-09-15 21:43:56 +0000 - dagster - INFO - __ASSET_JOB - dac96814-fdac-4ff3-b1e5-808b01a123a2 - mongodb_data_regional - 🍃 Cargando a MongoDB...
+2025-09-15 21:43:56 +0000 - dagster - DEBUG - __ASSET_JOB - dac96814-fdac-4ff3-b1e5-808b01a123a2 - mongodb_data_ofertas - Loading file from: /dagster_project/storage/clean_data_ofertas using PickledObjectFilesystemIOManager...
+2025-09-15 21:43:56 +0000 - dagster - INFO - __ASSET_JOB - dac96814-fdac-4ff3-b1e5-808b01a123a2 - postgres_data_regional - 🔗 Conectando a: postgres:5432/etl_database
+2025-09-15 21:43:56 +0000 - dagster - DEBUG - __ASSET_JOB - dac96814-fdac-4ff3-b1e5-808b01a123a2 - 4797 - clean_csv_data_ofertas - STEP_INPUT - Got input "clean_data_ofertas" of type "DataFrame". (Type check passed).
+2025-09-15 21:43:56 +0000 - dagster - DEBUG - __ASSET_JOB - dac96814-fdac-4ff3-b1e5-808b01a123a2 - 4774 - duckdb_data_regional - STEP_INPUT - Got input "clean_data_regional" of type "DataFrame". (Type check passed).
+2025-09-15 21:43:56 +0000 - dagster - DEBUG - __ASSET_JOB - dac96814-fdac-4ff3-b1e5-808b01a123a2 - 4799 - mongodb_data_ofertas - LOADED_INPUT - Loaded input "clean_data_ofertas" using input manager "io_manager", from output "result" of step "clean_data_ofertas"
+2025-09-15 21:43:56 +0000 - dagster - INFO - __ASSET_JOB - dac96814-fdac-4ff3-b1e5-808b01a123a2 - mongodb_data_regional - 🔗 Conectando a MongoDB...
+2025-09-15 21:43:56 +0000 - dagster - INFO - __ASSET_JOB - dac96814-fdac-4ff3-b1e5-808b01a123a2 - clean_csv_data_ofertas - 💾 Guardando CSV limpio...
+2025-09-15 21:43:56 +0000 - dagster - INFO - __ASSET_JOB - dac96814-fdac-4ff3-b1e5-808b01a123a2 - duckdb_data_regional - 🦆 Cargando a DuckDB...
+2025-09-15 21:43:56 +0000 - dagster - DEBUG - __ASSET_JOB - dac96814-fdac-4ff3-b1e5-808b01a123a2 - 4817 - postgres_data_ofertas - RESOURCE_INIT_STARTED - Starting initialization of resources [io_manager].
+2025-09-15 21:43:56 +0000 - dagster - DEBUG - __ASSET_JOB - dac96814-fdac-4ff3-b1e5-808b01a123a2 - 4799 - mongodb_data_ofertas - STEP_INPUT - Got input "clean_data_ofertas" of type "DataFrame". (Type check passed).
+2025-09-15 21:43:56 +0000 - dagster - INFO - __ASSET_JOB - dac96814-fdac-4ff3-b1e5-808b01a123a2 - clean_csv_data_ofertas - ✅ CSV guardado en: /dagster_project/data/output/ofertas_limpio.csv
+2025-09-15 21:43:56 +0000 - dagster - INFO - __ASSET_JOB - dac96814-fdac-4ff3-b1e5-808b01a123a2 - mongodb_data_regional - ✅ Conexión a MongoDB verificada
+2025-09-15 21:43:56 +0000 - dagster - INFO - __ASSET_JOB - dac96814-fdac-4ff3-b1e5-808b01a123a2 - mongodb_data_ofertas - 🍃 Cargando a MongoDB...
+2025-09-15 21:43:56 +0000 - dagster - DEBUG - __ASSET_JOB - dac96814-fdac-4ff3-b1e5-808b01a123a2 - clean_csv_data_regional - Loading file from: /dagster_project/storage/clean_data_regional using PickledObjectFilesystemIOManager...
+2025-09-15 21:43:56 +0000 - dagster - DEBUG - __ASSET_JOB - dac96814-fdac-4ff3-b1e5-808b01a123a2 - duckdb_data_ofertas - Loading file from: /dagster_project/storage/clean_data_ofertas using PickledObjectFilesystemIOManager...
+2025-09-15 21:43:56 +0000 - dagster - INFO - __ASSET_JOB - dac96814-fdac-4ff3-b1e5-808b01a123a2 - duckdb_data_regional - ✅ Conectado a DuckDB local
+2025-09-15 21:43:56 +0000 - dagster - DEBUG - __ASSET_JOB - dac96814-fdac-4ff3-b1e5-808b01a123a2 - 4797 - clean_csv_data_ofertas - STEP_OUTPUT - Yielded output "result" of type "Any". (Type check passed).
+2025-09-15 21:43:56 +0000 - dagster - INFO - __ASSET_JOB - dac96814-fdac-4ff3-b1e5-808b01a123a2 - mongodb_data_ofertas - 🔗 Conectando a MongoDB...
+2025-09-15 21:43:56 +0000 - dagster - DEBUG - __ASSET_JOB - dac96814-fdac-4ff3-b1e5-808b01a123a2 - 4817 - postgres_data_ofertas - RESOURCE_INIT_SUCCESS - Finished initialization of resources [io_manager].
+2025-09-15 21:43:56 +0000 - dagster - DEBUG - __ASSET_JOB - dac96814-fdac-4ff3-b1e5-808b01a123a2 - 4772 - clean_csv_data_regional - LOADED_INPUT - Loaded input "clean_data_regional" using input manager "io_manager", from output "result" of step "clean_data_regional"
+2025-09-15 21:43:56 +0000 - dagster - DEBUG - __ASSET_JOB - dac96814-fdac-4ff3-b1e5-808b01a123a2 - 4798 - duckdb_data_ofertas - LOADED_INPUT - Loaded input "clean_data_ofertas" using input manager "io_manager", from output "result" of step "clean_data_ofertas"
+2025-09-15 21:43:56 +0000 - dagster - INFO - __ASSET_JOB - dac96814-fdac-4ff3-b1e5-808b01a123a2 - mongodb_data_regional - 🗑️ Eliminando 40 documentos existentes
+2025-09-15 21:43:56 +0000 - dagster - DEBUG - __ASSET_JOB - dac96814-fdac-4ff3-b1e5-808b01a123a2 - clean_csv_data_ofertas - Writing file at: /dagster_project/storage/clean_csv_data_ofertas using PickledObjectFilesystemIOManager...
+2025-09-15 21:43:56 +0000 - dagster - DEBUG - __ASSET_JOB - dac96814-fdac-4ff3-b1e5-808b01a123a2 - 4772 - clean_csv_data_regional - STEP_INPUT - Got input "clean_data_regional" of type "DataFrame". (Type check passed).
+2025-09-15 21:43:56 +0000 - dagster - DEBUG - __ASSET_JOB - dac96814-fdac-4ff3-b1e5-808b01a123a2 - 4817 - ENGINE_EVENT - Exception while setting up compute log capture
+
+NotADirectoryError: [Errno 20] Not a directory: '/dagster_project/metadata/compute_logs/dac96814-fdac-4ff3-b1e5-808b01a123a2'
+
+Stack Trace:
+  File "/venv/lib/python3.11/site-packages/dagster/_core/execution/plan/execute_plan.py", line 50, in inner_plan_execution_iterator
+    log_context = capture_stack.enter_context(compute_log_manager.capture_logs(log_key))
+                  ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/local/lib/python3.11/contextlib.py", line 517, in enter_context
+    result = _enter(cm)
+             ^^^^^^^^^^
+  File "/usr/local/lib/python3.11/contextlib.py", line 137, in __enter__
+    return next(self.gen)
+           ^^^^^^^^^^^^^^
+  File "/venv/lib/python3.11/site-packages/dagster/_core/storage/local_compute_log_manager.py", line 85, in capture_logs
+    with mirror_stream_to_file(sys.stdout, outpath), mirror_stream_to_file(sys.stderr, errpath):
+  File "/usr/local/lib/python3.11/contextlib.py", line 137, in __enter__
+    return next(self.gen)
+           ^^^^^^^^^^^^^^
+  File "/venv/lib/python3.11/site-packages/dagster/_core/execution/compute_logs.py", line 39, in mirror_stream_to_file
+    ensure_file(filepath)
+  File "/venv/lib/python3.11/site-packages/dagster/_utils/__init__.py", line 338, in ensure_file
+    ensure_dir(os.path.dirname(path))
+  File "/venv/lib/python3.11/site-packages/dagster/_utils/__init__.py", line 330, in ensure_dir
+    os.makedirs(file_path)
+  File "<frozen os>", line 215, in makedirs
+  File "<frozen os>", line 225, in makedirs
+
+2025-09-15 21:43:56 +0000 - dagster - INFO - __ASSET_JOB - dac96814-fdac-4ff3-b1e5-808b01a123a2 - duckdb_data_regional - 📊 40 registros insertados
+2025-09-15 21:43:56 +0000 - dagster - INFO - __ASSET_JOB - dac96814-fdac-4ff3-b1e5-808b01a123a2 - mongodb_data_regional - ✅ Insertados 40 documentos en MongoDB
+2025-09-15 21:43:56 +0000 - dagster - DEBUG - __ASSET_JOB - dac96814-fdac-4ff3-b1e5-808b01a123a2 - 4798 - duckdb_data_ofertas - STEP_INPUT - Got input "clean_data_ofertas" of type "DataFrame". (Type check passed).
+2025-09-15 21:43:56 +0000 - dagster - INFO - __ASSET_JOB - dac96814-fdac-4ff3-b1e5-808b01a123a2 - clean_csv_data_regional - 💾 Guardando CSV limpio...
+2025-09-15 21:43:56 +0000 - dagster - INFO - __ASSET_JOB - dac96814-fdac-4ff3-b1e5-808b01a123a2 - mongodb_data_ofertas - ✅ Conexión a MongoDB verificada
+2025-09-15 21:43:56 +0000 - dagster - DEBUG - __ASSET_JOB - dac96814-fdac-4ff3-b1e5-808b01a123a2 - 4817 - postgres_data_ofertas - STEP_START - Started execution of step "postgres_data_ofertas".
+2025-09-15 21:43:56 +0000 - dagster - INFO - __ASSET_JOB - dac96814-fdac-4ff3-b1e5-808b01a123a2 - duckdb_data_ofertas - 🦆 Cargando a DuckDB...
+2025-09-15 21:43:56 +0000 - dagster - ERROR - __ASSET_JOB - dac96814-fdac-4ff3-b1e5-808b01a123a2 - postgres_data_regional - ❌ Error inesperado: name 'text' is not defined
+2025-09-15 21:43:56 +0000 - dagster - INFO - __ASSET_JOB - dac96814-fdac-4ff3-b1e5-808b01a123a2 - clean_csv_data_regional - ✅ CSV guardado en: /dagster_project/data/output/regional_limpio.csv
+2025-09-15 21:43:56 +0000 - dagster - DEBUG - __ASSET_JOB - dac96814-fdac-4ff3-b1e5-808b01a123a2 - 4797 - clean_csv_data_ofertas - ASSET_MATERIALIZATION - Materialized value clean_csv_data_ofertas.
+2025-09-15 21:43:56 +0000 - dagster - DEBUG - __ASSET_JOB - dac96814-fdac-4ff3-b1e5-808b01a123a2 - 4776 - mongodb_data_regional - STEP_OUTPUT - Yielded output "result" of type "Any". (Type check passed).
+2025-09-15 21:43:56 +0000 - dagster - DEBUG - __ASSET_JOB - dac96814-fdac-4ff3-b1e5-808b01a123a2 - 4774 - duckdb_data_regional - STEP_OUTPUT - Yielded output "result" of type "Any". (Type check passed).
+2025-09-15 21:43:56 +0000 - dagster - INFO - __ASSET_JOB - dac96814-fdac-4ff3-b1e5-808b01a123a2 - mongodb_data_ofertas - 🗑️ Eliminando 50 documentos existentes
+2025-09-15 21:43:56 +0000 - dagster - DEBUG - __ASSET_JOB - dac96814-fdac-4ff3-b1e5-808b01a123a2 - 4797 - clean_csv_data_ofertas - HANDLED_OUTPUT - Handled output "result" using IO manager "io_manager"
+2025-09-15 21:43:56 +0000 - dagster - DEBUG - __ASSET_JOB - dac96814-fdac-4ff3-b1e5-808b01a123a2 - 4772 - clean_csv_data_regional - STEP_OUTPUT - Yielded output "result" of type "Any". (Type check passed).
+2025-09-15 21:43:56 +0000 - dagster - INFO - __ASSET_JOB - dac96814-fdac-4ff3-b1e5-808b01a123a2 - duckdb_data_ofertas - ✅ Conectado a DuckDB local
+2025-09-15 21:43:56 +0000 - dagster - ERROR - __ASSET_JOB - dac96814-fdac-4ff3-b1e5-808b01a123a2 - 4777 - postgres_data_regional - STEP_FAILURE - Execution of step "postgres_data_regional" failed.
+
+dagster._core.errors.DagsterExecutionStepExecutionError: Error occurred while executing op "postgres_data_regional"::
+
+NameError: name 'text' is not defined
+
+Stack Trace:
+  File "/venv/lib/python3.11/site-packages/dagster/_core/execution/plan/utils.py", line 56, in op_execution_error_boundary
+    yield
+  File "/venv/lib/python3.11/site-packages/dagster/_utils/__init__.py", line 391, in iterate_with_context
+    next_output = next(iterator)
+                  ^^^^^^^^^^^^^^
+  File "/venv/lib/python3.11/site-packages/dagster/_core/execution/plan/compute_generator.py", line 127, in _coerce_op_compute_fn_to_iterator
+    result = invoke_compute_fn(
+             ^^^^^^^^^^^^^^^^^^
+  File "/venv/lib/python3.11/site-packages/dagster/_core/execution/plan/compute_generator.py", line 115, in invoke_compute_fn
+    return fn(context, **args_to_pass) if context_arg_provided else fn(**args_to_pass)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/dagster_project/src/etl_dagster/assets/regional.py", line 177, in postgres_data_regional
+    count = conn.execute(text("SELECT COUNT(*) FROM regional_limpios")).scalar()
+                         ^^^^
+
+2025-09-15 21:43:56 +0000 - dagster - DEBUG - __ASSET_JOB - dac96814-fdac-4ff3-b1e5-808b01a123a2 - mongodb_data_regional - Writing file at: /dagster_project/storage/mongodb_data_regional using PickledObjectFilesystemIOManager...
+2025-09-15 21:43:56 +0000 - dagster - DEBUG - __ASSET_JOB - dac96814-fdac-4ff3-b1e5-808b01a123a2 - duckdb_data_regional - Writing file at: /dagster_project/storage/duckdb_data_regional using PickledObjectFilesystemIOManager...
+2025-09-15 21:43:56 +0000 - dagster - DEBUG - __ASSET_JOB - dac96814-fdac-4ff3-b1e5-808b01a123a2 - 4797 - clean_csv_data_ofertas - STEP_SUCCESS - Finished execution of step "clean_csv_data_ofertas" in 650ms.
+2025-09-15 21:43:56 +0000 - dagster - DEBUG - __ASSET_JOB - dac96814-fdac-4ff3-b1e5-808b01a123a2 - clean_csv_data_regional - Writing file at: /dagster_project/storage/clean_csv_data_regional using PickledObjectFilesystemIOManager...
+2025-09-15 21:43:56 +0000 - dagster - INFO - __ASSET_JOB - dac96814-fdac-4ff3-b1e5-808b01a123a2 - mongodb_data_ofertas - ✅ Insertados 50 documentos en MongoDB
+2025-09-15 21:43:56 +0000 - dagster - INFO - __ASSET_JOB - dac96814-fdac-4ff3-b1e5-808b01a123a2 - duckdb_data_ofertas - 📊 50 registros insertados
+2025-09-15 21:43:56 +0000 - dagster - DEBUG - __ASSET_JOB - dac96814-fdac-4ff3-b1e5-808b01a123a2 - 4799 - mongodb_data_ofertas - STEP_OUTPUT - Yielded output "result" of type "Any". (Type check passed).
+2025-09-15 21:43:56 +0000 - dagster - DEBUG - __ASSET_JOB - dac96814-fdac-4ff3-b1e5-808b01a123a2 - 4776 - mongodb_data_regional - ASSET_MATERIALIZATION - Materialized value mongodb_data_regional.
+2025-09-15 21:43:56 +0000 - dagster - DEBUG - __ASSET_JOB - dac96814-fdac-4ff3-b1e5-808b01a123a2 - 4774 - duckdb_data_regional - ASSET_MATERIALIZATION - Materialized value duckdb_data_regional.
+2025-09-15 21:43:56 +0000 - dagster - DEBUG - __ASSET_JOB - dac96814-fdac-4ff3-b1e5-808b01a123a2 - 4776 - mongodb_data_regional - HANDLED_OUTPUT - Handled output "result" using IO manager "io_manager"
+2025-09-15 21:43:56 +0000 - dagster - DEBUG - __ASSET_JOB - dac96814-fdac-4ff3-b1e5-808b01a123a2 - mongodb_data_ofertas - Writing file at: /dagster_project/storage/mongodb_data_ofertas using PickledObjectFilesystemIOManager...
+2025-09-15 21:43:56 +0000 - dagster - DEBUG - __ASSET_JOB - dac96814-fdac-4ff3-b1e5-808b01a123a2 - 4798 - duckdb_data_ofertas - STEP_OUTPUT - Yielded output "result" of type "Any". (Type check passed).
+2025-09-15 21:43:56 +0000 - dagster - DEBUG - __ASSET_JOB - dac96814-fdac-4ff3-b1e5-808b01a123a2 - 4776 - mongodb_data_regional - STEP_SUCCESS - Finished execution of step "mongodb_data_regional" in 954ms.
+2025-09-15 21:43:56 +0000 - dagster - DEBUG - __ASSET_JOB - dac96814-fdac-4ff3-b1e5-808b01a123a2 - 4774 - duckdb_data_regional - HANDLED_OUTPUT - Handled output "result" using IO manager "io_manager"
+2025-09-15 21:43:56 +0000 - dagster - DEBUG - __ASSET_JOB - dac96814-fdac-4ff3-b1e5-808b01a123a2 - 4772 - clean_csv_data_regional - ASSET_MATERIALIZATION - Materialized value clean_csv_data_regional.
+2025-09-15 21:43:56 +0000 - dagster - DEBUG - __ASSET_JOB - dac96814-fdac-4ff3-b1e5-808b01a123a2 - duckdb_data_ofertas - Writing file at: /dagster_project/storage/duckdb_data_ofertas using PickledObjectFilesystemIOManager...
+2025-09-15 21:43:56 +0000 - dagster - DEBUG - __ASSET_JOB - dac96814-fdac-4ff3-b1e5-808b01a123a2 - 4772 - clean_csv_data_regional - HANDLED_OUTPUT - Handled output "result" using IO manager "io_manager"
+2025-09-15 21:43:56 +0000 - dagster - DEBUG - __ASSET_JOB - dac96814-fdac-4ff3-b1e5-808b01a123a2 - postgres_data_ofertas - Loading file from: /dagster_project/storage/clean_data_ofertas using PickledObjectFilesystemIOManager...
+2025-09-15 21:43:56 +0000 - dagster - DEBUG - __ASSET_JOB - dac96814-fdac-4ff3-b1e5-808b01a123a2 - 4774 - duckdb_data_regional - STEP_SUCCESS - Finished execution of step "duckdb_data_regional" in 851ms.
+2025-09-15 21:43:56 +0000 - dagster - DEBUG - __ASSET_JOB - dac96814-fdac-4ff3-b1e5-808b01a123a2 - 4772 - clean_csv_data_regional - STEP_SUCCESS - Finished execution of step "clean_csv_data_regional" in 705ms.
+2025-09-15 21:43:56 +0000 - dagster - DEBUG - __ASSET_JOB - dac96814-fdac-4ff3-b1e5-808b01a123a2 - 4799 - mongodb_data_ofertas - ASSET_MATERIALIZATION - Materialized value mongodb_data_ofertas.
+2025-09-15 21:43:56 +0000 - dagster - DEBUG - __ASSET_JOB - dac96814-fdac-4ff3-b1e5-808b01a123a2 - 4817 - postgres_data_ofertas - LOADED_INPUT - Loaded input "clean_data_ofertas" using input manager "io_manager", from output "result" of step "clean_data_ofertas"
+2025-09-15 21:43:56 +0000 - dagster - DEBUG - __ASSET_JOB - dac96814-fdac-4ff3-b1e5-808b01a123a2 - 4799 - mongodb_data_ofertas - HANDLED_OUTPUT - Handled output "result" using IO manager "io_manager"
+2025-09-15 21:43:57 +0000 - dagster - DEBUG - __ASSET_JOB - dac96814-fdac-4ff3-b1e5-808b01a123a2 - 4817 - postgres_data_ofertas - STEP_INPUT - Got input "clean_data_ofertas" of type "DataFrame". (Type check passed).
+2025-09-15 21:43:57 +0000 - dagster - DEBUG - __ASSET_JOB - dac96814-fdac-4ff3-b1e5-808b01a123a2 - 4799 - mongodb_data_ofertas - STEP_SUCCESS - Finished execution of step "mongodb_data_ofertas" in 997ms.
+2025-09-15 21:43:57 +0000 - dagster - DEBUG - __ASSET_JOB - dac96814-fdac-4ff3-b1e5-808b01a123a2 - 4798 - duckdb_data_ofertas - ASSET_MATERIALIZATION - Materialized value duckdb_data_ofertas.
+2025-09-15 21:43:57 +0000 - dagster - INFO - __ASSET_JOB - dac96814-fdac-4ff3-b1e5-808b01a123a2 - postgres_data_ofertas - 🗄️ Cargando a PostgreSQL...
+2025-09-15 21:43:57 +0000 - dagster - INFO - __ASSET_JOB - dac96814-fdac-4ff3-b1e5-808b01a123a2 - postgres_data_ofertas - 🔗 Conectando a: postgres:5432/etl_database
+2025-09-15 21:43:57 +0000 - dagster - DEBUG - __ASSET_JOB - dac96814-fdac-4ff3-b1e5-808b01a123a2 - 4798 - duckdb_data_ofertas - HANDLED_OUTPUT - Handled output "result" using IO manager "io_manager"
+2025-09-15 21:43:57 +0000 - dagster - DEBUG - __ASSET_JOB - dac96814-fdac-4ff3-b1e5-808b01a123a2 - 4798 - duckdb_data_ofertas - STEP_SUCCESS - Finished execution of step "duckdb_data_ofertas" in 969ms.
+2025-09-15 21:43:57 +0000 - dagster - INFO - __ASSET_JOB - dac96814-fdac-4ff3-b1e5-808b01a123a2 - postgres_data_ofertas - ✅ Cargados 50 registros a PostgreSQL
+2025-09-15 21:43:57 +0000 - dagster - DEBUG - __ASSET_JOB - dac96814-fdac-4ff3-b1e5-808b01a123a2 - 4817 - postgres_data_ofertas - STEP_OUTPUT - Yielded output "result" of type "Any". (Type check passed).
+2025-09-15 21:43:57 +0000 - dagster - DEBUG - __ASSET_JOB - dac96814-fdac-4ff3-b1e5-808b01a123a2 - postgres_data_ofertas - Writing file at: /dagster_project/storage/postgres_data_ofertas using PickledObjectFilesystemIOManager...
+2025-09-15 21:43:57 +0000 - dagster - DEBUG - __ASSET_JOB - dac96814-fdac-4ff3-b1e5-808b01a123a2 - 4817 - postgres_data_ofertas - ASSET_MATERIALIZATION - Materialized value postgres_data_ofertas.
+2025-09-15 21:43:57 +0000 - dagster - DEBUG - __ASSET_JOB - dac96814-fdac-4ff3-b1e5-808b01a123a2 - 4817 - postgres_data_ofertas - HANDLED_OUTPUT - Handled output "result" using IO manager "io_manager"
+2025-09-15 21:43:57 +0000 - dagster - DEBUG - __ASSET_JOB - dac96814-fdac-4ff3-b1e5-808b01a123a2 - 4817 - postgres_data_ofertas - STEP_SUCCESS - Finished execution of step "postgres_data_ofertas" in 1.06s.
+2025-09-15 21:43:59 +0000 - dagster - DEBUG - __ASSET_JOB - dac96814-fdac-4ff3-b1e5-808b01a123a2 - 4343 - ENGINE_EVENT - Multiprocess executor: parent process exiting after 16.12s (pid: 4343)
+2025-09-15 21:43:59 +0000 - dagster - ERROR - __ASSET_JOB - dac96814-fdac-4ff3-b1e5-808b01a123a2 - 4343 - RUN_FAILURE - Execution of run for "__ASSET_JOB" failed. Steps failed: ['postgres_data_regional'].
+[32m2025-09-15 21:44:38 +0000[0m - dagster - [34mWARNING[0m - /venv/lib/python3.11/site-packages/dagster/_core/definitions/antlr_asset_selection/antlr_asset_selection.py:92: BetaWarning: Parameter `include_sources` of function `AssetSelection.all` is currently in beta, and may have breaking changes in minor version releases, with behavior changes in patch releases.
+  return AssetSelection.all(include_sources=self.include_sources)
+
+[32m2025-09-15 21:44:52 +0000[0m - dagster.daemon.QueuedRunCoordinatorDaemon - [34mINFO[0m - Priority sorting and checking tag concurrency limits for queued runs.
+[32m2025-09-15 21:44:53 +0000[0m - dagster.daemon.QueuedRunCoordinatorDaemon - [34mINFO[0m - Launched 1 runs.
+/venv/lib/python3.11/site-packages/dagster/_core/definitions/antlr_asset_selection/antlr_asset_selection.py:92: BetaWarning: Parameter `include_sources` of function `AssetSelection.all` is currently in beta, and may have breaking changes in minor version releases, with behavior changes in patch releases.
+  return AssetSelection.all(include_sources=self.include_sources)
+2025-09-15 21:44:53 +0000 - dagster - DEBUG - __ASSET_JOB - d34608b6-c05c-4a0e-a06e-40c22e1134c7 - 7169 - RUN_START - Started execution of run for "__ASSET_JOB".
+2025-09-15 21:44:53 +0000 - dagster - DEBUG - __ASSET_JOB - d34608b6-c05c-4a0e-a06e-40c22e1134c7 - 7169 - ENGINE_EVENT - Executing steps using multiprocess executor: parent process (pid: 7169)
+2025-09-15 21:44:53 +0000 - dagster - DEBUG - __ASSET_JOB - d34608b6-c05c-4a0e-a06e-40c22e1134c7 - 7169 - postgres_data_regional - STEP_WORKER_STARTING - Launching subprocess for "postgres_data_regional".
+2025-09-15 21:44:54 +0000 - dagster - DEBUG - __ASSET_JOB - d34608b6-c05c-4a0e-a06e-40c22e1134c7 - 7214 - postgres_data_regional - STEP_WORKER_STARTED - Executing step "postgres_data_regional" in subprocess.
+/venv/lib/python3.11/site-packages/dagster/_core/definitions/antlr_asset_selection/antlr_asset_selection.py:92: BetaWarning: Parameter `include_sources` of function `AssetSelection.all` is currently in beta, and may have breaking changes in minor version releases, with behavior changes in patch releases.
+  return AssetSelection.all(include_sources=self.include_sources)
+2025-09-15 21:44:55 +0000 - dagster - DEBUG - __ASSET_JOB - d34608b6-c05c-4a0e-a06e-40c22e1134c7 - 7214 - postgres_data_regional - RESOURCE_INIT_STARTED - Starting initialization of resources [io_manager].
+2025-09-15 21:44:55 +0000 - dagster - DEBUG - __ASSET_JOB - d34608b6-c05c-4a0e-a06e-40c22e1134c7 - 7214 - postgres_data_regional - RESOURCE_INIT_SUCCESS - Finished initialization of resources [io_manager].
+2025-09-15 21:44:55 +0000 - dagster - DEBUG - __ASSET_JOB - d34608b6-c05c-4a0e-a06e-40c22e1134c7 - 7214 - ENGINE_EVENT - Exception while setting up compute log capture
+
+NotADirectoryError: [Errno 20] Not a directory: '/dagster_project/metadata/compute_logs/d34608b6-c05c-4a0e-a06e-40c22e1134c7'
+
+Stack Trace:
+  File "/venv/lib/python3.11/site-packages/dagster/_core/execution/plan/execute_plan.py", line 50, in inner_plan_execution_iterator
+    log_context = capture_stack.enter_context(compute_log_manager.capture_logs(log_key))
+                  ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/local/lib/python3.11/contextlib.py", line 517, in enter_context
+    result = _enter(cm)
+             ^^^^^^^^^^
+  File "/usr/local/lib/python3.11/contextlib.py", line 137, in __enter__
+    return next(self.gen)
+           ^^^^^^^^^^^^^^
+  File "/venv/lib/python3.11/site-packages/dagster/_core/storage/local_compute_log_manager.py", line 85, in capture_logs
+    with mirror_stream_to_file(sys.stdout, outpath), mirror_stream_to_file(sys.stderr, errpath):
+  File "/usr/local/lib/python3.11/contextlib.py", line 137, in __enter__
+    return next(self.gen)
+           ^^^^^^^^^^^^^^
+  File "/venv/lib/python3.11/site-packages/dagster/_core/execution/compute_logs.py", line 39, in mirror_stream_to_file
+    ensure_file(filepath)
+  File "/venv/lib/python3.11/site-packages/dagster/_utils/__init__.py", line 338, in ensure_file
+    ensure_dir(os.path.dirname(path))
+  File "/venv/lib/python3.11/site-packages/dagster/_utils/__init__.py", line 330, in ensure_dir
+    os.makedirs(file_path)
+  File "<frozen os>", line 215, in makedirs
+  File "<frozen os>", line 225, in makedirs
+
+2025-09-15 21:44:55 +0000 - dagster - DEBUG - __ASSET_JOB - d34608b6-c05c-4a0e-a06e-40c22e1134c7 - 7214 - postgres_data_regional - STEP_START - Started execution of step "postgres_data_regional".
+2025-09-15 21:44:55 +0000 - dagster - DEBUG - __ASSET_JOB - d34608b6-c05c-4a0e-a06e-40c22e1134c7 - postgres_data_regional - Loading file from: /dagster_project/storage/clean_data_regional using PickledObjectFilesystemIOManager...
+2025-09-15 21:44:55 +0000 - dagster - DEBUG - __ASSET_JOB - d34608b6-c05c-4a0e-a06e-40c22e1134c7 - 7214 - postgres_data_regional - LOADED_INPUT - Loaded input "clean_data_regional" using input manager "io_manager"
+2025-09-15 21:44:55 +0000 - dagster - DEBUG - __ASSET_JOB - d34608b6-c05c-4a0e-a06e-40c22e1134c7 - 7214 - postgres_data_regional - STEP_INPUT - Got input "clean_data_regional" of type "DataFrame". (Type check passed).
+2025-09-15 21:44:55 +0000 - dagster - INFO - __ASSET_JOB - d34608b6-c05c-4a0e-a06e-40c22e1134c7 - postgres_data_regional - 🗄️ Cargando a PostgreSQL...
+2025-09-15 21:44:55 +0000 - dagster - INFO - __ASSET_JOB - d34608b6-c05c-4a0e-a06e-40c22e1134c7 - postgres_data_regional - 🔗 Conectando a: postgres:5432/etl_database
+2025-09-15 21:44:55 +0000 - dagster - INFO - __ASSET_JOB - d34608b6-c05c-4a0e-a06e-40c22e1134c7 - postgres_data_regional - ✅ Cargados 40 registros a PostgreSQL
+2025-09-15 21:44:55 +0000 - dagster - DEBUG - __ASSET_JOB - d34608b6-c05c-4a0e-a06e-40c22e1134c7 - 7214 - postgres_data_regional - STEP_OUTPUT - Yielded output "result" of type "Any". (Type check passed).
+2025-09-15 21:44:55 +0000 - dagster - DEBUG - __ASSET_JOB - d34608b6-c05c-4a0e-a06e-40c22e1134c7 - postgres_data_regional - Writing file at: /dagster_project/storage/postgres_data_regional using PickledObjectFilesystemIOManager...
+2025-09-15 21:44:55 +0000 - dagster - DEBUG - __ASSET_JOB - d34608b6-c05c-4a0e-a06e-40c22e1134c7 - 7214 - postgres_data_regional - ASSET_MATERIALIZATION - Materialized value postgres_data_regional.
+2025-09-15 21:44:55 +0000 - dagster - DEBUG - __ASSET_JOB - d34608b6-c05c-4a0e-a06e-40c22e1134c7 - 7214 - postgres_data_regional - HANDLED_OUTPUT - Handled output "result" using IO manager "io_manager"
+2025-09-15 21:44:55 +0000 - dagster - DEBUG - __ASSET_JOB - d34608b6-c05c-4a0e-a06e-40c22e1134c7 - 7214 - postgres_data_regional - STEP_SUCCESS - Finished execution of step "postgres_data_regional" in 242ms.
+2025-09-15 21:44:55 +0000 - dagster - DEBUG - __ASSET_JOB - d34608b6-c05c-4a0e-a06e-40c22e1134c7 - 7169 - ENGINE_EVENT - Multiprocess executor: parent process exiting after 1.73s (pid: 7169)
+2025-09-15 21:44:55 +0000 - dagster - DEBUG - __ASSET_JOB - d34608b6-c05c-4a0e-a06e-40c22e1134c7 - 7169 - RUN_SUCCESS - Finished execution of run for "__ASSET_JOB".
+[32m2025-09-15 21:45:40 +0000[0m - dagster - [34mWARNING[0m - /venv/lib/python3.11/site-packages/dagster/_core/definitions/antlr_asset_selection/antlr_asset_selection.py:92: BetaWarning: Parameter `include_sources` of function `AssetSelection.all` is currently in beta, and may have breaking changes in minor version releases, with behavior changes in patch releases.
+  return AssetSelection.all(include_sources=self.include_sources)
+
+[32m2025-09-15 21:46:41 +0000[0m - dagster - [34mWARNING[0m - /venv/lib/python3.11/site-packages/dagster/_core/definitions/antlr_asset_selection/antlr_asset_selection.py:92: BetaWarning: Parameter `include_sources` of function `AssetSelection.all` is currently in beta, and may have breaking changes in minor version releases, with behavior changes in patch releases.
+  return AssetSelection.all(include_sources=self.include_sources)
+
+[32m2025-09-15 21:47:42 +0000[0m - dagster - [34mWARNING[0m - /venv/lib/python3.11/site-packages/dagster/_core/definitions/antlr_asset_selection/antlr_asset_selection.py:92: BetaWarning: Parameter `include_sources` of function `AssetSelection.all` is currently in beta, and may have breaking changes in minor version releases, with behavior changes in patch releases.
+  return AssetSelection.all(include_sources=self.include_sources)
+
+[32m2025-09-15 21:48:43 +0000[0m - dagster - [34mWARNING[0m - /venv/lib/python3.11/site-packages/dagster/_core/definitions/antlr_asset_selection/antlr_asset_selection.py:92: BetaWarning: Parameter `include_sources` of function `AssetSelection.all` is currently in beta, and may have breaking changes in minor version releases, with behavior changes in patch releases.
+  return AssetSelection.all(include_sources=self.include_sources)
+
+[32m2025-09-15 21:49:45 +0000[0m - dagster - [34mWARNING[0m - /venv/lib/python3.11/site-packages/dagster/_core/definitions/antlr_asset_selection/antlr_asset_selection.py:92: BetaWarning: Parameter `include_sources` of function `AssetSelection.all` is currently in beta, and may have breaking changes in minor version releases, with behavior changes in patch releases.
+  return AssetSelection.all(include_sources=self.include_sources)
+

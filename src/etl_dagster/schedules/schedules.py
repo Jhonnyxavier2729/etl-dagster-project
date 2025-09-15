@@ -1,5 +1,5 @@
 from dagster import ScheduleDefinition
-from jobs import job_all_assets, job_centro, job_ofertas, job_regional
+from etl_dagster.jobs.jobs import job_all_assets, job_centro, job_ofertas, job_regional
 
 all_schedules = [
     ScheduleDefinition(

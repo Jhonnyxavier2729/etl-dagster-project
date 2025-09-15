@@ -20,16 +20,9 @@ logs/
 .DS_Store
 Thumbs.db
 
-# Ignore data and database files
-/data/
-/duckdb/
-
 # Ignore images
 /images/
 
 # Ignore test and temp files
 *.tmp
 *.bak
-
-# Ignore environment files
-.env

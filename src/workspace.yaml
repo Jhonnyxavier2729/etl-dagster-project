@@ -1,3 +1,4 @@
 load_from:
   - python_file: 
-       relative_path: "definitions.py"
+      working_directory: "/dagster_project"
+      relative_path: "etl_dagster/definitions.py"

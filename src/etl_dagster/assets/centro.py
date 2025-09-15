@@ -1,17 +1,17 @@
 from dagster import asset, AssetExecutionContext
 import pandas as pd
 from pymongo import MongoClient
-from sqlalchemy import create_engine, exc
+from sqlalchemy import create_engine, exc, text
 import duckdb
 import os
 
-@asset(group_name="ofertas")
-def raw_data_ofertas(context: AssetExecutionContext):
+@asset(group_name="centro")
+def raw_data_centro(context: AssetExecutionContext):
     """Extraer datos del CSV con detección automática inteligente"""
-    context.log.info("📥 Extrayendo datos del CSV ofertas...")
+    context.log.info("📥 Extrayendo datos del CSV centro...")
     
     try:
-        file_path = '/data/input/ofertas.csv'
+        file_path = '/dagster_project/data/input/centro.csv'
         
         # ✅ MÉTODO INTELIGENTE - pandas detecta automáticamente
         df = pd.read_csv(file_path, sep=None, engine='python')
@@ -33,14 +33,14 @@ def raw_data_ofertas(context: AssetExecutionContext):
 
 
 #asset para transformar y limpiar datos
-@asset(group_name="ofertas")
-def clean_data_ofertas(context: AssetExecutionContext, raw_data_ofertas: pd.DataFrame):
+@asset(group_name="centro")
+def clean_data_centro(context: AssetExecutionContext, raw_data_centro: pd.DataFrame):
     """Transformar y limpiar datos - Depende de raw_data"""
     context.log.info("🔄 Iniciando transformación de datos...")
     
     try:
         # Hacer copia del DataFrame original
-        df_clean = raw_data_ofertas.copy()
+        df_clean = raw_data_centro.copy()
         
         context.log.info(f"📥 Datos recibidos: {df_clean.shape[0]} filas x {df_clean.shape[1]} columnas")
         
@@ -58,9 +58,7 @@ def clean_data_ofertas(context: AssetExecutionContext, raw_data_ofertas: pd.Data
             '': 'NA',         # Strings vacíos
             ' ': 'NA',        # Espacios en blanco
             '  ': 'NA',       # Múltiples espacios
-            '@': 'NA',         # Arrobas sueltas
-            '0000000': 'NA'   # Ceros sueltos
-
+        
         })
         
         
@@ -86,13 +84,13 @@ def clean_data_ofertas(context: AssetExecutionContext, raw_data_ofertas: pd.Data
 
 
 #Asset para guardar el CSV limpio
-@asset(group_name="ofertas")
-def clean_csv_data_ofertas(context: AssetExecutionContext, clean_data_ofertas: pd.DataFrame):
+@asset(group_name="centro")
+def clean_csv_data_centro(context: AssetExecutionContext, clean_data_centro: pd.DataFrame):
     """Guardar CSV limpio - Depende de clean_data"""
     context.log.info("💾 Guardando CSV limpio...")
     try:
-        output_path = '/data/output/ofertas_limpio.csv'
-        clean_data_ofertas.to_csv(output_path, index=False, encoding='utf-8')
+        output_path = '/dagster_project/data/output/centro_limpio.csv'
+        clean_data_centro.to_csv(output_path, index=False, encoding='utf-8')
         context.log.info(f"✅ CSV guardado en: {output_path}")
         return output_path
     except Exception as e:
@@ -101,8 +99,8 @@ def clean_csv_data_ofertas(context: AssetExecutionContext, clean_data_ofertas: p
 
 
 #asset para cargar a MongoDB
-@asset(group_name="ofertas")
-def mongodb_data_ofertas(context: AssetExecutionContext, clean_data_ofertas: pd.DataFrame):
+@asset(group_name="centro")
+def mongodb_data_centro(context: AssetExecutionContext, clean_data_centro: pd.DataFrame):
     """Cargar a MongoDB - Depende de clean_data"""
     context.log.info("🍃 Cargando a MongoDB...")
     
@@ -126,7 +124,7 @@ def mongodb_data_ofertas(context: AssetExecutionContext, clean_data_ofertas: pd.
         context.log.info("✅ Conexión a MongoDB verificada")
         
         db = client['etl_database']
-        collection = db['ofertas_limpios']
+        collection = db['centro_limpios']
         
         # ✅ Contar documentos antes de borrar
         count_before = collection.count_documents({})
@@ -134,8 +132,8 @@ def mongodb_data_ofertas(context: AssetExecutionContext, clean_data_ofertas: pd.
             context.log.info(f"🗑️ Eliminando {count_before} documentos existentes")
         
         collection.delete_many({})
-        collection.insert_many(clean_data_ofertas.to_dict('records'))
-        
+        collection.insert_many(clean_data_centro.to_dict('records'))
+
         # ✅ Verificar inserción
         count_after = collection.count_documents({})
         context.log.info(f"✅ Insertados {count_after} documentos en MongoDB")
@@ -155,8 +153,8 @@ def mongodb_data_ofertas(context: AssetExecutionContext, clean_data_ofertas: pd.
 
     
 #Asset para cargar a PostgreSQL
-@asset(group_name="ofertas")
-def postgres_data_ofertas(context: AssetExecutionContext, clean_data_ofertas: pd.DataFrame):
+@asset(group_name="centro")
+def postgres_data_centro(context: AssetExecutionContext, clean_data_centro: pd.DataFrame):
     """Cargar a PostgreSQL - Depende de clean_data"""
     context.log.info("🗄️ Cargando a PostgreSQL...")
     
@@ -173,11 +171,11 @@ def postgres_data_ofertas(context: AssetExecutionContext, clean_data_ofertas: pd
         engine = create_engine(postgres_uri)
         
         # ✅ Cargar datos
-        clean_data_ofertas.to_sql('ofertas_limpios', engine, if_exists='replace', index=False)
+        clean_data_centro.to_sql('centro_limpios', engine, if_exists='replace', index=False)
 
         # ✅ Verificar que se cargaron los datos
         with engine.connect() as conn:
-            count = conn.execute("SELECT COUNT(*) FROM ofertas_limpios").scalar()
+            count = conn.execute(text("SELECT COUNT(*) FROM centro_limpios")).scalar()
         
         context.log.info(f"✅ Cargados {count} registros a PostgreSQL")
         return True
@@ -194,8 +192,8 @@ def postgres_data_ofertas(context: AssetExecutionContext, clean_data_ofertas: pd
 
 
 #asset para cargar a duckdb
-@asset(group_name="ofertas")
-def duckdb_data_ofertas(context: AssetExecutionContext, clean_data_ofertas: pd.DataFrame):
+@asset(group_name="centro")
+def duckdb_data_centro(context: AssetExecutionContext, clean_data_centro: pd.DataFrame):
     """Cargar a DuckDB - Depende de clean_data"""
     context.log.info("🦆 Cargando a DuckDB...")
     
@@ -203,11 +201,11 @@ def duckdb_data_ofertas(context: AssetExecutionContext, clean_data_ofertas: pd.D
         # Volver a la conexión local (no por red)
         con = duckdb.connect('/duckdb/data.db')  # ← ARCHIVO LOCAL
         context.log.info("✅ Conectado a DuckDB local")
+        
+        con.register('temp_clean_data', clean_data_centro)
+        con.execute("CREATE OR REPLACE TABLE centro_limpios AS SELECT * FROM temp_clean_data")
 
-        con.register('temp_clean_data', clean_data_ofertas)
-        con.execute("CREATE OR REPLACE TABLE ofertas_limpios AS SELECT * FROM temp_clean_data")
-
-        count = con.execute("SELECT COUNT(*) FROM ofertas_limpios").fetchone()[0]
+        count = con.execute("SELECT COUNT(*) FROM centro_limpios").fetchone()[0]
         context.log.info(f"📊 {count} registros insertados")
         
         con.close()

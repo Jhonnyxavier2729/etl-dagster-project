@@ -14,4 +14,5 @@ echo "Dagster-metadata database is ready. Starting migration..."
 dagster instance migrate
 
 # Start the Dagster webserver and daemon
-dagster-webserver start -h 0.0.0.0 -p 80 -w /dagster_project/config/load_definitions.yaml
+nohup dagster-daemon run -w /dagster_project/src/workspace.yaml > $DAGSTER_HOME/metadata/compute_logs 2>&1 &
+dagster-webserver -h 0.0.0.0 -p 80 -w /dagster_project/src/workspace.yaml
