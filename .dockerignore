@@ -1,0 +1,35 @@
+# Ignore Python cache and artifacts
+__pycache__/
+*.pyc
+*.pyo
+
+# Ignore virtual environments
+venv/
+
+# Ignore logs
+*.log
+logs/
+
+# Ignore IDE/editor files
+.vscode/
+.idea/
+*.swp
+*.swo
+
+# Ignore system files
+.DS_Store
+Thumbs.db
+
+# Ignore data and database files
+/data/
+/duckdb/
+
+# Ignore images
+/images/
+
+# Ignore test and temp files
+*.tmp
+*.bak
+
+# Ignore environment files
+.env

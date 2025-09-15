@@ -1,61 +1,69 @@
 services:
-  # Dagster como orquestador
-  dagster:
-    build:
-      context: ./dagster/infra  # ← Contexto DONDE está el Dockerfile y requirements.txt
-      dockerfile: Dockerfile  # ← Nombre del archivo (está en el mismo directorio)
-    container_name: dagster-orchestrator
-    volumes:
-      - ./dagster:/opt/dagster/app 
-      - ./data:/data
-      - ./duckdb:/duckdb
-      - /var/run/docker.sock:/var/run/docker.sock
-    ports:
-      - "3000:3000"
+  # PostgreSQL 16 for ETL DATA
+  postgres:
+    image: postgres:16
+    container_name: postgres
     env_file:
-      - .env  # ✅ Cargar variables desde archivo .env
+      - .env
     environment:
-      - DAGSTER_HOME=/opt/dagster/app/metadata
-      - DAGSTER_DAGIT_HOST=0.0.0.0
-      - DAGSTER_DAGIT_PORT=3000
-      - DAGSTER_PG_HOST=postgres-dagster
-      - DAGSTER_PG_DB=dagster_metadata
-      - DAGSTER_PG_USER=${DAGSTER_PG_USER:-dagster}
-      - DAGSTER_PG_PASSWORD=${DAGSTER_PG_PASSWORD:-dagster_pass} 
-      - DAGSTER_PG_PORT=5432
-      - MONGO_URI=${MONGO_URI}  # ✅ Para MongoDB data
-      - POSTGRES_URI=${POSTGRES_URI}  # ✅ Para PostgreSQL data
-    command: >
-      sh -c "nohup dagster-daemon run --python-file /opt/dagster/app/definitions.py > /opt/dagster/app/dagster-daemon.log 2>&1 &
-         dagster-webserver -h 0.0.0.0 -p 3000 -w /opt/dagster/app/infra/workspace.yaml"
-    depends_on:
-      postgres-dagster:
-        condition: service_healthy
-      postgres-db:
-        condition: service_healthy
-      mongodb:
-        condition: service_healthy
+      POSTGRES_DB: etl_database
+      POSTGRES_USER: ${ETL_POSTGRES_USER:-admin}
+      POSTGRES_PASSWORD: ${ETL_POSTGRES_PASSWORD:-etl_password_2025}
+      POSTGRES_HOST_AUTH_METHOD: scram-sha-256
+    volumes:
+      - postgres-data:/var/lib/postgresql/data
+    ports:
+      - "5432:5432"
     networks:
       - etl-network
     restart: unless-stopped
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U ${POSTGRES_USER:-admin} -d etl_database"]
+      interval: 10s
+      timeout: 5s
+      retries: 5
+      start_period: 10s
 
-  # Worker ETL con Python 3.11
+  # MongoDB 7 for ETL DATA
+  mongodb:
+    image: mongo:7
+    container_name: mongodb
+    env_file:
+      - .env
+    environment:
+      MONGO_INITDB_ROOT_USERNAME: ${MONGO_INITDB_ROOT_USERNAME:-admin}
+      MONGO_INITDB_ROOT_PASSWORD: ${MONGO_INITDB_ROOT_PASSWORD:-etl_password_2025}
+      MONGO_INITDB_DATABASE: etl_database
+    volumes:
+      - mongodb-data:/data/db
+    ports:
+      - "27017:27017"
+    networks:
+      - etl-network
+    restart: unless-stopped
+    healthcheck:
+      test: ["CMD", "mongosh", "--eval", "db.adminCommand({ping:1})"]
+      interval: 10s
+      timeout: 10s
+      retries: 5
+      start_period: 15s
+
+  # ETL Worker with Python 3.11
   etl-worker:
     build:
-      context: ./etl-worker
+      context: ./
       dockerfile: Dockerfile
     container_name: etl-worker
     volumes:
       - ./data:/data
-      - ./duckdb:/duckdb
     networks:
       - etl-network
     env_file:
-      - .env  # ✅ Cargar variables desde archivo .env
+      - .env
     environment:
       - PYTHONUNBUFFERED=1
-      - POSTGRES_URI=${POSTGRES_URI}  # ✅ Para PostgreSQL data
-      - MONGO_URI=${MONGO_URI}  # ✅ Para MongoDB data
+      - POSTGRES_URI=${POSTGRES_URI}
+      - MONGO_URI=${MONGO_URI}
     restart: unless-stopped
     healthcheck:
       test: ["CMD", "python", "-c", "import sys; sys.exit(0)"]
@@ -64,19 +72,57 @@ services:
       retries: 3
       start_period: 40s
     depends_on:
-      postgres-db:
+      postgres:
         condition: service_healthy
       mongodb:
         condition: service_healthy
 
-  # PostgreSQL para METADATA de DAGSTER
-  postgres-dagster:
-    image: postgres:16
-    container_name: postgres-dagster
+  # Dagster as orchestrator
+  dagster:
+    build:
+      context: ./
+      dockerfile: Dockerfile
+    container_name: dagster
+    volumes:
+      - ./src:/dagster_project/src
+      - ./data:/data
+      - duckdb-data:/duckdb
+      - /var/run/docker.sock:/var/run/docker.sock
+    command: ["sh", "-c", "config/dagster_daemon_migrate.sh"]
     env_file:
-      - .env  # ✅ Cargar variables desde archivo .env
+      - .env
     environment:
-      POSTGRES_DB: dagster_metadata
+      DAGSTER_HOME: ${DAGSTER_HOME}
+      DAGSTER_DAGIT_HOST: 0.0.0.0
+      DAGSTER_DAGIT_PORT: 80
+      DAGSTER_PG_HOST: dagster-metadata-postgres
+      DAGSTER_PG_DB: dagster-metadata
+      DAGSTER_PG_USER: ${DAGSTER_PG_USER:-admin}
+      DAGSTER_PG_PASSWORD: ${DAGSTER_PG_PASSWORD:-etl_password_2025}
+      DAGSTER_PG_PORT: 5432
+      MONGO_URI: ${MONGO_URI}
+      POSTGRES_URI: ${POSTGRES_URI}
+    ports:
+      - "8000:80"
+    depends_on:
+      postgres:
+        condition: service_healthy
+      mongodb:
+        condition: service_healthy
+      dagster-metadata-postgres:
+        condition: service_healthy
+    networks:
+      - etl-network
+    restart: unless-stopped
+
+  # Dagster metadata (PostgreSQL)
+  dagster-metadata-postgres:
+    image: postgres:16
+    container_name: dagster-metadata-postgres
+    env_file:
+      - .env
+    environment:
+      POSTGRES_DB: dagster-metadata
       POSTGRES_USER: ${DAGSTER_PG_USER:-dagster}
       POSTGRES_PASSWORD: ${DAGSTER_PG_PASSWORD:-dagster_pass}
       POSTGRES_HOST_AUTH_METHOD: scram-sha-256
@@ -88,72 +134,22 @@ services:
       - etl-network
     restart: unless-stopped
     healthcheck:
-      test: ["CMD-SHELL", "pg_isready -U ${DAGSTER_PG_USER:-dagster} -d dagster_metadata"]
+      test: ["CMD-SHELL", "pg_isready -U ${DAGSTER_PG_USER:-dagster} -d dagster-metadata"]
       interval: 10s
       timeout: 5s
       retries: 5
       start_period: 10s
-
-  # PostgreSQL 16 para DATOS ETL
-  postgres-db:
-    image: postgres:16
-    container_name: postgres-db
-    env_file:
-      - .env  # ✅ Cargar variables desde archivo .env
-    environment:
-      POSTGRES_DB: etl_database
-      POSTGRES_USER: ${ETL_POSTGRES_USER:-etl_user}
-      POSTGRES_PASSWORD: ${ETL_POSTGRES_PASSWORD:-etl_password_2024}
-      POSTGRES_HOST_AUTH_METHOD: scram-sha-256
-    volumes:
-      - postgres-data:/var/lib/postgresql/data
-    ports:
-      - "5432:5432"
-    networks:
-      - etl-network
-    restart: unless-stopped
-    healthcheck:
-      test: ["CMD-SHELL", "pg_isready -U ${POSTGRES_USER:-etl_user} -d etl_database"]
-      interval: 10s
-      timeout: 5s
-      retries: 5
-      start_period: 10s
-
-  # MongoDB 7
-  mongodb:
-    image: mongo:7
-    container_name: mongodb
-    env_file:
-      - .env  # ✅ Cargar variables desde archivo .env
-    environment:
-      MONGO_INITDB_ROOT_USERNAME: ${MONGO_INITDB_ROOT_USERNAME:-admin}
-      MONGO_INITDB_ROOT_PASSWORD: ${MONGO_INITDB_ROOT_PASSWORD:-mongo_password_2024}
-      MONGO_INITDB_DATABASE: etl_database
-    volumes:
-      - mongodb-data:/data/db
-    ports:
-      - "27017:27017"
-    networks:
-      - etl-network
-    restart: unless-stopped
-    healthcheck:
-      test: ["CMD", "mongosh", "--eval", "db.adminCommand('ping')"]
-      interval: 10s
-      timeout: 10s
-      retries: 5
-      start_period: 15s
 
 volumes:
   postgres-data:
     driver: local
+  mongodb-data:
+    driver: local
   postgres-dagster-data:
     driver: local
-  mongodb-data:
+  duckdb-data:
     driver: local
 
 networks:
   etl-network:
     driver: bridge
-    ipam:
-      config:
-        - subnet: 172.20.0.0/16
