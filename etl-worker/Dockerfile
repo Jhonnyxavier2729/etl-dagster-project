@@ -14,6 +14,8 @@ RUN apt-get update && apt-get install -y \
 
 # LUEGO instalar TUS dependencias desde requirements.txt
 COPY requirements.txt .
+
+
 RUN pip install --no-cache-dir -r requirements.txt
 
 

@@ -22,11 +22,11 @@ RUN pip install --no-cache-dir --upgrade pip && \
 
 # Instalar dependencias de TU proyecto desde requirements.txt
 COPY requirements.txt .
-# Copiar el código fuente (paquete dagster_project y configs)
-COPY ../ /opt/dagster/app
-
 
 RUN pip install --no-cache-dir -r requirements.txt
+
+# Copiar el código de tu proyecto
+COPY .. /opt/dagster/app
 
 # Crear directorios necesarios (MANTENER)
 RUN mkdir -p /data /duckdb

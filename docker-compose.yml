@@ -10,6 +10,7 @@ services:
       - ./data:/data
       - ./duckdb:/duckdb
       - /var/run/docker.sock:/var/run/docker.sock
+      - ./dagster/tests:/opt/dagster/app/tests  # ← Tests específicos ✅
     ports:
       - "3000:3000"
     env_file:
@@ -48,6 +49,7 @@ services:
     volumes:
       - ./data:/data
       - ./duckdb:/duckdb
+     
     networks:
       - etl-network
     env_file:

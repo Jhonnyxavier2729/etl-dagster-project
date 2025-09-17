@@ -12,7 +12,7 @@ def raw_data_centro(context: AssetExecutionContext):
     
     try:
         file_path = '/data/input/centro.csv'
-        
+
         # ✅ MÉTODO INTELIGENTE - pandas detecta automáticamente
         df = pd.read_csv(file_path, sep=None, engine='python')
         
@@ -213,4 +213,4 @@ def duckdb_data_centro(context: AssetExecutionContext, clean_data_centro: pd.Dat
         
     except Exception as e:
         context.log.error(f"❌ Error cargando a DuckDB: {e}")
-        raise
+        raise   
