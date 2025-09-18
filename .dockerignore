@@ -26,3 +26,7 @@ Thumbs.db
 # Ignore test and temp files
 *.tmp
 *.bak
+
+# Ignore environment files
+.env.*
+.env

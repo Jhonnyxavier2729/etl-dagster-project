@@ -22,3 +22,19 @@ logs/
 # Sistema
 .DS_Store
 Thumbs.db
+
+# Virtual environments and environment files
+.env
+.venv
+env/
+venv/
+
+# Metadata
+*.egg-info/
+metadata/
+
+# Database files
+*.sqlite3
+*.db
+*.duckdb
+

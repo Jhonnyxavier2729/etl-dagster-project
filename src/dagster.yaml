@@ -20,7 +20,7 @@ compute_logs:
   module: dagster.core.storage.local_compute_log_manager
   class: LocalComputeLogManager
   config:
-    base_dir: "/dagster_project/metadata/compute_logs"
+    base_dir: "/dagster_project/src/metadata/compute_logs"
 
 telemetry:
   enabled: false

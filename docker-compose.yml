@@ -32,7 +32,7 @@ services:
     environment:
       MONGO_INITDB_ROOT_USERNAME: ${MONGO_INITDB_ROOT_USERNAME:-juan-wills}
       MONGO_INITDB_ROOT_PASSWORD: ${MONGO_INITDB_ROOT_PASSWORD:-juan1234}
-      MONGO_INITDB_DATABASE: etl_database
+      MONGO_INITDB_DATABASE: ${MONGO_INITDB_DATABASE:-etl_database}
     volumes:
       - mongodb-data:/data/db
     ports:
@@ -86,7 +86,7 @@ services:
     container_name: dagster
     volumes:
       - ./:/dagster_project 
-      - duckdb-data:/duckdb
+      - ./data/duckdb:/data/duckdb
       - /var/run/docker.sock:/var/run/docker.sock
     env_file:
       - .env
@@ -146,8 +146,6 @@ volumes:
   mongodb-data:
     driver: local
   postgres-dagster-data:
-    driver: local
-  duckdb-data:
     driver: local
 
 networks:

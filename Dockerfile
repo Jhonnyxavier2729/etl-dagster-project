@@ -15,9 +15,8 @@ COPY requirements.txt .
 RUN python -m venv /venv && \
     . /venv/bin/activate && \
     pip install --no-cache-dir --upgrade pip && \
-    pip install --no-cache-dir -r requirements.txt && \
-    pip install "dagster==1.10.10" "dagster-webserver==1.10.10" "dagster-postgres" "dagster-docker"
-
+    pip install --no-cache-dir -r requirements.txt
+    
 # Copy the rest of the application source code
 COPY . .
 
