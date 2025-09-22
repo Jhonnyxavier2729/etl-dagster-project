@@ -4,6 +4,7 @@ __pycache__/
 *.pyo
 venv/
 .env
+/duckdb/
 
 # Logs
 *.log
